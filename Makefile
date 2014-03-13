@@ -11,12 +11,13 @@ LFLAGS   = -Wall -I. -lm
 LIB =
 
 # change these to set the proper directories where each files shoould be
-SRCDIR   = src
+SRCDIR  = src
+HEADIR  = head
 OBJDIR   = obj
 BINDIR   = bin
 
 SOURCES  := $(wildcard $(SRCDIR)/*.c)
-INCLUDES := $(wildcard $(SRCDIR)/*.h)
+INCLUDES := $(wildcard $(HEADIR)/*.h)
 OBJECTS  := $(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 rm       = rm -f
 
