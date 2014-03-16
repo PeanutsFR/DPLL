@@ -34,6 +34,9 @@ void tests(){
     add_list_element_head(&clause2lit,TYPE_ELEMENT_LT,2,9);
 
     /*del_list_element_head(&clause2lit,1);*/
+    del_list_element_head(&clause2lit,2);
+    del_list_element_head(&clause2lit,2);
+    del_list_element_head(&clause2lit,2);
 
     printf("Type de Strucutre : ");
     if(clause2lit.structure == TYPE_STRUCT_CL2LT)

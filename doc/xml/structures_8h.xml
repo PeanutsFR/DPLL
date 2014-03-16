@@ -1,0 +1,400 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="structures_8h" kind="file">
+    <compoundname>structures.h</compoundname>
+    <includes refid="const_8h" local="yes">../head/const.h</includes>
+    <includedby refid="main_8c" local="yes">src/main.c</includedby>
+    <includedby refid="structures_8c" local="yes">src/structures.c</includedby>
+    <incdepgraph>
+      <node id="12">
+        <label>../head/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="11">
+        <label>head/structures.h</label>
+        <link refid="structures.h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="14">
+        <label>src/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+      <node id="15">
+        <label>src/structures.c</label>
+        <link refid="structures_8c"/>
+      </node>
+      <node id="13">
+        <label>head/structures.h</label>
+        <link refid="structures.h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structcellule" prot="public">cellule</innerclass>
+    <innerclass refid="structliste" prot="public">liste</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="structures_8h_1a3bb67ab2c847f048e57acad512ae5e54" prot="public" static="no">
+        <type>struct <ref refid="structcellule" kindref="compound">cellule</ref></type>
+        <definition>typedef struct cellule  cellule</definition>
+        <argsstring></argsstring>
+        <name>cellule</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="23" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structures_8h_1aaf182655d57fb1d42731fd86cbed9750" prot="public" static="no">
+        <type><ref refid="structcellule" kindref="compound">cellule</ref> *</type>
+        <definition>typedef cellule* liste_chainee</definition>
+        <argsstring></argsstring>
+        <name>liste_chainee</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="25" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structures_8h_1af48b95702ef82e974b9d215254c0d7f5" prot="public" static="no">
+        <type>struct <ref refid="structliste" kindref="compound">liste</ref></type>
+        <definition>typedef struct liste  liste</definition>
+        <argsstring></argsstring>
+        <name>liste</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="34" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="structures_8h_1aa2bf5af5f0466989d93956ec44664e45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref></type>
+        <definition>Status init_structures</definition>
+        <argsstring>(int n, liste *init_list, Type_struct structure)</argsstring>
+        <name>init_structures</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type><ref refid="structliste" kindref="compound">liste</ref> *</type>
+          <declname>init_list</declname>
+        </param>
+        <param>
+          <type><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06" kindref="member">Type_struct</ref></type>
+          <declname>structure</declname>
+        </param>
+        <briefdescription>
+<para>Fonction d&apos;initialisation d&apos;une structure du type literaux &gt; clauses. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nLit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>taille du tableau a allouer (allocation dynamique) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>init_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointeur sur la structure à initialiser </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Correspond au type de structure de donnees : structure = TYPE_STRUCT_LT2CL -&gt; litteraux &gt; Clauses structure = TYPE_STRUCT_CL2LT -&gt; Clauses &gt; Litteraux </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>renvoie un status , OK si tout s&apos;est bien deroule sinon une ERREUR definie dans <ref refid="const_8h" kindref="compound">const.h</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="44" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" bodystart="30" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="structures_8h_1ab9e44eff3e2b4a99dd6b533973289666" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref></type>
+        <definition>Status destroy_structures</definition>
+        <argsstring>(liste *linked_list)</argsstring>
+        <name>destroy_structures</name>
+        <param>
+          <type><ref refid="structliste" kindref="compound">liste</ref> *</type>
+          <declname>linked_list</declname>
+        </param>
+        <briefdescription>
+<para>Fonction de desallocation de la memoire pour une structure de donnees. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>linked_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointeur sur la structure de donnees </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>renvoie un status , OK si tout s&apos;est bien deroule sinon une ERREUR definie dans <ref refid="const_8h" kindref="compound">const.h</ref> dans enum Status </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="45" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" bodystart="263" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="structures_8h_1af212415722f817d9e1b2ba56c8bcaa7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref></type>
+        <definition>Status add_list_element_head</definition>
+        <argsstring>(liste *linked_list, Type_elt element, int n, int value)</argsstring>
+        <name>add_list_element_head</name>
+        <param>
+          <type><ref refid="structliste" kindref="compound">liste</ref> *</type>
+          <declname>linked_list</declname>
+        </param>
+        <param>
+          <type><ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eed" kindref="member">Type_elt</ref></type>
+          <declname>element</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Fonction d&apos;ajout d&apos;elements en debut de liste chainnee. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>linked_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointeur sur la strtucutrede donnees </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>element</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type d&apos;elements a ajouter : Clause = TYPE_ELEMENT_CL / Litteral = TYPE_ELEMENT_LT </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Correspond a l&apos;indice du tableau de liste chainee auquel ajouter l&apos;element </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>renvoie un status , OK si tout s&apos;est bien deroule sinon une ERREUR definie dans <ref refid="const_8h" kindref="compound">const.h</ref> dans eval Status </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="46" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" bodystart="75" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="structures_8h_1a7a29d6086ab9bd30ba68b3cc44bfbe05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref></type>
+        <definition>Status del_list_element_head</definition>
+        <argsstring>(liste *linked_list, int n)</argsstring>
+        <name>del_list_element_head</name>
+        <param>
+          <type><ref refid="structliste" kindref="compound">liste</ref> *</type>
+          <declname>linked_list</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Fonction de suppression d&apos;un element en tete de liste chainee. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>linked_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointeur sur la strtucutrede donnees </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Correspond a l&apos;indice du tableau de liste chainee auquel ajouter l&apos;element </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>renvoie un status , OK si tout s&apos;est bien deroule sinon une ERREUR definie dans <ref refid="const_8h" kindref="compound">const.h</ref> dans enum Status </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="47" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" bodystart="170" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="structures_8h_1a927aec8dad71ba9a7a16a34ba81d9ce0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref></type>
+        <definition>Status add_list_element_tail</definition>
+        <argsstring>(liste *linked_list, Type_elt element, int n, int value)</argsstring>
+        <name>add_list_element_tail</name>
+        <param>
+          <type><ref refid="structliste" kindref="compound">liste</ref> *</type>
+          <declname>linked_list</declname>
+        </param>
+        <param>
+          <type><ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eed" kindref="member">Type_elt</ref></type>
+          <declname>element</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Fonction d&apos;ajout d&apos;elements en fin de liste chainnee. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>linked_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointeur sur la strtucutrede donnees </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>element</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type d&apos;elements a ajouter : Clause = TYPE_ELEMENT_CL / Litteral = TYPE_ELEMENT_LT </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Correspond a l&apos;indice du tableau de liste chainee auquel ajouter l&apos;element </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Correspond a la valeur a ajouter dans la liste chainee </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>renvoie un status , OK si tout s&apos;est bien deroule sinon une ERREUR definie dans <ref refid="const_8h" kindref="compound">const.h</ref> dans enum Status </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="48" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" bodystart="126" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="structures_8h_1ab32318931318b903b550a47bf6f74473" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref></type>
+        <definition>Status del_list_element_tail</definition>
+        <argsstring>(liste *linked_list, int n)</argsstring>
+        <name>del_list_element_tail</name>
+        <param>
+          <type><ref refid="structliste" kindref="compound">liste</ref> *</type>
+          <declname>linked_list</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Fonction de suppression d&apos;un element en fin de liste chainee. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>linked_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointeur sur la strtucutrede donnees </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Correspond a l&apos;indice du tableau de liste chainee auquel ajouter l&apos;element </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>renvoie un status , OK si tout s&apos;est bien deroule sinon une ERREUR definie dans <ref refid="const_8h" kindref="compound">const.h</ref> dans enum Status </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="49" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" bodystart="218" bodyend="255"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*******************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">Nom<sp/>.........<sp/>:<sp/>structures.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">Role<sp/>........<sp/>:<sp/>Definition<sp/>des<sp/>structures<sp/>de<sp/>donnees</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">Auteur(s)<sp/>......<sp/>:<sp/>HRUSTIC<sp/>Emir,<sp/>BOUAZIZ<sp/>Mehdi</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">Version<sp/>.....<sp/>:<sp/>V0.1<sp/>du<sp/>15/03/2014</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">Licence<sp/>.....<sp/>:<sp/>GPL</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"></highlight></codeline>
+<codeline lineno="8"><highlight class="comment">Compilation<sp/>:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">makefile,<sp/>make<sp/>clean</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">Pour<sp/>exécuter,<sp/>tapez<sp/>:<sp/>./bin/DPLL</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">********************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>STRUCTURES</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>STRUCTURES</highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../head/const.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="structcellule" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structcellule" kindref="compound">cellule</ref><sp/>{</highlight></codeline>
+<codeline lineno="19" refid="structcellule_1aa0ccb5ee6d882ee3605ff47745c6467b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structcellule_1aa0ccb5ee6d882ee3605ff47745c6467b" kindref="member">val</ref>;<sp/></highlight></codeline>
+<codeline lineno="20" refid="structcellule_1a9b13de1721046063fd61e7656e0b7822" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structcellule" kindref="compound">cellule</ref><sp/>*<ref refid="structcellule_1a9b13de1721046063fd61e7656e0b7822" kindref="member">next</ref>;<sp/></highlight></codeline>
+<codeline lineno="21" refid="structcellule_1aa3f0f03704e6715898722d969a262a9c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structcellule" kindref="compound">cellule</ref><sp/>*<ref refid="structcellule_1aa3f0f03704e6715898722d969a262a9c" kindref="member">prev</ref>;<sp/></highlight></codeline>
+<codeline lineno="22" refid="structcellule_1aa1f578f02f245dadfecbbcc523960163" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eed" kindref="member">Type_elt</ref><sp/><ref refid="structcellule_1aa1f578f02f245dadfecbbcc523960163" kindref="member">element</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}<sp/><ref refid="structures_8h_1a3bb67ab2c847f048e57acad512ae5e54" kindref="member">cellule</ref>;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="structures_8h_1aaf182655d57fb1d42731fd86cbed9750" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structcellule" kindref="compound">cellule</ref><sp/>*<ref refid="structures_8h_1aaf182655d57fb1d42731fd86cbed9750" kindref="member">liste_chainee</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="structliste" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structliste" kindref="compound">liste</ref><sp/>{</highlight></codeline>
+<codeline lineno="28" refid="structliste_1a558c751995cc8454977646fe8d24a76a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structliste_1a558c751995cc8454977646fe8d24a76a" kindref="member">nClauses</ref>;<sp/></highlight></codeline>
+<codeline lineno="29" refid="structliste_1aed14ae4c104373df7b9ec2d06aa88f8f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structliste_1aed14ae4c104373df7b9ec2d06aa88f8f" kindref="member">nLitteraux</ref>;<sp/></highlight></codeline>
+<codeline lineno="30" refid="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" kindref="member">nEltPerList</ref>;<sp/></highlight></codeline>
+<codeline lineno="31" refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structcellule" kindref="compound">liste_chainee</ref><sp/>*<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>;<sp/></highlight></codeline>
+<codeline lineno="32" refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structcellule" kindref="compound">cellule</ref><sp/>**<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref>;<sp/></highlight></codeline>
+<codeline lineno="33" refid="structliste_1ae8dc45b36e2c6c8df319517f1d0d45d4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06" kindref="member">Type_struct</ref><sp/><ref refid="structliste_1ae8dc45b36e2c6c8df319517f1d0d45d4" kindref="member">structure</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}<sp/><ref refid="structures_8h_1af48b95702ef82e974b9d215254c0d7f5" kindref="member">liste</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="37"><highlight class="comment">liste<sp/>clause2lit;</highlight></codeline>
+<codeline lineno="38"><highlight class="comment">liste<sp/>lit2clause_pos;</highlight></codeline>
+<codeline lineno="39"><highlight class="comment">liste<sp/>lit2clause_neg;</highlight></codeline>
+<codeline lineno="40"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Prototypes<sp/>des<sp/>fonctions<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref><sp/><ref refid="structures_8h_1aa2bf5af5f0466989d93956ec44664e45" kindref="member">init_structures</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/><ref refid="structliste" kindref="compound">liste</ref><sp/>*init_list,<sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06" kindref="member">Type_struct</ref><sp/>structure);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref><sp/><ref refid="structures_8h_1ab9e44eff3e2b4a99dd6b533973289666" kindref="member">destroy_structures</ref>(<ref refid="structliste" kindref="compound">liste</ref>*<sp/>linked_list);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref><sp/><ref refid="structures_8h_1af212415722f817d9e1b2ba56c8bcaa7b" kindref="member">add_list_element_head</ref>(<ref refid="structliste" kindref="compound">liste</ref><sp/>*linked_list,<ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eed" kindref="member">Type_elt</ref><sp/>element,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref><sp/><ref refid="structures_8h_1a7a29d6086ab9bd30ba68b3cc44bfbe05" kindref="member">del_list_element_head</ref>(<ref refid="structliste" kindref="compound">liste</ref><sp/>*linked_list,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref><sp/><ref refid="structures_8h_1a927aec8dad71ba9a7a16a34ba81d9ce0" kindref="member">add_list_element_tail</ref>(<ref refid="structliste" kindref="compound">liste</ref><sp/>*linked_list,<ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eed" kindref="member">Type_elt</ref><sp/>element,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref><sp/><ref refid="structures_8h_1ab32318931318b903b550a47bf6f74473" kindref="member">del_list_element_tail</ref>(<ref refid="structliste" kindref="compound">liste</ref><sp/>*linked_list,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>STRUCTURES<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h"/>
+  </compounddef>
+</doxygen>

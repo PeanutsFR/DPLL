@@ -1,0 +1,550 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="structures_8c" kind="file">
+    <compoundname>structures.c</compoundname>
+    <includes refid="structures_8h" local="yes">../head/structures.h</includes>
+    <includes refid="const_8h" local="yes">../head/const.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">stdio.h</includes>
+    <incdepgraph>
+      <node id="31">
+        <label>stdlib.h</label>
+      </node>
+      <node id="30">
+        <label>../head/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="28">
+        <label>src/structures.c</label>
+        <link refid="structures.c"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>../head/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="structures_8c_1aa2bf5af5f0466989d93956ec44664e45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref></type>
+        <definition>Status init_structures</definition>
+        <argsstring>(int n, liste *init_list, Type_struct structure)</argsstring>
+        <name>init_structures</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type><ref refid="structliste" kindref="compound">liste</ref> *</type>
+          <declname>init_list</declname>
+        </param>
+        <param>
+          <type><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06" kindref="member">Type_struct</ref></type>
+          <declname>structure</declname>
+        </param>
+        <briefdescription>
+<para>Fonction d&apos;initialisation d&apos;une structure du type literaux &gt; clauses. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nLit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>taille du tableau a allouer (allocation dynamique) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>init_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointeur sur la structure à initialiser </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Correspond au type de structure de donnees : structure = TYPE_STRUCT_LT2CL -&gt; litteraux &gt; Clauses structure = TYPE_STRUCT_CL2LT -&gt; Clauses &gt; Litteraux </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>renvoie un status , OK si tout s&apos;est bien deroule sinon une ERREUR definie dans <ref refid="const_8h" kindref="compound">const.h</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" line="30" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" bodystart="30" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="structures_8c_1af212415722f817d9e1b2ba56c8bcaa7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref></type>
+        <definition>Status add_list_element_head</definition>
+        <argsstring>(liste *linked_list, Type_elt element, int n, int value)</argsstring>
+        <name>add_list_element_head</name>
+        <param>
+          <type><ref refid="structliste" kindref="compound">liste</ref> *</type>
+          <declname>linked_list</declname>
+        </param>
+        <param>
+          <type><ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eed" kindref="member">Type_elt</ref></type>
+          <declname>element</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Fonction d&apos;ajout d&apos;elements en debut de liste chainnee. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>linked_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointeur sur la strtucutrede donnees </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>element</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type d&apos;elements a ajouter : Clause = TYPE_ELEMENT_CL / Litteral = TYPE_ELEMENT_LT </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Correspond a l&apos;indice du tableau de liste chainee auquel ajouter l&apos;element </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>renvoie un status , OK si tout s&apos;est bien deroule sinon une ERREUR definie dans <ref refid="const_8h" kindref="compound">const.h</ref> dans eval Status </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" line="75" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" bodystart="75" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="structures_8c_1a927aec8dad71ba9a7a16a34ba81d9ce0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref></type>
+        <definition>Status add_list_element_tail</definition>
+        <argsstring>(liste *linked_list, Type_elt element, int n, int value)</argsstring>
+        <name>add_list_element_tail</name>
+        <param>
+          <type><ref refid="structliste" kindref="compound">liste</ref> *</type>
+          <declname>linked_list</declname>
+        </param>
+        <param>
+          <type><ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eed" kindref="member">Type_elt</ref></type>
+          <declname>element</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Fonction d&apos;ajout d&apos;elements en fin de liste chainnee. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>linked_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointeur sur la strtucutrede donnees </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>element</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type d&apos;elements a ajouter : Clause = TYPE_ELEMENT_CL / Litteral = TYPE_ELEMENT_LT </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Correspond a l&apos;indice du tableau de liste chainee auquel ajouter l&apos;element </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Correspond a la valeur a ajouter dans la liste chainee </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>renvoie un status , OK si tout s&apos;est bien deroule sinon une ERREUR definie dans <ref refid="const_8h" kindref="compound">const.h</ref> dans enum Status </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" line="126" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" bodystart="126" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="structures_8c_1a7a29d6086ab9bd30ba68b3cc44bfbe05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref></type>
+        <definition>Status del_list_element_head</definition>
+        <argsstring>(liste *linked_list, int n)</argsstring>
+        <name>del_list_element_head</name>
+        <param>
+          <type><ref refid="structliste" kindref="compound">liste</ref> *</type>
+          <declname>linked_list</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Fonction de suppression d&apos;un element en tete de liste chainee. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>linked_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointeur sur la strtucutrede donnees </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Correspond a l&apos;indice du tableau de liste chainee auquel ajouter l&apos;element </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>renvoie un status , OK si tout s&apos;est bien deroule sinon une ERREUR definie dans <ref refid="const_8h" kindref="compound">const.h</ref> dans enum Status </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" line="170" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" bodystart="170" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="structures_8c_1ab32318931318b903b550a47bf6f74473" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref></type>
+        <definition>Status del_list_element_tail</definition>
+        <argsstring>(liste *linked_list, int n)</argsstring>
+        <name>del_list_element_tail</name>
+        <param>
+          <type><ref refid="structliste" kindref="compound">liste</ref> *</type>
+          <declname>linked_list</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Fonction de suppression d&apos;un element en fin de liste chainee. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>linked_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointeur sur la strtucutrede donnees </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Correspond a l&apos;indice du tableau de liste chainee auquel ajouter l&apos;element </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>renvoie un status , OK si tout s&apos;est bien deroule sinon une ERREUR definie dans <ref refid="const_8h" kindref="compound">const.h</ref> dans enum Status </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" line="218" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" bodystart="218" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="structures_8c_1ab9e44eff3e2b4a99dd6b533973289666" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref></type>
+        <definition>Status destroy_structures</definition>
+        <argsstring>(liste *linked_list)</argsstring>
+        <name>destroy_structures</name>
+        <param>
+          <type><ref refid="structliste" kindref="compound">liste</ref> *</type>
+          <declname>linked_list</declname>
+        </param>
+        <briefdescription>
+<para>Fonction de desallocation de la memoire pour une structure de donnees. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>linked_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointeur sur la structure de donnees </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>renvoie un status , OK si tout s&apos;est bien deroule sinon une ERREUR definie dans <ref refid="const_8h" kindref="compound">const.h</ref> dans enum Status </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" line="263" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c" bodystart="263" bodyend="286"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*******************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">Nom<sp/>.........<sp/>:<sp/>structures.c</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">Role<sp/>........<sp/>:<sp/>Definition<sp/>des<sp/>fonctions<sp/>pour<sp/>gerer</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>les<sp/>structures<sp/>de<sp/>donnees</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">Auteur(s)<sp/>......<sp/>:<sp/>HRUSTIC<sp/>Emir,<sp/>BOUAZIZ<sp/>Mehdi</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">Version<sp/>.....<sp/>:<sp/>V0.1<sp/>du<sp/>15/03/2014</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">Licence<sp/>.....<sp/>:<sp/>GPL</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"></highlight></codeline>
+<codeline lineno="9"><highlight class="comment">Compilation<sp/>:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">makefile,<sp/>make<sp/>clean</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">Pour<sp/>exécuter,<sp/>tapez<sp/>:<sp/>./bin/DPLL</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">********************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../head/structures.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../head/const.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref><sp/><ref refid="structures_8c_1aa2bf5af5f0466989d93956ec44664e45" kindref="member">init_structures</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/><ref refid="structliste" kindref="compound">liste</ref><sp/>*init_list,<sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06" kindref="member">Type_struct</ref><sp/>structure){</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initialisation<sp/>des<sp/>variables<sp/>de<sp/>la<sp/>structure<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*Initialisation<sp/>pour<sp/>la<sp/>structure<sp/>Litteraux<sp/>&gt;<sp/>Clauses<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(structure<sp/>==<sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06aded654b1bafb4c06c0b90b3d493d1ec5" kindref="member">TYPE_STRUCT_LT2CL</ref>){</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>init_list-&gt;<ref refid="structliste_1aed14ae4c104373df7b9ec2d06aa88f8f" kindref="member">nLitteraux</ref><sp/>=<sp/>n;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>init_list-&gt;<ref refid="structliste_1a558c751995cc8454977646fe8d24a76a" kindref="member">nClauses</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>init_list-&gt;<ref refid="structliste_1ae8dc45b36e2c6c8df319517f1d0d45d4" kindref="member">structure</ref><sp/>=<sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06aded654b1bafb4c06c0b90b3d493d1ec5" kindref="member">TYPE_STRUCT_LT2CL</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initialisation<sp/>pour<sp/>la<sp/>stucture<sp/>Clauses<sp/>&gt;<sp/>Litteraux<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>init_list-&gt;<ref refid="structliste_1a558c751995cc8454977646fe8d24a76a" kindref="member">nClauses</ref><sp/>=<sp/>n;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>init_list-&gt;<ref refid="structliste_1aed14ae4c104373df7b9ec2d06aa88f8f" kindref="member">nLitteraux</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>init_list-&gt;<ref refid="structliste_1ae8dc45b36e2c6c8df319517f1d0d45d4" kindref="member">structure</ref><sp/>=<sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06a52d62bd0fa0fa5877c3a820c7f73b0fe" kindref="member">TYPE_STRUCT_CL2LT</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Allocations<sp/>dynamiques<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>init_list-&gt;<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref><sp/>=<sp/>(<ref refid="structcellule" kindref="compound">liste_chainee</ref>*)malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structcellule" kindref="compound">liste_chainee</ref>)*n);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>init_list-&gt;<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref><sp/>=<sp/>(<ref refid="structcellule" kindref="compound">cellule</ref>**)malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structcellule" kindref="compound">cellule</ref>*)*n);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>init_list-&gt;<ref refid="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" kindref="member">nEltPerList</ref><sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*)malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)*n);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(init_list-&gt;<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref><sp/>==<sp/>NULL<sp/>||<sp/>init_list-&gt;<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref><sp/>==<sp/>NULL<sp/>||<sp/>init_list-&gt;<ref refid="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" kindref="member">nEltPerList</ref><sp/>==<sp/>NULL)<sp/></highlight><highlight class="comment">/*<sp/>Verification<sp/>de<sp/>l&apos;allocation<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba04334f1e3add5a154f83eec0cf47c427" kindref="member">ERREUR_ALLOC</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*initialisation<sp/>de<sp/>chaque<sp/>premier<sp/>element<sp/>des<sp/>liste<sp/>chainees<sp/>a<sp/>NULL<sp/>et<sp/>des<sp/>variables<sp/>de<sp/>la<sp/>structures<sp/>de<sp/>donnees<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i=0;i&lt;n;i++){</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>init_list-&gt;<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[i]<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>init_list-&gt;<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref>[i]<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>init_list-&gt;<ref refid="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" kindref="member">nEltPerList</ref>[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba2bc49ec37d6a5715dd23e85f1ff5bb59" kindref="member">OK</ref>;<sp/></highlight><highlight class="comment">/*<sp/>Si<sp/>on<sp/>arrive<sp/>la<sp/>c&apos;est<sp/>que<sp/>tout<sp/>s&apos;est<sp/>bien<sp/>deroule<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref><sp/><ref refid="structures_8c_1af212415722f817d9e1b2ba56c8bcaa7b" kindref="member">add_list_element_head</ref>(<ref refid="structliste" kindref="compound">liste</ref><sp/>*linked_list,<ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eed" kindref="member">Type_elt</ref><sp/>element,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value){</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structcellule" kindref="compound">cellule</ref><sp/>*cell;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Verifications<sp/>preliminaires<sp/>(compatibilite<sp/>et<sp/>debordement<sp/>de<sp/>memoire<sp/>)*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1ae8dc45b36e2c6c8df319517f1d0d45d4" kindref="member">structure</ref><sp/>==<sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06a52d62bd0fa0fa5877c3a820c7f73b0fe" kindref="member">TYPE_STRUCT_CL2LT</ref>){</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(element<sp/>!=<sp/><ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eeda77deb3b0c48d0efb65418a4d62145beb" kindref="member">TYPE_ELEMENT_LT</ref>)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bad343203755712b62969925373f0c2466" kindref="member">ERREUR_TYPE</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(n<sp/>&gt;<sp/>(linked_list-&gt;<ref refid="structliste_1a558c751995cc8454977646fe8d24a76a" kindref="member">nClauses</ref><sp/>-<sp/>1))</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bafb7e90e5a02ab22d4f1652b358b6d87b" kindref="member">ERREUR_DEPASSEMENT_MEMOIRE</ref>;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(element<sp/>!=<sp/><ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eeda752a58d4a85a435285137990ed5d0731" kindref="member">TYPE_ELEMENT_CL</ref>)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bad343203755712b62969925373f0c2466" kindref="member">ERREUR_TYPE</ref>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(n<sp/>&gt;<sp/>(linked_list-&gt;<ref refid="structliste_1aed14ae4c104373df7b9ec2d06aa88f8f" kindref="member">nLitteraux</ref><sp/>-<sp/>1))</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bafb7e90e5a02ab22d4f1652b358b6d87b" kindref="member">ERREUR_DEPASSEMENT_MEMOIRE</ref>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*Creation<sp/>d&apos;un<sp/>nouvel<sp/>element<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell<sp/>=<sp/>(<ref refid="structcellule" kindref="compound">cellule</ref>*)malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structcellule" kindref="compound">cellule</ref>));</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(cell<sp/>==<sp/>NULL)<sp/></highlight><highlight class="comment">/*<sp/>Verification<sp/>de<sp/>l&apos;allocation<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba04334f1e3add5a154f83eec0cf47c427" kindref="member">ERREUR_ALLOC</ref>;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell-&gt;<ref refid="structcellule_1aa0ccb5ee6d882ee3605ff47745c6467b" kindref="member">val</ref><sp/>=<sp/>value;<sp/></highlight><highlight class="comment">/*<sp/>On<sp/>attribue<sp/>la<sp/>valeur<sp/>passe<sp/>en<sp/>parametre<sp/>au<sp/>nouvel<sp/>element<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell-&gt;<ref refid="structcellule_1a9b13de1721046063fd61e7656e0b7822" kindref="member">next</ref><sp/>=<sp/>linked_list-&gt;<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[n];<sp/></highlight><highlight class="comment">/*<sp/>on<sp/>dit<sp/>que<sp/>l&apos;element<sp/>suivant<sp/>le<sp/>nouvel<sp/>element<sp/>est<sp/>celui<sp/>actuellement<sp/>en<sp/>tete<sp/>de<sp/>liste<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell-&gt;<ref refid="structcellule_1aa3f0f03704e6715898722d969a262a9c" kindref="member">prev</ref><sp/>=<sp/>NULL;<sp/></highlight><highlight class="comment">/*<sp/>Le<sp/>nouvel<sp/>element<sp/>n&apos;a<sp/>pas<sp/>d&apos;element<sp/>precedent<sp/>car<sp/>on<sp/>l&apos;ajoute<sp/>en<sp/>tete<sp/>de<sp/>liste<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[n]<sp/>==<sp/>NULL)<sp/></highlight><highlight class="comment">/*<sp/>S&apos;il<sp/>n&apos;y<sp/>a<sp/>pas<sp/>d&apos;element<sp/>dans<sp/>la<sp/>liste<sp/>alors<sp/>l&apos;element<sp/>qu&apos;on<sp/>ajoute<sp/>est<sp/>aussi<sp/>le<sp/>dernier<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref>[n]<sp/>=<sp/>cell;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*<sp/>S&apos;il<sp/>y<sp/>a<sp/>deja<sp/>des<sp/>elements<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[n]-&gt;<ref refid="structcellule_1aa3f0f03704e6715898722d969a262a9c" kindref="member">prev</ref><sp/>=<sp/>cell;<sp/></highlight><highlight class="comment">/*<sp/>Le<sp/>predecesseur<sp/>de<sp/>l&apos;element<sp/>qui<sp/>etait<sp/>en<sp/>tete<sp/>de<sp/>liste<sp/>devient<sp/>le<sp/>nouvel<sp/>element<sp/>qu&apos;on<sp/>ajoute<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell-&gt;<ref refid="structcellule_1aa1f578f02f245dadfecbbcc523960163" kindref="member">element</ref><sp/>=<sp/>element;<sp/></highlight><highlight class="comment">/*<sp/>on<sp/>fixe<sp/>le<sp/>tŷpe<sp/>d&apos;element<sp/>se<sp/>referer<sp/>a<sp/>const.h<sp/>pour<sp/>les<sp/>types<sp/>d&apos;elements<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[n]<sp/>=<sp/>cell;<sp/></highlight><highlight class="comment">/*<sp/>on<sp/>place<sp/>le<sp/>nouvel<sp/>element<sp/>en<sp/>tete<sp/>de<sp/>liste<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" kindref="member">nEltPerList</ref>[n]++;<sp/></highlight><highlight class="comment">/*<sp/>On<sp/>incremente<sp/>le<sp/>nombre<sp/>d&apos;element<sp/>dans<sp/>cette<sp/>liste<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1ae8dc45b36e2c6c8df319517f1d0d45d4" kindref="member">structure</ref><sp/>==<sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06a52d62bd0fa0fa5877c3a820c7f73b0fe" kindref="member">TYPE_STRUCT_CL2LT</ref>)<sp/></highlight><highlight class="comment">/*<sp/>Et<sp/>suivant<sp/>la<sp/>structure<sp/>de<sp/>donnees<sp/>le<sp/>nombre<sp/>de<sp/>litteraux<sp/>ou<sp/>le<sp/>nombre<sp/>de<sp/>Clauses<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1aed14ae4c104373df7b9ec2d06aa88f8f" kindref="member">nLitteraux</ref>++;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1a558c751995cc8454977646fe8d24a76a" kindref="member">nClauses</ref>++;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba2bc49ec37d6a5715dd23e85f1ff5bb59" kindref="member">OK</ref>;<sp/></highlight><highlight class="comment">/*<sp/>Si<sp/>on<sp/>arrive<sp/>la<sp/>c&apos;est<sp/>que<sp/>tout<sp/>s&apos;est<sp/>bien<sp/>deroule<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref><sp/><ref refid="structures_8c_1a927aec8dad71ba9a7a16a34ba81d9ce0" kindref="member">add_list_element_tail</ref>(<ref refid="structliste" kindref="compound">liste</ref><sp/>*linked_list,<ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eed" kindref="member">Type_elt</ref><sp/>element,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value){</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structcellule" kindref="compound">cellule</ref><sp/>*cell;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Verifications<sp/>preliminaires<sp/>(compatibilite<sp/>et<sp/>debordement<sp/>de<sp/>memoire<sp/>)*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1ae8dc45b36e2c6c8df319517f1d0d45d4" kindref="member">structure</ref><sp/>==<sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06a52d62bd0fa0fa5877c3a820c7f73b0fe" kindref="member">TYPE_STRUCT_CL2LT</ref>){</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(element<sp/>!=<sp/><ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eeda77deb3b0c48d0efb65418a4d62145beb" kindref="member">TYPE_ELEMENT_LT</ref>)</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bad343203755712b62969925373f0c2466" kindref="member">ERREUR_TYPE</ref>;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(n<sp/>&gt;<sp/>(linked_list-&gt;<ref refid="structliste_1a558c751995cc8454977646fe8d24a76a" kindref="member">nClauses</ref><sp/>-<sp/>1))</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bafb7e90e5a02ab22d4f1652b358b6d87b" kindref="member">ERREUR_DEPASSEMENT_MEMOIRE</ref>;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(element<sp/>!=<sp/><ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eeda752a58d4a85a435285137990ed5d0731" kindref="member">TYPE_ELEMENT_CL</ref>)</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bad343203755712b62969925373f0c2466" kindref="member">ERREUR_TYPE</ref>;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(n<sp/>&gt;<sp/>(linked_list-&gt;<ref refid="structliste_1aed14ae4c104373df7b9ec2d06aa88f8f" kindref="member">nLitteraux</ref><sp/>-<sp/>1))</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bafb7e90e5a02ab22d4f1652b358b6d87b" kindref="member">ERREUR_DEPASSEMENT_MEMOIRE</ref>;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*Creation<sp/>d&apos;un<sp/>nouvel<sp/>element<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell<sp/>=<sp/>(<ref refid="structcellule" kindref="compound">cellule</ref>*)malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structcellule" kindref="compound">cellule</ref>));</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(cell<sp/>==<sp/>NULL)<sp/></highlight><highlight class="comment">/*<sp/>Test<sp/>de<sp/>l&apos;allocation<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba04334f1e3add5a154f83eec0cf47c427" kindref="member">ERREUR_ALLOC</ref>;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell-&gt;<ref refid="structcellule_1aa0ccb5ee6d882ee3605ff47745c6467b" kindref="member">val</ref><sp/>=<sp/>value;<sp/></highlight><highlight class="comment">/*<sp/>attribution<sp/>de<sp/>la<sp/>valeur<sp/>passe<sp/>en<sp/>parametre<sp/>au<sp/>nouvel<sp/>element<sp/>a<sp/>ajouter<sp/>en<sp/>fin<sp/>de<sp/>liste<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell-&gt;<ref refid="structcellule_1a9b13de1721046063fd61e7656e0b7822" kindref="member">next</ref><sp/>=<sp/>NULL;<sp/></highlight><highlight class="comment">/*<sp/>on<sp/>ajoute<sp/>le<sp/>nouvel<sp/>element<sp/>en<sp/>fin<sp/>de<sp/>liste<sp/>donc<sp/>il<sp/>n&apos;a<sp/>pas<sp/>de<sp/>successeur<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell-&gt;<ref refid="structcellule_1aa3f0f03704e6715898722d969a262a9c" kindref="member">prev</ref><sp/>=<sp/>linked_list-&gt;<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref>[n];<sp/></highlight><highlight class="comment">/*<sp/>l&apos;element<sp/>qui<sp/>va<sp/>le<sp/>preceder<sp/>est<sp/>celui<sp/>qui<sp/>est<sp/>en<sp/>fin<sp/>de<sp/>liste<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref>[n]<sp/>!=<sp/>NULL)<sp/></highlight><highlight class="comment">/*<sp/>S&apos;il<sp/>y<sp/>a<sp/>deja<sp/>des<sp/>element<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref>[n]-&gt;<ref refid="structcellule_1a9b13de1721046063fd61e7656e0b7822" kindref="member">next</ref><sp/>=<sp/>cell;<sp/></highlight><highlight class="comment">/*<sp/>l&apos;element<sp/>precedent<sp/>doit<sp/>avoir<sp/>pour<sp/>successeur<sp/>le<sp/>nouvel<sp/>element<sp/>qu&apos;on<sp/>ajoute<sp/>en<sp/>fin<sp/>de<sp/>liste<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref>[n]<sp/>=<sp/>cell;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell-&gt;<ref refid="structcellule_1aa1f578f02f245dadfecbbcc523960163" kindref="member">element</ref><sp/>=<sp/>element;<sp/></highlight><highlight class="comment">/*<sp/>On<sp/>fixe<sp/>le<sp/>type<sp/>,<sp/>se<sp/>referer<sp/>a<sp/>const.h<sp/>pour<sp/>les<sp/>types<sp/>d&apos;elements<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" kindref="member">nEltPerList</ref>[n]++;<sp/></highlight><highlight class="comment">/*<sp/>on<sp/>incremente<sp/>le<sp/>nombre<sp/>d&apos;element<sp/>de<sp/>cette<sp/>liste<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1ae8dc45b36e2c6c8df319517f1d0d45d4" kindref="member">structure</ref><sp/>==<sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06a52d62bd0fa0fa5877c3a820c7f73b0fe" kindref="member">TYPE_STRUCT_CL2LT</ref>)<sp/></highlight><highlight class="comment">/*<sp/>Selon<sp/>la<sp/>structure<sp/>de<sp/>donnees<sp/>on<sp/>incremente<sp/>les<sp/>litteraux<sp/>ou<sp/>les<sp/>clauses<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1aed14ae4c104373df7b9ec2d06aa88f8f" kindref="member">nLitteraux</ref>++;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1a558c751995cc8454977646fe8d24a76a" kindref="member">nClauses</ref>++;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba2bc49ec37d6a5715dd23e85f1ff5bb59" kindref="member">OK</ref>;<sp/></highlight><highlight class="comment">/*<sp/>Si<sp/>on<sp/>arrive<sp/>la<sp/>c&apos;est<sp/>que<sp/>tout<sp/>s&apos;est<sp/>bien<sp/>deroule<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref><sp/><ref refid="structures_8c_1a7a29d6086ab9bd30ba68b3cc44bfbe05" kindref="member">del_list_element_head</ref>(<ref refid="structliste" kindref="compound">liste</ref><sp/>*linked_list,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n){</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structcellule" kindref="compound">cellule</ref><sp/>tampon;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Verifications<sp/>preliminaires<sp/>(compatibilite<sp/>et<sp/>debordement<sp/>de<sp/>memoire<sp/>)*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1ae8dc45b36e2c6c8df319517f1d0d45d4" kindref="member">structure</ref><sp/>==<sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06a52d62bd0fa0fa5877c3a820c7f73b0fe" kindref="member">TYPE_STRUCT_CL2LT</ref>){</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(n<sp/>&gt;<sp/>(linked_list-&gt;<ref refid="structliste_1a558c751995cc8454977646fe8d24a76a" kindref="member">nClauses</ref><sp/>-<sp/>1))</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bafb7e90e5a02ab22d4f1652b358b6d87b" kindref="member">ERREUR_DEPASSEMENT_MEMOIRE</ref>;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(n<sp/>&gt;<sp/>(linked_list-&gt;<ref refid="structliste_1aed14ae4c104373df7b9ec2d06aa88f8f" kindref="member">nLitteraux</ref><sp/>-<sp/>1))</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bafb7e90e5a02ab22d4f1652b358b6d87b" kindref="member">ERREUR_DEPASSEMENT_MEMOIRE</ref>;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" kindref="member">nEltPerList</ref>[n]<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba21be338464c69102359acdd3ccea6fee" kindref="member">ERREUR_LISTE_VIDE</ref>;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>copie<sp/>du<sp/>dernier<sp/>element<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>tampon.<ref refid="structcellule_1a9b13de1721046063fd61e7656e0b7822" kindref="member">next</ref><sp/>=<sp/>linked_list-&gt;<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[n]-&gt;<ref refid="structcellule_1a9b13de1721046063fd61e7656e0b7822" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*Supression<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[n]<sp/>!=<sp/>NULL){<sp/></highlight><highlight class="comment">/*<sp/>S&apos;il<sp/>y<sp/>a<sp/>un<sp/>element<sp/>dans<sp/>la<sp/>liste<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(linked_list-&gt;<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[n]);<sp/></highlight><highlight class="comment">/*<sp/>On<sp/>supprime<sp/>le<sp/>premier<sp/>element<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[n]<sp/>=<sp/>tampon.<ref refid="structcellule_1a9b13de1721046063fd61e7656e0b7822" kindref="member">next</ref>;<sp/></highlight><highlight class="comment">/*<sp/>On<sp/>affecte<sp/>le<sp/>nouveau<sp/>premier<sp/>element<sp/>comme<sp/>etant<sp/>l&apos;element<sp/>suivant<sp/>de<sp/>celui<sp/>qui<sp/>a<sp/>ete<sp/>efface<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[n]-&gt;<ref refid="structcellule_1aa3f0f03704e6715898722d969a262a9c" kindref="member">prev</ref><sp/>=<sp/>NULL;<sp/></highlight><highlight class="comment">/*<sp/>On<sp/>fixe<sp/>l&apos;element<sp/>precedent<sp/>du<sp/>nouveau<sp/>premier<sp/>element<sp/>de<sp/>la<sp/>liste<sp/>a<sp/>NULL<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n<sp/>HAAAAAA<sp/>===<sp/>%i<sp/>\n&quot;</highlight><highlight class="normal">,<sp/>linked_list-&gt;<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[n]-&gt;<ref refid="structcellule_1aa0ccb5ee6d882ee3605ff47745c6467b" kindref="member">val</ref>);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" kindref="member">nEltPerList</ref>[n]<sp/>==<sp/>1)<sp/></highlight><highlight class="comment">/*<sp/>S&apos;il<sp/>n&apos;y<sp/>avait<sp/>qu&apos;un<sp/>element<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref>[n]<sp/>=<sp/>NULL;<sp/></highlight><highlight class="comment">/*<sp/>alors<sp/>on<sp/>dit<sp/>que<sp/>le<sp/>dernier<sp/>element<sp/>de<sp/>cette<sp/>liste<sp/>est<sp/>NULL<sp/>(car<sp/>liste<sp/>desormais<sp/>vide)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" kindref="member">nEltPerList</ref>[n]--;<sp/></highlight><highlight class="comment">/*<sp/>On<sp/>decremente<sp/>le<sp/>nombre<sp/>d&apos;element<sp/>de<sp/>la<sp/>liste<sp/>car<sp/>on<sp/>vient<sp/>d&apos;en<sp/>supprimer<sp/>un<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1ae8dc45b36e2c6c8df319517f1d0d45d4" kindref="member">structure</ref><sp/>==<sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06a52d62bd0fa0fa5877c3a820c7f73b0fe" kindref="member">TYPE_STRUCT_CL2LT</ref>)<sp/></highlight><highlight class="comment">/*<sp/>selon<sp/>la<sp/>structure<sp/>de<sp/>donnees<sp/>on<sp/>decremente<sp/>le<sp/>nombre<sp/>de<sp/>clauses<sp/>ou<sp/>de<sp/>litteraux<sp/>egalement<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1aed14ae4c104373df7b9ec2d06aa88f8f" kindref="member">nLitteraux</ref>--;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1a558c751995cc8454977646fe8d24a76a" kindref="member">nClauses</ref>--;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba2bc49ec37d6a5715dd23e85f1ff5bb59" kindref="member">OK</ref>;<sp/></highlight><highlight class="comment">/*<sp/>Tout<sp/>s&apos;est<sp/>bien<sp/>deroule<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref><sp/><ref refid="structures_8c_1ab32318931318b903b550a47bf6f74473" kindref="member">del_list_element_tail</ref>(<ref refid="structliste" kindref="compound">liste</ref><sp/>*linked_list,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n){</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structcellule" kindref="compound">cellule</ref><sp/>tampon;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Verifications<sp/>preliminaires<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1ae8dc45b36e2c6c8df319517f1d0d45d4" kindref="member">structure</ref><sp/>==<sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06a52d62bd0fa0fa5877c3a820c7f73b0fe" kindref="member">TYPE_STRUCT_CL2LT</ref>){</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(n<sp/>&gt;<sp/>(linked_list-&gt;<ref refid="structliste_1a558c751995cc8454977646fe8d24a76a" kindref="member">nClauses</ref><sp/>-<sp/>1))</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bafb7e90e5a02ab22d4f1652b358b6d87b" kindref="member">ERREUR_DEPASSEMENT_MEMOIRE</ref>;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(n<sp/>&gt;<sp/>(linked_list-&gt;<ref refid="structliste_1aed14ae4c104373df7b9ec2d06aa88f8f" kindref="member">nLitteraux</ref><sp/>-<sp/>1))</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bafb7e90e5a02ab22d4f1652b358b6d87b" kindref="member">ERREUR_DEPASSEMENT_MEMOIRE</ref>;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" kindref="member">nEltPerList</ref>[n]<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba21be338464c69102359acdd3ccea6fee" kindref="member">ERREUR_LISTE_VIDE</ref>;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>copie<sp/>du<sp/>premier<sp/>element<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>tampon.<ref refid="structcellule_1aa3f0f03704e6715898722d969a262a9c" kindref="member">prev</ref><sp/>=<sp/>linked_list-&gt;<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref>[n]-&gt;<ref refid="structcellule_1aa3f0f03704e6715898722d969a262a9c" kindref="member">prev</ref>;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[n]<sp/>!=<sp/>NULL){</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(linked_list-&gt;<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref>[n]);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref>[n]<sp/>=<sp/>tampon.<ref refid="structcellule_1aa3f0f03704e6715898722d969a262a9c" kindref="member">prev</ref>;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref>[n]-&gt;<ref refid="structcellule_1a9b13de1721046063fd61e7656e0b7822" kindref="member">next</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" kindref="member">nEltPerList</ref>[n]<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref>[n]<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" kindref="member">nEltPerList</ref>[n]--;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(linked_list-&gt;<ref refid="structliste_1ae8dc45b36e2c6c8df319517f1d0d45d4" kindref="member">structure</ref><sp/>==<sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06a52d62bd0fa0fa5877c3a820c7f73b0fe" kindref="member">TYPE_STRUCT_CL2LT</ref>)</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1aed14ae4c104373df7b9ec2d06aa88f8f" kindref="member">nLitteraux</ref>--;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>linked_list-&gt;<ref refid="structliste_1a558c751995cc8454977646fe8d24a76a" kindref="member">nClauses</ref>--;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba2bc49ec37d6a5715dd23e85f1ff5bb59" kindref="member">OK</ref>;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref><sp/><ref refid="structures_8c_1ab9e44eff3e2b4a99dd6b533973289666" kindref="member">destroy_structures</ref>(<ref refid="structliste" kindref="compound">liste</ref>*<sp/>linked_list){</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/><sp/><sp/><sp/>int<sp/>i,n;</highlight></codeline>
+<codeline lineno="266"><highlight class="comment"></highlight></codeline>
+<codeline lineno="267"><highlight class="comment"><sp/><sp/><sp/><sp/>if(linked_list-&gt;structure<sp/>==<sp/>TYPE_STRUCT_CL2LT)</highlight></codeline>
+<codeline lineno="268"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n<sp/>=<sp/>linked_list-&gt;nClauses;</highlight></codeline>
+<codeline lineno="269"><highlight class="comment"><sp/><sp/><sp/><sp/>else</highlight></codeline>
+<codeline lineno="270"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n<sp/>=<sp/>linked_list-&gt;nLitteraux;</highlight></codeline>
+<codeline lineno="271"><highlight class="comment"></highlight></codeline>
+<codeline lineno="272"><highlight class="comment"></highlight></codeline>
+<codeline lineno="273"><highlight class="comment"></highlight></codeline>
+<codeline lineno="274"><highlight class="comment"><sp/><sp/><sp/><sp/>for(i=0;i&lt;n;i++){</highlight></codeline>
+<codeline lineno="275"><highlight class="comment"></highlight></codeline>
+<codeline lineno="276"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="277"><highlight class="comment"></highlight></codeline>
+<codeline lineno="278"><highlight class="comment"></highlight></codeline>
+<codeline lineno="279"><highlight class="comment"></highlight></codeline>
+<codeline lineno="280"><highlight class="comment"><sp/><sp/><sp/><sp/>free(linked_list-&gt;last);</highlight></codeline>
+<codeline lineno="281"><highlight class="comment"><sp/><sp/><sp/><sp/>free(linked_list-&gt;nEltPerList);</highlight></codeline>
+<codeline lineno="282"><highlight class="comment"><sp/><sp/><sp/><sp/>free(linked_list-&gt;l);</highlight></codeline>
+<codeline lineno="283"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba2bc49ec37d6a5715dd23e85f1ff5bb59" kindref="member">OK</ref>;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/structures.c"/>
+  </compounddef>
+</doxygen>

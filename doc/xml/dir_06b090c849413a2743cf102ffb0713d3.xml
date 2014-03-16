@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="dir_06b090c849413a2743cf102ffb0713d3" kind="dir">
+    <compoundname>head</compoundname>
+    <innerfile refid="const_8h">const.h</innerfile>
+    <innerfile refid="dpll_8h">dpll.h</innerfile>
+    <innerfile refid="manipulation__donnees_8h">manipulation_donnees.h</innerfile>
+    <innerfile refid="parser_8h">parser.h</innerfile>
+    <innerfile refid="structures_8h">structures.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/"/>
+  </compounddef>
+</doxygen>

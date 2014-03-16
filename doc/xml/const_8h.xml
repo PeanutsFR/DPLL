@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="const_8h" kind="file">
+    <compoundname>const.h</compoundname>
+    <includedby refid="structures_8h" local="yes">head/structures.h</includedby>
+    <includedby refid="main_8c" local="yes">src/main.c</includedby>
+    <includedby refid="structures_8c" local="yes">src/structures.c</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>src/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+      <node id="1">
+        <label>head/const.h</label>
+        <link refid="const.h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/structures.c</label>
+        <link refid="structures_8c"/>
+      </node>
+      <node id="2">
+        <label>head/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" prot="public" static="no">
+        <name>Status</name>
+        <enumvalue id="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba2bc49ec37d6a5715dd23e85f1ff5bb59" prot="public">
+          <name>OK</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>enum value OK correspondant a une terminaison sans erreurs. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba04334f1e3add5a154f83eec0cf47c427" prot="public">
+          <name>ERREUR_ALLOC</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+<para>enum value ERREUR_ALLOC correspondant a une terminaison avec une erreur d&apos;allocation </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bad343203755712b62969925373f0c2466" prot="public">
+          <name>ERREUR_TYPE</name>
+          <initializer>= -2</initializer>
+          <briefdescription>
+<para>enum value ERREUR_TYPE correspondant a une terminaison avec une erreur de type </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bafb7e90e5a02ab22d4f1652b358b6d87b" prot="public">
+          <name>ERREUR_DEPASSEMENT_MEMOIRE</name>
+          <initializer>= -3</initializer>
+          <briefdescription>
+<para>enum value ERREUR_DEPASSEMENT_MEMOIRE correspondant a une terminaison avec une erreur de depassement memoire </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba21be338464c69102359acdd3ccea6fee" prot="public">
+          <name>ERREUR_LISTE_VIDE</name>
+          <initializer>= -4</initializer>
+          <briefdescription>
+<para>enum value ERREUR_DEPASSEMENT_MEMOIRE correspondant a une terminaison avec une erreur lie a une liste chainee vide </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Une enumeration decrivant les differents status possibles a l&apos;issue d&apos;une fonction. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/const.h" line="19" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/const.h" bodystart="19" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="enum" id="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06" prot="public" static="no">
+        <name>Type_struct</name>
+        <enumvalue id="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06aded654b1bafb4c06c0b90b3d493d1ec5" prot="public">
+          <name>TYPE_STRUCT_LT2CL</name>
+          <briefdescription>
+<para>enum value TYPE_STRUCT_LT2CL correspondant a une structure Litteraux &gt; Clauses. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06a52d62bd0fa0fa5877c3a820c7f73b0fe" prot="public">
+          <name>TYPE_STRUCT_CL2LT</name>
+          <briefdescription>
+<para>enum value TYPE_STRUCT_CL2LT correspondant a une structure Clauses &gt; Litteraux. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Une enumeration decrivant les differents type de structure de donnees. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/const.h" line="30" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/const.h" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="enum" id="const_8h_1a014e284005945c0522422e7bdd7f5eed" prot="public" static="no">
+        <name>Type_elt</name>
+        <enumvalue id="const_8h_1a014e284005945c0522422e7bdd7f5eeda77deb3b0c48d0efb65418a4d62145beb" prot="public">
+          <name>TYPE_ELEMENT_LT</name>
+          <briefdescription>
+<para>enum value TYPE_ELEMENT_LT correspondant a un litteral </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="const_8h_1a014e284005945c0522422e7bdd7f5eeda752a58d4a85a435285137990ed5d0731" prot="public">
+          <name>TYPE_ELEMENT_CL</name>
+          <briefdescription>
+<para>enum value TYPE_ELEMENT_CL correspondant a une clause </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Une enumeration decrivant les differents type d&apos;elements. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/const.h" line="38" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/const.h" bodystart="38" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="const_8h_1aa4042483285e10cd74a39a4326d6af8d" prot="public" static="no">
+        <type>enum <ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref></type>
+        <definition>typedef enum Status  Status</definition>
+        <argsstring></argsstring>
+        <name>Status</name>
+        <briefdescription>
+<para>Une enumeration decrivant les differents status possibles a l&apos;issue d&apos;une fonction. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/const.h" line="25" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="const_8h_1a6ac25f747a5adf8d4c4cf69a8ad3febd" prot="public" static="no">
+        <type>enum <ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06" kindref="member">Type_struct</ref></type>
+        <definition>typedef enum Type_struct  Type_struct</definition>
+        <argsstring></argsstring>
+        <name>Type_struct</name>
+        <briefdescription>
+<para>Une enumeration decrivant les differents type de structure de donnees. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/const.h" line="33" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="const_8h_1afe6a818d4fd50ac7d77ba8ea21f28ea3" prot="public" static="no">
+        <type>enum <ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eed" kindref="member">Type_elt</ref></type>
+        <definition>typedef enum Type_elt  Type_elt</definition>
+        <argsstring></argsstring>
+        <name>Type_elt</name>
+        <briefdescription>
+<para>Une enumeration decrivant les differents type d&apos;elements. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/const.h" line="41" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*******************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">Nom<sp/>.........<sp/>:<sp/>const.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">Role<sp/>........<sp/>:<sp/>Definition<sp/>des<sp/>constantes</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">Auteur(s)<sp/>......<sp/>:<sp/>HRUSTIC<sp/>Emir,<sp/>BOUAZIZ<sp/>Mehdi</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">Version<sp/>.....<sp/>:<sp/>V0.1<sp/>du<sp/>15/03/2014</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">Licence<sp/>.....<sp/>:<sp/>GPL</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"></highlight></codeline>
+<codeline lineno="8"><highlight class="comment">Compilation<sp/>:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">makefile,<sp/>make<sp/>clean</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">Pour<sp/>exécuter,<sp/>tapez<sp/>:<sp/>./bin/DPLL</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">********************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CONSTANTES</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CONSTANTES</highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="19" refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref>{</highlight></codeline>
+<codeline lineno="20" refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba2bc49ec37d6a5715dd23e85f1ff5bb59" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba2bc49ec37d6a5715dd23e85f1ff5bb59" kindref="member">OK</ref><sp/>=<sp/>1,<sp/></highlight></codeline>
+<codeline lineno="21" refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba04334f1e3add5a154f83eec0cf47c427" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba04334f1e3add5a154f83eec0cf47c427" kindref="member">ERREUR_ALLOC</ref><sp/>=<sp/>-1,<sp/></highlight></codeline>
+<codeline lineno="22" refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bad343203755712b62969925373f0c2466" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bad343203755712b62969925373f0c2466" kindref="member">ERREUR_TYPE</ref><sp/>=<sp/>-2,<sp/></highlight></codeline>
+<codeline lineno="23" refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bafb7e90e5a02ab22d4f1652b358b6d87b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70bafb7e90e5a02ab22d4f1652b358b6d87b" kindref="member">ERREUR_DEPASSEMENT_MEMOIRE</ref><sp/>=<sp/>-3,<sp/></highlight></codeline>
+<codeline lineno="24" refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba21be338464c69102359acdd3ccea6fee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70ba21be338464c69102359acdd3ccea6fee" kindref="member">ERREUR_LISTE_VIDE</ref><sp/>=<sp/>-4<sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}<sp/><ref refid="const_8h_1a67a0db04d321a74b7e7fcfd3f1a3f70b" kindref="member">Status</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06" kindref="member">Type_struct</ref>{</highlight></codeline>
+<codeline lineno="31" refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06aded654b1bafb4c06c0b90b3d493d1ec5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06aded654b1bafb4c06c0b90b3d493d1ec5" kindref="member">TYPE_STRUCT_LT2CL</ref>,<sp/></highlight></codeline>
+<codeline lineno="32" refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06a52d62bd0fa0fa5877c3a820c7f73b0fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06a52d62bd0fa0fa5877c3a820c7f73b0fe" kindref="member">TYPE_STRUCT_CL2LT</ref><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}<sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06" kindref="member">Type_struct</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="const_8h_1a014e284005945c0522422e7bdd7f5eed" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eed" kindref="member">Type_elt</ref>{</highlight></codeline>
+<codeline lineno="39" refid="const_8h_1a014e284005945c0522422e7bdd7f5eeda77deb3b0c48d0efb65418a4d62145beb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eeda77deb3b0c48d0efb65418a4d62145beb" kindref="member">TYPE_ELEMENT_LT</ref>,<sp/></highlight></codeline>
+<codeline lineno="40" refid="const_8h_1a014e284005945c0522422e7bdd7f5eeda752a58d4a85a435285137990ed5d0731" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eeda752a58d4a85a435285137990ed5d0731" kindref="member">TYPE_ELEMENT_CL</ref><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}<sp/><ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eed" kindref="member">Type_elt</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>CONSTANTES</highlight></codeline>
+    </programlisting>
+    <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/const.h"/>
+  </compounddef>
+</doxygen>

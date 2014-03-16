@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="structliste" kind="struct" prot="public">
+    <compoundname>liste</compoundname>
+    <includes refid="structures_8h" local="no">structures.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structliste_1a558c751995cc8454977646fe8d24a76a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int nClauses</definition>
+        <argsstring></argsstring>
+        <name>nClauses</name>
+        <briefdescription>
+<para>nombre de clause dans le tableau de listes chainees </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="28" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structliste_1aed14ae4c104373df7b9ec2d06aa88f8f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int nLitteraux</definition>
+        <argsstring></argsstring>
+        <name>nLitteraux</name>
+        <briefdescription>
+<para>nombre de litteraux dans le tableau de listes chainees </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="29" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* nEltPerList</definition>
+        <argsstring></argsstring>
+        <name>nEltPerList</name>
+        <briefdescription>
+<para>tableau contenant le nombre d&apos;element par liste chainee </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="30" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" prot="public" static="no" mutable="no">
+        <type><ref refid="structures_8h_1aaf182655d57fb1d42731fd86cbed9750" kindref="member">liste_chainee</ref> *</type>
+        <definition>liste_chainee* l</definition>
+        <argsstring></argsstring>
+        <name>l</name>
+        <briefdescription>
+<para>le tableau de listes chainees </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="31" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structliste_1ae483f1d1b19346e2a37a180bcb512c08" prot="public" static="no" mutable="no">
+        <type><ref refid="structcellule" kindref="compound">cellule</ref> **</type>
+        <definition>cellule** last</definition>
+        <argsstring></argsstring>
+        <name>last</name>
+        <briefdescription>
+<para>tableau de pointeurs vers les dernieres valeurs de chaque liste chainee </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="32" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structliste_1ae8dc45b36e2c6c8df319517f1d0d45d4" prot="public" static="no" mutable="no">
+        <type><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06" kindref="member">Type_struct</ref></type>
+        <definition>Type_struct structure</definition>
+        <argsstring></argsstring>
+        <name>structure</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="33" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>liste</label>
+        <link refid="structliste"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>l</edgelabel>
+          <edgelabel>last</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cellule</label>
+        <link refid="structcellule"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="27" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" bodystart="27" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" prot="public" virt="non-virtual"><scope>liste</scope><name>l</name></member>
+      <member refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" prot="public" virt="non-virtual"><scope>liste</scope><name>last</name></member>
+      <member refid="structliste_1a558c751995cc8454977646fe8d24a76a" prot="public" virt="non-virtual"><scope>liste</scope><name>nClauses</name></member>
+      <member refid="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" prot="public" virt="non-virtual"><scope>liste</scope><name>nEltPerList</name></member>
+      <member refid="structliste_1aed14ae4c104373df7b9ec2d06aa88f8f" prot="public" virt="non-virtual"><scope>liste</scope><name>nLitteraux</name></member>
+      <member refid="structliste_1ae8dc45b36e2c6c8df319517f1d0d45d4" prot="public" virt="non-virtual"><scope>liste</scope><name>structure</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,65 @@
+.TH "liste" 3 "Sun Mar 16 2014" "DPLL" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+liste \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <structures\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBnClauses\fP"
+.br
+.RI "\fInombre de clause dans le tableau de listes chainees \fP"
+.ti -1c
+.RI "int \fBnLitteraux\fP"
+.br
+.RI "\fInombre de litteraux dans le tableau de listes chainees \fP"
+.ti -1c
+.RI "int * \fBnEltPerList\fP"
+.br
+.RI "\fItableau contenant le nombre d'element par liste chainee \fP"
+.ti -1c
+.RI "\fBliste_chainee\fP * \fBl\fP"
+.br
+.RI "\fIle tableau de listes chainees \fP"
+.ti -1c
+.RI "\fBcellule\fP ** \fBlast\fP"
+.br
+.RI "\fItableau de pointeurs vers les dernieres valeurs de chaque liste chainee \fP"
+.ti -1c
+.RI "\fBType_struct\fP \fBstructure\fP"
+.br
+.in -1c
+.SH "Field Documentation"
+.PP 
+.SS "\fBliste_chainee\fP* l"
+
+.PP
+le tableau de listes chainees 
+.SS "\fBcellule\fP** last"
+
+.PP
+tableau de pointeurs vers les dernieres valeurs de chaque liste chainee 
+.SS "int nClauses"
+
+.PP
+nombre de clause dans le tableau de listes chainees 
+.SS "int* nEltPerList"
+
+.PP
+tableau contenant le nombre d'element par liste chainee 
+.SS "int nLitteraux"
+
+.PP
+nombre de litteraux dans le tableau de listes chainees 
+.SS "\fBType_struct\fP structure"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DPLL from the source code\&.

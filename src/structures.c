@@ -50,10 +50,10 @@ Status init_structures(int n, liste *init_list, Type_struct structure){
         init_list->l = (liste_chainee*)malloc(sizeof(liste_chainee)*n);
         init_list->last = (cellule**)malloc(sizeof(cellule*)*n);
         init_list->nEltPerList = (int*)malloc(sizeof(int)*n);
-        if(init_list->l == NULL || init_list->last == NULL || init_list->nEltPerList == NULL)
+        if(init_list->l == NULL || init_list->last == NULL || init_list->nEltPerList == NULL) /* Verification de l'allocation */
             return ERREUR_ALLOC;
 
-        /*initialisation de chaque premier element des liste chainees a NULL */
+        /*initialisation de chaque premier element des liste chainees a NULL et des variables de la structures de donnees */
 
         for(i=0;i<n;i++){
             init_list->l[i] = NULL;
@@ -61,7 +61,7 @@ Status init_structures(int n, liste *init_list, Type_struct structure){
             init_list->nEltPerList[i] = 0;
         }
 
-        return OK;
+        return OK; /* Si on arrive la c'est que tout s'est bien deroule */
 }
 
 /**
@@ -75,7 +75,7 @@ Status init_structures(int n, liste *init_list, Type_struct structure){
 Status add_list_element_head(liste *linked_list,Type_elt element, int n, int value){
     cellule *cell;
 
-    /* Verifications preliminaires */
+    /* Verifications preliminaires (compatibilite et debordement de memoire )*/
 
     if(linked_list->structure == TYPE_STRUCT_CL2LT){
         if(element != TYPE_ELEMENT_LT)
@@ -92,22 +92,25 @@ Status add_list_element_head(liste *linked_list,Type_elt element, int n, int val
 
     /*Creation d'un nouvel element */
         cell = (cellule*)malloc(sizeof(cellule));
-        if(cell == NULL)
+        if(cell == NULL) /* Verification de l'allocation */
             return ERREUR_ALLOC;
-        cell->val = value;
-        cell->next = linked_list->l[n];
-        cell->prev = NULL;
-        if(linked_list->l[n] == NULL)
+        cell->val = value; /* On attribue la valeur passe en parametre au nouvel element */
+        cell->next = linked_list->l[n]; /* on dit que l'element suivant le nouvel element est celui actuellement en tete de liste */
+        cell->prev = NULL; /* Le nouvel element n'a pas d'element precedent car on l'ajoute en tete de liste */
+        if(linked_list->l[n] == NULL) /* S'il n'y a pas d'element dans la liste alors l'element qu'on ajoute est aussi le dernier */
             linked_list->last[n] = cell;
-        cell->element = element;
-        linked_list->l[n] = cell;
-        linked_list->nEltPerList[n]++;
-        if(linked_list->structure == TYPE_STRUCT_CL2LT)
+        else /* S'il y a deja des elements */
+            linked_list->l[n]->prev = cell; /* Le predecesseur de l'element qui etait en tete de liste devient le nouvel element qu'on ajoute */
+
+        cell->element = element; /* on fixe le tŷpe d'element se referer a const.h pour les types d'elements */
+        linked_list->l[n] = cell; /* on place le nouvel element en tete de liste */
+        linked_list->nEltPerList[n]++; /* On incremente le nombre d'element dans cette liste */
+        if(linked_list->structure == TYPE_STRUCT_CL2LT) /* Et suivant la structure de donnees le nombre de litteraux ou le nombre de Clauses */
             linked_list->nLitteraux++;
         else
             linked_list->nClauses++;
 
-    return OK;
+    return OK; /* Si on arrive la c'est que tout s'est bien deroule */
 }
 
 /**
@@ -123,7 +126,7 @@ Status add_list_element_head(liste *linked_list,Type_elt element, int n, int val
 Status add_list_element_tail(liste *linked_list,Type_elt element, int n, int value){
     cellule *cell;
 
-    /* Verifications preliminaires */
+    /* Verifications preliminaires (compatibilite et debordement de memoire )*/
 
     if(linked_list->structure == TYPE_STRUCT_CL2LT){
         if(element != TYPE_ELEMENT_LT)
@@ -140,21 +143,21 @@ Status add_list_element_tail(liste *linked_list,Type_elt element, int n, int val
 
     /*Creation d'un nouvel element */
         cell = (cellule*)malloc(sizeof(cellule));
-        if(cell == NULL)
+        if(cell == NULL) /* Test de l'allocation */
             return ERREUR_ALLOC;
-        cell->val = value;
-        cell->next = NULL;
-        cell->prev = linked_list->last[n];
-        if(linked_list->last[n] != NULL)
-            linked_list->last[n]->next = cell;
+        cell->val = value; /* attribution de la valeur passe en parametre au nouvel element a ajouter en fin de liste */
+        cell->next = NULL; /* on ajoute le nouvel element en fin de liste donc il n'a pas de successeur */
+        cell->prev = linked_list->last[n]; /* l'element qui va le preceder est celui qui est en fin de liste */
+        if(linked_list->last[n] != NULL) /* S'il y a deja des element */
+            linked_list->last[n]->next = cell; /* l'element precedent doit avoir pour successeur le nouvel element qu'on ajoute en fin de liste */
         linked_list->last[n] = cell;
-        cell->element = element;
-        linked_list->nEltPerList[n]++;
-        if(linked_list->structure == TYPE_STRUCT_CL2LT)
+        cell->element = element; /* On fixe le type , se referer a const.h pour les types d'elements */
+        linked_list->nEltPerList[n]++; /* on incremente le nombre d'element de cette liste */
+        if(linked_list->structure == TYPE_STRUCT_CL2LT) /* Selon la structure de donnees on incremente les litteraux ou les clauses */
             linked_list->nLitteraux++;
         else
             linked_list->nClauses++;
-    return OK;
+    return OK; /* Si on arrive la c'est que tout s'est bien deroule */
 }
 
 
@@ -165,6 +168,54 @@ Status add_list_element_tail(liste *linked_list,Type_elt element, int n, int val
 *   @return renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans const.h dans enum Status
 */
 Status del_list_element_head(liste *linked_list,int n){
+    cellule tampon;
+
+    /* Verifications preliminaires (compatibilite et debordement de memoire )*/
+    if(linked_list->structure == TYPE_STRUCT_CL2LT){
+        if(n > (linked_list->nClauses - 1))
+            return ERREUR_DEPASSEMENT_MEMOIRE;
+    }
+    else{
+        if(n > (linked_list->nLitteraux - 1))
+            return ERREUR_DEPASSEMENT_MEMOIRE;
+    }
+
+    if(linked_list->nEltPerList[n] == 0)
+        return ERREUR_LISTE_VIDE;
+
+    /* copie du dernier element */
+    tampon.next = linked_list->l[n]->next;
+
+    /*Supression */
+    if(linked_list->l[n] != NULL){ /* S'il y a un element dans la liste */
+        free(linked_list->l[n]); /* On supprime le premier element */
+        linked_list->l[n] = tampon.next; /* On affecte le nouveau premier element comme etant l'element suivant de celui qui a ete efface */
+
+        linked_list->l[n]->prev = NULL; /* On fixe l'element precedent du nouveau premier element de la liste a NULL */
+        printf("\n HAAAAAA === %i \n", linked_list->l[n]->val);
+    }
+
+    if(linked_list->nEltPerList[n] == 1) /* S'il n'y avait qu'un element */
+        linked_list->last[n] = NULL; /* alors on dit que le dernier element de cette liste est NULL (car liste desormais vide) */
+
+    linked_list->nEltPerList[n]--; /* On decremente le nombre d'element de la liste car on vient d'en supprimer un */
+
+
+    if(linked_list->structure == TYPE_STRUCT_CL2LT) /* selon la structure de donnees on decremente le nombre de clauses ou de litteraux egalement */
+        linked_list->nLitteraux--;
+    else
+        linked_list->nClauses--;
+
+    return OK; /* Tout s'est bien deroule */
+}
+
+/**
+*   Fonction de suppression d'un element en fin de liste chainee
+*   @param linked_list pointeur sur la strtucutrede donnees
+*   @param n Correspond a l'indice du tableau de liste chainee auquel ajouter l'element
+*   @return renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans const.h dans enum Status
+*/
+Status del_list_element_tail(liste *linked_list,int n){
     cellule tampon;
 
     /* Verifications preliminaires */
@@ -181,11 +232,12 @@ Status del_list_element_head(liste *linked_list,int n){
         return ERREUR_LISTE_VIDE;
 
     /* copie du premier element */
-    tampon.next= linked_list->l[n]->next;
+    tampon.prev = linked_list->last[n]->prev;
 
     if(linked_list->l[n] != NULL){
-        free(linked_list->l[n]);
-        linked_list->l[n] = tampon.next;
+        free(linked_list->last[n]);
+        linked_list->last[n] = tampon.prev;
+        linked_list->last[n]->next = NULL;
     }
 
     if(linked_list->nEltPerList[n] == 1)

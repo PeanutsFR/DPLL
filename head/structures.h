@@ -46,4 +46,5 @@ Status destroy_structures(liste* linked_list);
 Status add_list_element_head(liste *linked_list,Type_elt element, int n, int value);
 Status del_list_element_head(liste *linked_list,int n);
 Status add_list_element_tail(liste *linked_list,Type_elt element, int n, int value);
+Status del_list_element_tail(liste *linked_list,int n);
 #endif /* STRUCTURES */

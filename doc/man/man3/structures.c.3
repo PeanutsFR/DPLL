@@ -1,0 +1,164 @@
+.TH "src/structures.c" 3 "Sun Mar 16 2014" "DPLL" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/structures.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./head/structures\&.h'\fP
+.br
+\fC#include '\&.\&./head/const\&.h'\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBStatus\fP \fBinit_structures\fP (int n, \fBliste\fP *init_list, \fBType_struct\fP structure)"
+.br
+.RI "\fIFonction d'initialisation d'une structure du type literaux > clauses\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBadd_list_element_head\fP (\fBliste\fP *linked_list, \fBType_elt\fP element, int n, int value)"
+.br
+.RI "\fIFonction d'ajout d'elements en debut de liste chainnee\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBadd_list_element_tail\fP (\fBliste\fP *linked_list, \fBType_elt\fP element, int n, int value)"
+.br
+.RI "\fIFonction d'ajout d'elements en fin de liste chainnee\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBdel_list_element_head\fP (\fBliste\fP *linked_list, int n)"
+.br
+.RI "\fIFonction de suppression d'un element en tete de liste chainee\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBdel_list_element_tail\fP (\fBliste\fP *linked_list, int n)"
+.br
+.RI "\fIFonction de suppression d'un element en fin de liste chainee\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBdestroy_structures\fP (\fBliste\fP *linked_list)"
+.br
+.RI "\fIFonction de desallocation de la memoire pour une structure de donnees\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBStatus\fP add_list_element_head (\fBliste\fP *linked_list, \fBType_elt\fPelement, intn, intvalue)"
+
+.PP
+Fonction d'ajout d'elements en debut de liste chainnee\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlinked_list\fP pointeur sur la strtucutrede donnees 
+.br
+\fIelement\fP type d'elements a ajouter : Clause = TYPE_ELEMENT_CL / Litteral = TYPE_ELEMENT_LT 
+.br
+\fIn\fP Correspond a l'indice du tableau de liste chainee auquel ajouter l'element 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans \fBconst\&.h\fP dans eval Status 
+.RE
+.PP
+
+.SS "\fBStatus\fP add_list_element_tail (\fBliste\fP *linked_list, \fBType_elt\fPelement, intn, intvalue)"
+
+.PP
+Fonction d'ajout d'elements en fin de liste chainnee\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlinked_list\fP pointeur sur la strtucutrede donnees 
+.br
+\fIelement\fP type d'elements a ajouter : Clause = TYPE_ELEMENT_CL / Litteral = TYPE_ELEMENT_LT 
+.br
+\fIn\fP Correspond a l'indice du tableau de liste chainee auquel ajouter l'element 
+.br
+\fIvalue\fP Correspond a la valeur a ajouter dans la liste chainee 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans \fBconst\&.h\fP dans enum Status 
+.RE
+.PP
+
+.SS "\fBStatus\fP del_list_element_head (\fBliste\fP *linked_list, intn)"
+
+.PP
+Fonction de suppression d'un element en tete de liste chainee\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlinked_list\fP pointeur sur la strtucutrede donnees 
+.br
+\fIn\fP Correspond a l'indice du tableau de liste chainee auquel ajouter l'element 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans \fBconst\&.h\fP dans enum Status 
+.RE
+.PP
+
+.SS "\fBStatus\fP del_list_element_tail (\fBliste\fP *linked_list, intn)"
+
+.PP
+Fonction de suppression d'un element en fin de liste chainee\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlinked_list\fP pointeur sur la strtucutrede donnees 
+.br
+\fIn\fP Correspond a l'indice du tableau de liste chainee auquel ajouter l'element 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans \fBconst\&.h\fP dans enum Status 
+.RE
+.PP
+
+.SS "\fBStatus\fP destroy_structures (\fBliste\fP *linked_list)"
+
+.PP
+Fonction de desallocation de la memoire pour une structure de donnees\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlinked_list\fP pointeur sur la structure de donnees 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans \fBconst\&.h\fP dans enum Status 
+.RE
+.PP
+
+.SS "\fBStatus\fP init_structures (intn, \fBliste\fP *init_list, \fBType_struct\fPstructure)"
+
+.PP
+Fonction d'initialisation d'une structure du type literaux > clauses\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInLit\fP taille du tableau a allouer (allocation dynamique) 
+.br
+\fIinit_list\fP pointeur sur la structure à initialiser 
+.br
+\fItype\fP Correspond au type de structure de donnees : structure = TYPE_STRUCT_LT2CL -> litteraux > Clauses structure = TYPE_STRUCT_CL2LT -> Clauses > Litteraux 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans \fBconst\&.h\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DPLL from the source code\&.

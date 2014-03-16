@@ -1,0 +1,192 @@
+\hypertarget{structures_8h}{\section{head/structures.h File Reference}
+\label{structures_8h}\index{head/structures.\-h@{head/structures.\-h}}
+}
+{\ttfamily \#include \char`\"{}../head/const.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcellule}{cellule}
+\item 
+struct \hyperlink{structliste}{liste}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structcellule}{cellule} \hyperlink{structures_8h_a3bb67ab2c847f048e57acad512ae5e54}{cellule}
+\item 
+typedef \hyperlink{structcellule}{cellule} $\ast$ \hyperlink{structures_8h_aaf182655d57fb1d42731fd86cbed9750}{liste\-\_\-chainee}
+\item 
+typedef struct \hyperlink{structliste}{liste} \hyperlink{structures_8h_af48b95702ef82e974b9d215254c0d7f5}{liste}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{const_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status} \hyperlink{structures_8h_aa2bf5af5f0466989d93956ec44664e45}{init\-\_\-structures} (int n, \hyperlink{structliste}{liste} $\ast$init\-\_\-list, \hyperlink{const_8h_a9e8f293c8dba91894f02b9fe09ca2d06}{Type\-\_\-struct} structure)
+\begin{DoxyCompactList}\small\item\em Fonction d'initialisation d'une structure du type literaux $>$ clauses. \end{DoxyCompactList}\item 
+\hyperlink{const_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status} \hyperlink{structures_8h_ab9e44eff3e2b4a99dd6b533973289666}{destroy\-\_\-structures} (\hyperlink{structliste}{liste} $\ast$linked\-\_\-list)
+\begin{DoxyCompactList}\small\item\em Fonction de desallocation de la memoire pour une structure de donnees. \end{DoxyCompactList}\item 
+\hyperlink{const_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status} \hyperlink{structures_8h_af212415722f817d9e1b2ba56c8bcaa7b}{add\-\_\-list\-\_\-element\-\_\-head} (\hyperlink{structliste}{liste} $\ast$linked\-\_\-list, \hyperlink{const_8h_a014e284005945c0522422e7bdd7f5eed}{Type\-\_\-elt} element, int n, int value)
+\begin{DoxyCompactList}\small\item\em Fonction d'ajout d'elements en debut de liste chainnee. \end{DoxyCompactList}\item 
+\hyperlink{const_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status} \hyperlink{structures_8h_a7a29d6086ab9bd30ba68b3cc44bfbe05}{del\-\_\-list\-\_\-element\-\_\-head} (\hyperlink{structliste}{liste} $\ast$linked\-\_\-list, int n)
+\begin{DoxyCompactList}\small\item\em Fonction de suppression d'un element en tete de liste chainee. \end{DoxyCompactList}\item 
+\hyperlink{const_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status} \hyperlink{structures_8h_a927aec8dad71ba9a7a16a34ba81d9ce0}{add\-\_\-list\-\_\-element\-\_\-tail} (\hyperlink{structliste}{liste} $\ast$linked\-\_\-list, \hyperlink{const_8h_a014e284005945c0522422e7bdd7f5eed}{Type\-\_\-elt} element, int n, int value)
+\begin{DoxyCompactList}\small\item\em Fonction d'ajout d'elements en fin de liste chainnee. \end{DoxyCompactList}\item 
+\hyperlink{const_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status} \hyperlink{structures_8h_ab32318931318b903b550a47bf6f74473}{del\-\_\-list\-\_\-element\-\_\-tail} (\hyperlink{structliste}{liste} $\ast$linked\-\_\-list, int n)
+\begin{DoxyCompactList}\small\item\em Fonction de suppression d'un element en fin de liste chainee. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{structures_8h_a3bb67ab2c847f048e57acad512ae5e54}{\index{structures.\-h@{structures.\-h}!cellule@{cellule}}
+\index{cellule@{cellule}!structures.h@{structures.\-h}}
+\subsubsection[{cellule}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf cellule}  {\bf cellule}}}\label{structures_8h_a3bb67ab2c847f048e57acad512ae5e54}
+\hypertarget{structures_8h_af48b95702ef82e974b9d215254c0d7f5}{\index{structures.\-h@{structures.\-h}!liste@{liste}}
+\index{liste@{liste}!structures.h@{structures.\-h}}
+\subsubsection[{liste}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf liste}  {\bf liste}}}\label{structures_8h_af48b95702ef82e974b9d215254c0d7f5}
+\hypertarget{structures_8h_aaf182655d57fb1d42731fd86cbed9750}{\index{structures.\-h@{structures.\-h}!liste\-\_\-chainee@{liste\-\_\-chainee}}
+\index{liste\-\_\-chainee@{liste\-\_\-chainee}!structures.h@{structures.\-h}}
+\subsubsection[{liste\-\_\-chainee}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf cellule}$\ast$ {\bf liste\-\_\-chainee}}}\label{structures_8h_aaf182655d57fb1d42731fd86cbed9750}
+
+
+\subsection{Function Documentation}
+\hypertarget{structures_8h_af212415722f817d9e1b2ba56c8bcaa7b}{\index{structures.\-h@{structures.\-h}!add\-\_\-list\-\_\-element\-\_\-head@{add\-\_\-list\-\_\-element\-\_\-head}}
+\index{add\-\_\-list\-\_\-element\-\_\-head@{add\-\_\-list\-\_\-element\-\_\-head}!structures.h@{structures.\-h}}
+\subsubsection[{add\-\_\-list\-\_\-element\-\_\-head}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Status} add\-\_\-list\-\_\-element\-\_\-head (
+\begin{DoxyParamCaption}
+\item[{{\bf liste} $\ast$}]{linked\-\_\-list, }
+\item[{{\bf Type\-\_\-elt}}]{element, }
+\item[{int}]{n, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{structures_8h_af212415722f817d9e1b2ba56c8bcaa7b}
+
+
+Fonction d'ajout d'elements en debut de liste chainnee. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em linked\-\_\-list} & pointeur sur la strtucutrede donnees \\
+\hline
+{\em element} & type d'elements a ajouter \-: Clause = T\-Y\-P\-E\-\_\-\-E\-L\-E\-M\-E\-N\-T\-\_\-\-C\-L / Litteral = T\-Y\-P\-E\-\_\-\-E\-L\-E\-M\-E\-N\-T\-\_\-\-L\-T \\
+\hline
+{\em n} & Correspond a l'indice du tableau de liste chainee auquel ajouter l'element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoie un status , O\-K si tout s'est bien deroule sinon une E\-R\-R\-E\-U\-R definie dans \hyperlink{const_8h}{const.\-h} dans eval Status 
+\end{DoxyReturn}
+\hypertarget{structures_8h_a927aec8dad71ba9a7a16a34ba81d9ce0}{\index{structures.\-h@{structures.\-h}!add\-\_\-list\-\_\-element\-\_\-tail@{add\-\_\-list\-\_\-element\-\_\-tail}}
+\index{add\-\_\-list\-\_\-element\-\_\-tail@{add\-\_\-list\-\_\-element\-\_\-tail}!structures.h@{structures.\-h}}
+\subsubsection[{add\-\_\-list\-\_\-element\-\_\-tail}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Status} add\-\_\-list\-\_\-element\-\_\-tail (
+\begin{DoxyParamCaption}
+\item[{{\bf liste} $\ast$}]{linked\-\_\-list, }
+\item[{{\bf Type\-\_\-elt}}]{element, }
+\item[{int}]{n, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{structures_8h_a927aec8dad71ba9a7a16a34ba81d9ce0}
+
+
+Fonction d'ajout d'elements en fin de liste chainnee. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em linked\-\_\-list} & pointeur sur la strtucutrede donnees \\
+\hline
+{\em element} & type d'elements a ajouter \-: Clause = T\-Y\-P\-E\-\_\-\-E\-L\-E\-M\-E\-N\-T\-\_\-\-C\-L / Litteral = T\-Y\-P\-E\-\_\-\-E\-L\-E\-M\-E\-N\-T\-\_\-\-L\-T \\
+\hline
+{\em n} & Correspond a l'indice du tableau de liste chainee auquel ajouter l'element \\
+\hline
+{\em value} & Correspond a la valeur a ajouter dans la liste chainee \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoie un status , O\-K si tout s'est bien deroule sinon une E\-R\-R\-E\-U\-R definie dans \hyperlink{const_8h}{const.\-h} dans enum Status 
+\end{DoxyReturn}
+\hypertarget{structures_8h_a7a29d6086ab9bd30ba68b3cc44bfbe05}{\index{structures.\-h@{structures.\-h}!del\-\_\-list\-\_\-element\-\_\-head@{del\-\_\-list\-\_\-element\-\_\-head}}
+\index{del\-\_\-list\-\_\-element\-\_\-head@{del\-\_\-list\-\_\-element\-\_\-head}!structures.h@{structures.\-h}}
+\subsubsection[{del\-\_\-list\-\_\-element\-\_\-head}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Status} del\-\_\-list\-\_\-element\-\_\-head (
+\begin{DoxyParamCaption}
+\item[{{\bf liste} $\ast$}]{linked\-\_\-list, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{structures_8h_a7a29d6086ab9bd30ba68b3cc44bfbe05}
+
+
+Fonction de suppression d'un element en tete de liste chainee. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em linked\-\_\-list} & pointeur sur la strtucutrede donnees \\
+\hline
+{\em n} & Correspond a l'indice du tableau de liste chainee auquel ajouter l'element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoie un status , O\-K si tout s'est bien deroule sinon une E\-R\-R\-E\-U\-R definie dans \hyperlink{const_8h}{const.\-h} dans enum Status 
+\end{DoxyReturn}
+\hypertarget{structures_8h_ab32318931318b903b550a47bf6f74473}{\index{structures.\-h@{structures.\-h}!del\-\_\-list\-\_\-element\-\_\-tail@{del\-\_\-list\-\_\-element\-\_\-tail}}
+\index{del\-\_\-list\-\_\-element\-\_\-tail@{del\-\_\-list\-\_\-element\-\_\-tail}!structures.h@{structures.\-h}}
+\subsubsection[{del\-\_\-list\-\_\-element\-\_\-tail}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Status} del\-\_\-list\-\_\-element\-\_\-tail (
+\begin{DoxyParamCaption}
+\item[{{\bf liste} $\ast$}]{linked\-\_\-list, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{structures_8h_ab32318931318b903b550a47bf6f74473}
+
+
+Fonction de suppression d'un element en fin de liste chainee. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em linked\-\_\-list} & pointeur sur la strtucutrede donnees \\
+\hline
+{\em n} & Correspond a l'indice du tableau de liste chainee auquel ajouter l'element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoie un status , O\-K si tout s'est bien deroule sinon une E\-R\-R\-E\-U\-R definie dans \hyperlink{const_8h}{const.\-h} dans enum Status 
+\end{DoxyReturn}
+\hypertarget{structures_8h_ab9e44eff3e2b4a99dd6b533973289666}{\index{structures.\-h@{structures.\-h}!destroy\-\_\-structures@{destroy\-\_\-structures}}
+\index{destroy\-\_\-structures@{destroy\-\_\-structures}!structures.h@{structures.\-h}}
+\subsubsection[{destroy\-\_\-structures}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Status} destroy\-\_\-structures (
+\begin{DoxyParamCaption}
+\item[{{\bf liste} $\ast$}]{linked\-\_\-list}
+\end{DoxyParamCaption}
+)}}\label{structures_8h_ab9e44eff3e2b4a99dd6b533973289666}
+
+
+Fonction de desallocation de la memoire pour une structure de donnees. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em linked\-\_\-list} & pointeur sur la structure de donnees \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoie un status , O\-K si tout s'est bien deroule sinon une E\-R\-R\-E\-U\-R definie dans \hyperlink{const_8h}{const.\-h} dans enum Status 
+\end{DoxyReturn}
+\hypertarget{structures_8h_aa2bf5af5f0466989d93956ec44664e45}{\index{structures.\-h@{structures.\-h}!init\-\_\-structures@{init\-\_\-structures}}
+\index{init\-\_\-structures@{init\-\_\-structures}!structures.h@{structures.\-h}}
+\subsubsection[{init\-\_\-structures}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Status} init\-\_\-structures (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{{\bf liste} $\ast$}]{init\-\_\-list, }
+\item[{{\bf Type\-\_\-struct}}]{structure}
+\end{DoxyParamCaption}
+)}}\label{structures_8h_aa2bf5af5f0466989d93956ec44664e45}
+
+
+Fonction d'initialisation d'une structure du type literaux $>$ clauses. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\-Lit} & taille du tableau a allouer (allocation dynamique) \\
+\hline
+{\em init\-\_\-list} & pointeur sur la structure à initialiser \\
+\hline
+{\em type} & Correspond au type de structure de donnees \-: structure = T\-Y\-P\-E\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-L\-T2\-C\-L -\/$>$ litteraux $>$ Clauses structure = T\-Y\-P\-E\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-C\-L2\-L\-T -\/$>$ Clauses $>$ Litteraux \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoie un status , O\-K si tout s'est bien deroule sinon une E\-R\-R\-E\-U\-R definie dans \hyperlink{const_8h}{const.\-h} 
+\end{DoxyReturn}

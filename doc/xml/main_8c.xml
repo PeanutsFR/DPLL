@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="main_8c" kind="file">
+    <compoundname>main.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="const_8h" local="yes">../head/const.h</includes>
+    <includes refid="structures_8h" local="yes">../head/structures.h</includes>
+    <incdepgraph>
+      <node id="20">
+        <label>stdlib.h</label>
+      </node>
+      <node id="18">
+        <label>src/main.c</label>
+        <link refid="main.c"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>../head/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="22">
+        <label>../head/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="main_8c_1a88ec9ad42717780d6caaff9d3d6977f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tests</definition>
+        <argsstring>()</argsstring>
+        <name>tests</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/main.c" line="18" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/main.c" bodystart="26" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char *argv[])</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/main.c" line="20" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/main.c" bodystart="20" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*******************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">Nom<sp/>.........<sp/>:<sp/>main.c</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">Role<sp/>........<sp/>:<sp/>Main</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">Auteur(s)<sp/>......<sp/>:<sp/>HRUSTIC<sp/>Emir,<sp/>BOUAZIZ<sp/>Mehdi</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">Version<sp/>.....<sp/>:<sp/>V0.1<sp/>du<sp/>15/03/2014</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">Licence<sp/>.....<sp/>:<sp/>GPL</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"></highlight></codeline>
+<codeline lineno="8"><highlight class="comment">Compilation<sp/>:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">makefile,<sp/>make<sp/>clean</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">Pour<sp/>exécuter,<sp/>tapez<sp/>:<sp/>./bin/DPLL</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">********************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../head/const.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../head/structures.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="main_8c_1a88ec9ad42717780d6caaff9d3d6977f9" kindref="member">tests</ref>();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" kindref="member">main</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>argv[]){</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;HELLO<sp/>WORLD<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="main_8c_1a88ec9ad42717780d6caaff9d3d6977f9" kindref="member">tests</ref>();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_SUCCESS;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="main_8c_1a88ec9ad42717780d6caaff9d3d6977f9" kindref="member">tests</ref>(){</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structliste" kindref="compound">liste</ref><sp/>clause2lit;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n\n------------------TESTS-----------------------\n\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structures_8h_1aa2bf5af5f0466989d93956ec44664e45" kindref="member">init_structures</ref>(5,&amp;clause2lit,<ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06a52d62bd0fa0fa5877c3a820c7f73b0fe" kindref="member">TYPE_STRUCT_CL2LT</ref>);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structures_8h_1af212415722f817d9e1b2ba56c8bcaa7b" kindref="member">add_list_element_head</ref>(&amp;clause2lit,<ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eeda77deb3b0c48d0efb65418a4d62145beb" kindref="member">TYPE_ELEMENT_LT</ref>,1,4);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structures_8h_1af212415722f817d9e1b2ba56c8bcaa7b" kindref="member">add_list_element_head</ref>(&amp;clause2lit,<ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eeda77deb3b0c48d0efb65418a4d62145beb" kindref="member">TYPE_ELEMENT_LT</ref>,2,5);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structures_8h_1a927aec8dad71ba9a7a16a34ba81d9ce0" kindref="member">add_list_element_tail</ref>(&amp;clause2lit,<ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eeda77deb3b0c48d0efb65418a4d62145beb" kindref="member">TYPE_ELEMENT_LT</ref>,2,15);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structures_8h_1af212415722f817d9e1b2ba56c8bcaa7b" kindref="member">add_list_element_head</ref>(&amp;clause2lit,<ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eeda77deb3b0c48d0efb65418a4d62145beb" kindref="member">TYPE_ELEMENT_LT</ref>,2,9);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*del_list_element_head(&amp;clause2lit,1);*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structures_8h_1a7a29d6086ab9bd30ba68b3cc44bfbe05" kindref="member">del_list_element_head</ref>(&amp;clause2lit,2);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structures_8h_1a7a29d6086ab9bd30ba68b3cc44bfbe05" kindref="member">del_list_element_head</ref>(&amp;clause2lit,2);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structures_8h_1a7a29d6086ab9bd30ba68b3cc44bfbe05" kindref="member">del_list_element_head</ref>(&amp;clause2lit,2);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Type<sp/>de<sp/>Strucutre<sp/>:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(clause2lit.<ref refid="structliste_1ae8dc45b36e2c6c8df319517f1d0d45d4" kindref="member">structure</ref><sp/>==<sp/><ref refid="const_8h_1a9e8f293c8dba91894f02b9fe09ca2d06a52d62bd0fa0fa5877c3a820c7f73b0fe" kindref="member">TYPE_STRUCT_CL2LT</ref>)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Clauses<sp/>-&gt;<sp/>Litteraux<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Litteraux<sp/>-&gt;<sp/>Clauses<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Nombre<sp/>de<sp/>Litteraux<sp/>:<sp/>%i\nNombre<sp/>de<sp/>Clauses<sp/>:<sp/>%i\n&quot;</highlight><highlight class="normal">,clause2lit.<ref refid="structliste_1aed14ae4c104373df7b9ec2d06aa88f8f" kindref="member">nLitteraux</ref>,clause2lit.<ref refid="structliste_1a558c751995cc8454977646fe8d24a76a" kindref="member">nClauses</ref>);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i=0;i&lt;clause2lit.<ref refid="structliste_1a558c751995cc8454977646fe8d24a76a" kindref="member">nClauses</ref>;i++){</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(clause2lit.<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[i])</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;clause2lit[%i]<sp/>=<sp/>%i\n&quot;</highlight><highlight class="normal">,i,clause2lit.<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[i]-&gt;<ref refid="structcellule_1aa0ccb5ee6d882ee3605ff47745c6467b" kindref="member">val</ref>);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;clause2lit[%i]<sp/>=<sp/>%p\n&quot;</highlight><highlight class="normal">,i,clause2lit.<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[i]);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n----LISTE<sp/>CHAINEE<sp/>INDICE<sp/>2<sp/>-------\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;nb<sp/>Elements<sp/>:<sp/>%i\nvaleur<sp/>dernier<sp/>element<sp/>:<sp/>%i\nvaleur<sp/>premier<sp/>element<sp/>:<sp/>%i&quot;</highlight><highlight class="normal">,clause2lit.<ref refid="structliste_1ada6bed3b1b837bfaabd9f323ee011cda" kindref="member">nEltPerList</ref>[2],clause2lit.<ref refid="structliste_1ae483f1d1b19346e2a37a180bcb512c08" kindref="member">last</ref>[2]-&gt;<ref refid="structcellule_1aa0ccb5ee6d882ee3605ff47745c6467b" kindref="member">val</ref>,clause2lit.<ref refid="structliste_1a6b2c4c7aa0493f3349f113ca8c1568de" kindref="member">l</ref>[2]-&gt;<ref refid="structcellule_1aa0ccb5ee6d882ee3605ff47745c6467b" kindref="member">val</ref>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/src/main.c"/>
+  </compounddef>
+</doxygen>

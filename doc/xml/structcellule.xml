@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="structcellule" kind="struct" prot="public">
+    <compoundname>cellule</compoundname>
+    <includes refid="structures_8h" local="no">structures.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcellule_1aa0ccb5ee6d882ee3605ff47745c6467b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int val</definition>
+        <argsstring></argsstring>
+        <name>val</name>
+        <briefdescription>
+<para>valeur correspondant a une arrete ou une clause </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="19" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcellule_1a9b13de1721046063fd61e7656e0b7822" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structcellule" kindref="compound">cellule</ref> *</type>
+        <definition>struct cellule* next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+<para>pointeur vers la valeur suivante </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="20" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcellule_1aa3f0f03704e6715898722d969a262a9c" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structcellule" kindref="compound">cellule</ref> *</type>
+        <definition>struct cellule* prev</definition>
+        <argsstring></argsstring>
+        <name>prev</name>
+        <briefdescription>
+<para>pointeur vers la valeur precedente </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="21" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcellule_1aa1f578f02f245dadfecbbcc523960163" prot="public" static="no" mutable="no">
+        <type><ref refid="const_8h_1a014e284005945c0522422e7bdd7f5eed" kindref="member">Type_elt</ref></type>
+        <definition>Type_elt element</definition>
+        <argsstring></argsstring>
+        <name>element</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="22" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>cellule</label>
+        <link refid="structcellule"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" line="18" column="1" bodyfile="/home/emip/Desktop/Cours/IA/Projet/DPLL/head/structures.h" bodystart="18" bodyend="23"/>
+    <listofallmembers>
+      <member refid="structcellule_1aa1f578f02f245dadfecbbcc523960163" prot="public" virt="non-virtual"><scope>cellule</scope><name>element</name></member>
+      <member refid="structcellule_1a9b13de1721046063fd61e7656e0b7822" prot="public" virt="non-virtual"><scope>cellule</scope><name>next</name></member>
+      <member refid="structcellule_1aa3f0f03704e6715898722d969a262a9c" prot="public" virt="non-virtual"><scope>cellule</scope><name>prev</name></member>
+      <member refid="structcellule_1aa0ccb5ee6d882ee3605ff47745c6467b" prot="public" virt="non-virtual"><scope>cellule</scope><name>val</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,107 @@
+.TH "head/const.h" 3 "Sun Mar 16 2014" "DPLL" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+head/const.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBStatus\fP \fBStatus\fP"
+.br
+.RI "\fIUne enumeration decrivant les differents status possibles a l'issue d'une fonction\&. \fP"
+.ti -1c
+.RI "typedef enum \fBType_struct\fP \fBType_struct\fP"
+.br
+.RI "\fIUne enumeration decrivant les differents type de structure de donnees\&. \fP"
+.ti -1c
+.RI "typedef enum \fBType_elt\fP \fBType_elt\fP"
+.br
+.RI "\fIUne enumeration decrivant les differents type d'elements\&. \fP"
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBStatus\fP { \fBOK\fP = 1, \fBERREUR_ALLOC\fP = -1, \fBERREUR_TYPE\fP = -2, \fBERREUR_DEPASSEMENT_MEMOIRE\fP = -3, \fBERREUR_LISTE_VIDE\fP = -4 }"
+.br
+.RI "\fIUne enumeration decrivant les differents status possibles a l'issue d'une fonction\&. \fP"
+.ti -1c
+.RI "enum \fBType_struct\fP { \fBTYPE_STRUCT_LT2CL\fP, \fBTYPE_STRUCT_CL2LT\fP }"
+.br
+.RI "\fIUne enumeration decrivant les differents type de structure de donnees\&. \fP"
+.ti -1c
+.RI "enum \fBType_elt\fP { \fBTYPE_ELEMENT_LT\fP, \fBTYPE_ELEMENT_CL\fP }"
+.br
+.RI "\fIUne enumeration decrivant les differents type d'elements\&. \fP"
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef enum \fBStatus\fP  \fBStatus\fP"
+
+.PP
+Une enumeration decrivant les differents status possibles a l'issue d'une fonction\&. 
+.SS "typedef enum \fBType_elt\fP  \fBType_elt\fP"
+
+.PP
+Une enumeration decrivant les differents type d'elements\&. 
+.SS "typedef enum \fBType_struct\fP  \fBType_struct\fP"
+
+.PP
+Une enumeration decrivant les differents type de structure de donnees\&. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBStatus\fP"
+
+.PP
+Une enumeration decrivant les differents status possibles a l'issue d'une fonction\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIOK \fP\fP
+enum value OK correspondant a une terminaison sans erreurs\&. 
+.TP
+\fB\fIERREUR_ALLOC \fP\fP
+enum value ERREUR_ALLOC correspondant a une terminaison avec une erreur d'allocation 
+.TP
+\fB\fIERREUR_TYPE \fP\fP
+enum value ERREUR_TYPE correspondant a une terminaison avec une erreur de type 
+.TP
+\fB\fIERREUR_DEPASSEMENT_MEMOIRE \fP\fP
+enum value ERREUR_DEPASSEMENT_MEMOIRE correspondant a une terminaison avec une erreur de depassement memoire 
+.TP
+\fB\fIERREUR_LISTE_VIDE \fP\fP
+enum value ERREUR_DEPASSEMENT_MEMOIRE correspondant a une terminaison avec une erreur lie a une liste chainee vide 
+.SS "enum \fBType_elt\fP"
+
+.PP
+Une enumeration decrivant les differents type d'elements\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fITYPE_ELEMENT_LT \fP\fP
+enum value TYPE_ELEMENT_LT correspondant a un litteral 
+.TP
+\fB\fITYPE_ELEMENT_CL \fP\fP
+enum value TYPE_ELEMENT_CL correspondant a une clause 
+.SS "enum \fBType_struct\fP"
+
+.PP
+Une enumeration decrivant les differents type de structure de donnees\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fITYPE_STRUCT_LT2CL \fP\fP
+enum value TYPE_STRUCT_LT2CL correspondant a une structure Litteraux > Clauses\&. 
+.TP
+\fB\fITYPE_STRUCT_CL2LT \fP\fP
+enum value TYPE_STRUCT_CL2LT correspondant a une structure Clauses > Litteraux\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DPLL from the source code\&.
