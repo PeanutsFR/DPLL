@@ -19,7 +19,6 @@ typedef struct cellule {
     int val; /**< valeur correspondant a une arrete ou une clause */
     struct cellule *next; /**< pointeur vers la valeur suivante */
     struct cellule *prev; /**< pointeur vers la valeur precedente */
-    struct cellule *last; /**< pointeur vers la derniere valeur */
     Type_elt element;
 } cellule;
 
@@ -28,7 +27,9 @@ typedef cellule *liste_chainee;
 typedef struct liste {
     int nClauses; /**< nombre de clause dans le tableau de listes chainees */
     int nLitteraux; /**< nombre de litteraux dans le tableau de listes chainees */
+    int *nEltPerList; /**< tableau contenant le nombre d'element par liste chainee */
     liste_chainee *l; /**< le tableau de listes chainees*/
+    cellule **last; /**< tableau de pointeurs vers les dernieres valeurs de chaque liste chainee */
     Type_struct structure;
 } liste;
 
