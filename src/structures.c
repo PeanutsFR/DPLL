@@ -227,7 +227,7 @@ Status del_list_element_head(liste *linked_list,int n){
 Status del_list_element_tail(liste *linked_list,int n){
     cellule *tampon;
 
-    /* Verifications preliminaires */
+    /* Verifications preliminaires (Compatibilite et depassement memoire)*/
     if(linked_list->structure == TYPE_STRUCT_CL2LT){
         if(n > (linked_list->nClauses - 1))
             return ERREUR_DEPASSEMENT_MEMOIRE;
@@ -241,27 +241,27 @@ Status del_list_element_tail(liste *linked_list,int n){
         return ERREUR_LISTE_VIDE;
 
     /* copie du premier element */
-    tampon = linked_list->last[n]->prev;
+    tampon = linked_list->last[n]->prev; /* on stocke le predecesseur du dernier element (car on va le supprimer) */
 
-    if(linked_list->l[n] != NULL){
-        free(linked_list->last[n]);
-        linked_list->last[n] = tampon;
-        if(linked_list->last[n] != NULL)
-            linked_list->last[n]->next = NULL;
+    if(linked_list->l[n] != NULL){ /* S'il existe des elements dans la liste */
+        free(linked_list->last[n]); /* On supprime le dernier element */
+        linked_list->last[n] = tampon; /* L'avant dernier element devient le dernier */
+        if(linked_list->last[n] != NULL) /* S'il reste des elements apres suppression */
+            linked_list->last[n]->next = NULL; /* On fixe le successeur de l'avant dernier element a NULL (vu qu'on a supprime le dernier) */
     }
 
-    if(linked_list->nEltPerList[n] == 1)
-        linked_list->last[n] = NULL;
+    if(linked_list->nEltPerList[n] == 1) /* S'il n'y a qu'un element */
+        linked_list->last[n] = NULL; /* Alors il n'y a plus rien dans la liste */
 
-    linked_list->nEltPerList[n]--;
+    linked_list->nEltPerList[n]--; /* On decremente le nombre d'elements de cette liste chainee */
 
 
-    if(linked_list->structure == TYPE_STRUCT_CL2LT)
+    if(linked_list->structure == TYPE_STRUCT_CL2LT) /* On decremente le nombre de Litteraux ou de clauses selon la structure adoptee */
         linked_list->nLitteraux--;
     else
         linked_list->nClauses--;
 
-    return OK;
+    return OK; /* Si on est la c'est que tout s'est bien deroule */
 }
 
 
