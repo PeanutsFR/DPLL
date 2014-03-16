@@ -28,15 +28,16 @@ void tests(){
     liste clause2lit;
     printf("\n\n------------------TESTS-----------------------\n\n");
     init_structures(5,&clause2lit,TYPE_STRUCT_CL2LT);
-    add_list_element_head(&clause2lit,TYPE_ELEMENT_LT,1,4);
-    add_list_element_head(&clause2lit,TYPE_ELEMENT_LT,2,5);
-    add_list_element_tail(&clause2lit,TYPE_ELEMENT_LT,2,15);
-    add_list_element_head(&clause2lit,TYPE_ELEMENT_LT,2,9);
+    add_list_element_tail(&clause2lit,TYPE_ELEMENT_LT,2,4);
+    add_list_element_tail(&clause2lit,TYPE_ELEMENT_LT,2,5);
+    add_list_element_tail(&clause2lit,TYPE_ELEMENT_LT,2,6);
+    add_list_element_head(&clause2lit,TYPE_ELEMENT_LT,2,3);
 
     /*del_list_element_head(&clause2lit,1);*/
     del_list_element_head(&clause2lit,2);
-    del_list_element_head(&clause2lit,2);
-    del_list_element_head(&clause2lit,2);
+    del_list_element_tail(&clause2lit,2);
+
+
 
     printf("Type de Strucutre : ");
     if(clause2lit.structure == TYPE_STRUCT_CL2LT)

@@ -1,0 +1,96 @@
+\indexentry{cellule@{cellule}|hyperpage}{5}
+\indexentry{cellule@{cellule}!element@{element}|hyperpage}{5}
+\indexentry{element@{element}!cellule@{cellule}|hyperpage}{5}
+\indexentry{cellule@{cellule}!next@{next}|hyperpage}{5}
+\indexentry{next@{next}!cellule@{cellule}|hyperpage}{5}
+\indexentry{cellule@{cellule}!prev@{prev}|hyperpage}{5}
+\indexentry{prev@{prev}!cellule@{cellule}|hyperpage}{5}
+\indexentry{cellule@{cellule}!val@{val}|hyperpage}{5}
+\indexentry{val@{val}!cellule@{cellule}|hyperpage}{5}
+\indexentry{liste@{liste}|hyperpage}{5}
+\indexentry{liste@{liste}!l@{l}|hyperpage}{6}
+\indexentry{l@{l}!liste@{liste}|hyperpage}{6}
+\indexentry{liste@{liste}!last@{last}|hyperpage}{6}
+\indexentry{last@{last}!liste@{liste}|hyperpage}{6}
+\indexentry{liste@{liste}!n\discretionary {-}{}{}Clauses@{n\discretionary {-}{}{}Clauses}|hyperpage}{6}
+\indexentry{n\discretionary {-}{}{}Clauses@{n\discretionary {-}{}{}Clauses}!liste@{liste}|hyperpage}{6}
+\indexentry{liste@{liste}!n\discretionary {-}{}{}Elt\discretionary {-}{}{}Per\discretionary {-}{}{}List@{n\discretionary {-}{}{}Elt\discretionary {-}{}{}Per\discretionary {-}{}{}List}|hyperpage}{6}
+\indexentry{n\discretionary {-}{}{}Elt\discretionary {-}{}{}Per\discretionary {-}{}{}List@{n\discretionary {-}{}{}Elt\discretionary {-}{}{}Per\discretionary {-}{}{}List}!liste@{liste}|hyperpage}{6}
+\indexentry{liste@{liste}!n\discretionary {-}{}{}Litteraux@{n\discretionary {-}{}{}Litteraux}|hyperpage}{6}
+\indexentry{n\discretionary {-}{}{}Litteraux@{n\discretionary {-}{}{}Litteraux}!liste@{liste}|hyperpage}{6}
+\indexentry{liste@{liste}!structure@{structure}|hyperpage}{6}
+\indexentry{structure@{structure}!liste@{liste}|hyperpage}{6}
+\indexentry{head/const.\discretionary {-}{}{}h@{head/const.\discretionary {-}{}{}h}|hyperpage}{7}
+\indexentry{const.\discretionary {-}{}{}h@{const.\discretionary {-}{}{}h}!Status@{Status}|hyperpage}{7}
+\indexentry{Status@{Status}!const.h@{const.\discretionary {-}{}{}h}|hyperpage}{7}
+\indexentry{const.\discretionary {-}{}{}h@{const.\discretionary {-}{}{}h}!Type\discretionary {-}{}{}\_\discretionary {-}{}{}elt@{Type\discretionary {-}{}{}\_\discretionary {-}{}{}elt}|hyperpage}{7}
+\indexentry{Type\discretionary {-}{}{}\_\discretionary {-}{}{}elt@{Type\discretionary {-}{}{}\_\discretionary {-}{}{}elt}!const.h@{const.\discretionary {-}{}{}h}|hyperpage}{7}
+\indexentry{const.\discretionary {-}{}{}h@{const.\discretionary {-}{}{}h}!Type\discretionary {-}{}{}\_\discretionary {-}{}{}struct@{Type\discretionary {-}{}{}\_\discretionary {-}{}{}struct}|hyperpage}{7}
+\indexentry{Type\discretionary {-}{}{}\_\discretionary {-}{}{}struct@{Type\discretionary {-}{}{}\_\discretionary {-}{}{}struct}!const.h@{const.\discretionary {-}{}{}h}|hyperpage}{7}
+\indexentry{const.\discretionary {-}{}{}h@{const.\discretionary {-}{}{}h}!Status@{Status}|hyperpage}{8}
+\indexentry{Status@{Status}!const.h@{const.\discretionary {-}{}{}h}|hyperpage}{8}
+\indexentry{O\-K@{O\-K}!const.\-h@{const.\-h}|hyperpage}{8}
+\indexentry{const.\-h@{const.\-h}!O\-K@{O\-K}|hyperpage}{8}
+\indexentry{E\-R\-R\-E\-U\-R\-\_\-\-A\-L\-L\-O\-C@{E\-R\-R\-E\-U\-R\-\_\-\-A\-L\-L\-O\-C}!const.\-h@{const.\-h}|hyperpage}{8}
+\indexentry{const.\-h@{const.\-h}!E\-R\-R\-E\-U\-R\-\_\-\-A\-L\-L\-O\-C@{E\-R\-R\-E\-U\-R\-\_\-\-A\-L\-L\-O\-C}|hyperpage}{8}
+\indexentry{E\-R\-R\-E\-U\-R\-\_\-\-T\-Y\-P\-E@{E\-R\-R\-E\-U\-R\-\_\-\-T\-Y\-P\-E}!const.\-h@{const.\-h}|hyperpage}{8}
+\indexentry{const.\-h@{const.\-h}!E\-R\-R\-E\-U\-R\-\_\-\-T\-Y\-P\-E@{E\-R\-R\-E\-U\-R\-\_\-\-T\-Y\-P\-E}|hyperpage}{8}
+\indexentry{E\-R\-R\-E\-U\-R\-\_\-\-D\-E\-P\-A\-S\-S\-E\-M\-E\-N\-T\-\_\-\-M\-E\-M\-O\-I\-R\-E@{E\-R\-R\-E\-U\-R\-\_\-\-D\-E\-P\-A\-S\-S\-E\-M\-E\-N\-T\-\_\-\-M\-E\-M\-O\-I\-R\-E}!const.\-h@{const.\-h}|hyperpage}{8}
+\indexentry{const.\-h@{const.\-h}!E\-R\-R\-E\-U\-R\-\_\-\-D\-E\-P\-A\-S\-S\-E\-M\-E\-N\-T\-\_\-\-M\-E\-M\-O\-I\-R\-E@{E\-R\-R\-E\-U\-R\-\_\-\-D\-E\-P\-A\-S\-S\-E\-M\-E\-N\-T\-\_\-\-M\-E\-M\-O\-I\-R\-E}|hyperpage}{8}
+\indexentry{E\-R\-R\-E\-U\-R\-\_\-\-L\-I\-S\-T\-E\-\_\-\-V\-I\-D\-E@{E\-R\-R\-E\-U\-R\-\_\-\-L\-I\-S\-T\-E\-\_\-\-V\-I\-D\-E}!const.\-h@{const.\-h}|hyperpage}{8}
+\indexentry{const.\-h@{const.\-h}!E\-R\-R\-E\-U\-R\-\_\-\-L\-I\-S\-T\-E\-\_\-\-V\-I\-D\-E@{E\-R\-R\-E\-U\-R\-\_\-\-L\-I\-S\-T\-E\-\_\-\-V\-I\-D\-E}|hyperpage}{8}
+\indexentry{const.\discretionary {-}{}{}h@{const.\discretionary {-}{}{}h}!Type\discretionary {-}{}{}\_\discretionary {-}{}{}elt@{Type\discretionary {-}{}{}\_\discretionary {-}{}{}elt}|hyperpage}{8}
+\indexentry{Type\discretionary {-}{}{}\_\discretionary {-}{}{}elt@{Type\discretionary {-}{}{}\_\discretionary {-}{}{}elt}!const.h@{const.\discretionary {-}{}{}h}|hyperpage}{8}
+\indexentry{T\-Y\-P\-E\-\_\-\-E\-L\-E\-M\-E\-N\-T\-\_\-\-L\-T@{T\-Y\-P\-E\-\_\-\-E\-L\-E\-M\-E\-N\-T\-\_\-\-L\-T}!const.\-h@{const.\-h}|hyperpage}{8}
+\indexentry{const.\-h@{const.\-h}!T\-Y\-P\-E\-\_\-\-E\-L\-E\-M\-E\-N\-T\-\_\-\-L\-T@{T\-Y\-P\-E\-\_\-\-E\-L\-E\-M\-E\-N\-T\-\_\-\-L\-T}|hyperpage}{8}
+\indexentry{T\-Y\-P\-E\-\_\-\-E\-L\-E\-M\-E\-N\-T\-\_\-\-C\-L@{T\-Y\-P\-E\-\_\-\-E\-L\-E\-M\-E\-N\-T\-\_\-\-C\-L}!const.\-h@{const.\-h}|hyperpage}{8}
+\indexentry{const.\-h@{const.\-h}!T\-Y\-P\-E\-\_\-\-E\-L\-E\-M\-E\-N\-T\-\_\-\-C\-L@{T\-Y\-P\-E\-\_\-\-E\-L\-E\-M\-E\-N\-T\-\_\-\-C\-L}|hyperpage}{8}
+\indexentry{const.\discretionary {-}{}{}h@{const.\discretionary {-}{}{}h}!Type\discretionary {-}{}{}\_\discretionary {-}{}{}struct@{Type\discretionary {-}{}{}\_\discretionary {-}{}{}struct}|hyperpage}{8}
+\indexentry{Type\discretionary {-}{}{}\_\discretionary {-}{}{}struct@{Type\discretionary {-}{}{}\_\discretionary {-}{}{}struct}!const.h@{const.\discretionary {-}{}{}h}|hyperpage}{8}
+\indexentry{T\-Y\-P\-E\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-L\-T2\-C\-L@{T\-Y\-P\-E\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-L\-T2\-C\-L}!const.\-h@{const.\-h}|hyperpage}{8}
+\indexentry{const.\-h@{const.\-h}!T\-Y\-P\-E\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-L\-T2\-C\-L@{T\-Y\-P\-E\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-L\-T2\-C\-L}|hyperpage}{8}
+\indexentry{T\-Y\-P\-E\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-C\-L2\-L\-T@{T\-Y\-P\-E\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-C\-L2\-L\-T}!const.\-h@{const.\-h}|hyperpage}{8}
+\indexentry{const.\-h@{const.\-h}!T\-Y\-P\-E\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-C\-L2\-L\-T@{T\-Y\-P\-E\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-C\-L2\-L\-T}|hyperpage}{8}
+\indexentry{head/dpll.\discretionary {-}{}{}h@{head/dpll.\discretionary {-}{}{}h}|hyperpage}{8}
+\indexentry{head/manipulation\discretionary {-}{}{}\_\discretionary {-}{}{}donnees.\discretionary {-}{}{}h@{head/manipulation\discretionary {-}{}{}\_\discretionary {-}{}{}donnees.\discretionary {-}{}{}h}|hyperpage}{8}
+\indexentry{head/parser.\discretionary {-}{}{}h@{head/parser.\discretionary {-}{}{}h}|hyperpage}{8}
+\indexentry{head/structures.\discretionary {-}{}{}h@{head/structures.\discretionary {-}{}{}h}|hyperpage}{8}
+\indexentry{structures.\discretionary {-}{}{}h@{structures.\discretionary {-}{}{}h}!cellule@{cellule}|hyperpage}{9}
+\indexentry{cellule@{cellule}!structures.h@{structures.\discretionary {-}{}{}h}|hyperpage}{9}
+\indexentry{structures.\discretionary {-}{}{}h@{structures.\discretionary {-}{}{}h}!liste@{liste}|hyperpage}{9}
+\indexentry{liste@{liste}!structures.h@{structures.\discretionary {-}{}{}h}|hyperpage}{9}
+\indexentry{structures.\discretionary {-}{}{}h@{structures.\discretionary {-}{}{}h}!liste\discretionary {-}{}{}\_\discretionary {-}{}{}chainee@{liste\discretionary {-}{}{}\_\discretionary {-}{}{}chainee}|hyperpage}{9}
+\indexentry{liste\discretionary {-}{}{}\_\discretionary {-}{}{}chainee@{liste\discretionary {-}{}{}\_\discretionary {-}{}{}chainee}!structures.h@{structures.\discretionary {-}{}{}h}|hyperpage}{9}
+\indexentry{structures.\discretionary {-}{}{}h@{structures.\discretionary {-}{}{}h}!add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head@{add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head}|hyperpage}{9}
+\indexentry{add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head@{add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head}!structures.h@{structures.\discretionary {-}{}{}h}|hyperpage}{9}
+\indexentry{structures.\discretionary {-}{}{}h@{structures.\discretionary {-}{}{}h}!add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail@{add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail}|hyperpage}{9}
+\indexentry{add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail@{add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail}!structures.h@{structures.\discretionary {-}{}{}h}|hyperpage}{9}
+\indexentry{structures.\discretionary {-}{}{}h@{structures.\discretionary {-}{}{}h}!del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head@{del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head}|hyperpage}{10}
+\indexentry{del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head@{del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head}!structures.h@{structures.\discretionary {-}{}{}h}|hyperpage}{10}
+\indexentry{structures.\discretionary {-}{}{}h@{structures.\discretionary {-}{}{}h}!del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail@{del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail}|hyperpage}{10}
+\indexentry{del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail@{del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail}!structures.h@{structures.\discretionary {-}{}{}h}|hyperpage}{10}
+\indexentry{structures.\discretionary {-}{}{}h@{structures.\discretionary {-}{}{}h}!destroy\discretionary {-}{}{}\_\discretionary {-}{}{}structures@{destroy\discretionary {-}{}{}\_\discretionary {-}{}{}structures}|hyperpage}{10}
+\indexentry{destroy\discretionary {-}{}{}\_\discretionary {-}{}{}structures@{destroy\discretionary {-}{}{}\_\discretionary {-}{}{}structures}!structures.h@{structures.\discretionary {-}{}{}h}|hyperpage}{10}
+\indexentry{structures.\discretionary {-}{}{}h@{structures.\discretionary {-}{}{}h}!init\discretionary {-}{}{}\_\discretionary {-}{}{}structures@{init\discretionary {-}{}{}\_\discretionary {-}{}{}structures}|hyperpage}{10}
+\indexentry{init\discretionary {-}{}{}\_\discretionary {-}{}{}structures@{init\discretionary {-}{}{}\_\discretionary {-}{}{}structures}!structures.h@{structures.\discretionary {-}{}{}h}|hyperpage}{10}
+\indexentry{src/dpll.\discretionary {-}{}{}c@{src/dpll.\discretionary {-}{}{}c}|hyperpage}{11}
+\indexentry{src/main.\discretionary {-}{}{}c@{src/main.\discretionary {-}{}{}c}|hyperpage}{11}
+\indexentry{main.\discretionary {-}{}{}c@{main.\discretionary {-}{}{}c}!main@{main}|hyperpage}{11}
+\indexentry{main@{main}!main.c@{main.\discretionary {-}{}{}c}|hyperpage}{11}
+\indexentry{main.\discretionary {-}{}{}c@{main.\discretionary {-}{}{}c}!tests@{tests}|hyperpage}{11}
+\indexentry{tests@{tests}!main.c@{main.\discretionary {-}{}{}c}|hyperpage}{11}
+\indexentry{src/manipulation\discretionary {-}{}{}\_\discretionary {-}{}{}donnees.\discretionary {-}{}{}c@{src/manipulation\discretionary {-}{}{}\_\discretionary {-}{}{}donnees.\discretionary {-}{}{}c}|hyperpage}{11}
+\indexentry{src/parser.\discretionary {-}{}{}c@{src/parser.\discretionary {-}{}{}c}|hyperpage}{11}
+\indexentry{src/structures.\discretionary {-}{}{}c@{src/structures.\discretionary {-}{}{}c}|hyperpage}{11}
+\indexentry{structures.\discretionary {-}{}{}c@{structures.\discretionary {-}{}{}c}!add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head@{add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head}|hyperpage}{12}
+\indexentry{add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head@{add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head}!structures.c@{structures.\discretionary {-}{}{}c}|hyperpage}{12}
+\indexentry{structures.\discretionary {-}{}{}c@{structures.\discretionary {-}{}{}c}!add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail@{add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail}|hyperpage}{12}
+\indexentry{add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail@{add\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail}!structures.c@{structures.\discretionary {-}{}{}c}|hyperpage}{12}
+\indexentry{structures.\discretionary {-}{}{}c@{structures.\discretionary {-}{}{}c}!del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head@{del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head}|hyperpage}{12}
+\indexentry{del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head@{del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}head}!structures.c@{structures.\discretionary {-}{}{}c}|hyperpage}{12}
+\indexentry{structures.\discretionary {-}{}{}c@{structures.\discretionary {-}{}{}c}!del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail@{del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail}|hyperpage}{12}
+\indexentry{del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail@{del\discretionary {-}{}{}\_\discretionary {-}{}{}list\discretionary {-}{}{}\_\discretionary {-}{}{}element\discretionary {-}{}{}\_\discretionary {-}{}{}tail}!structures.c@{structures.\discretionary {-}{}{}c}|hyperpage}{12}
+\indexentry{structures.\discretionary {-}{}{}c@{structures.\discretionary {-}{}{}c}!destroy\discretionary {-}{}{}\_\discretionary {-}{}{}structures@{destroy\discretionary {-}{}{}\_\discretionary {-}{}{}structures}|hyperpage}{13}
+\indexentry{destroy\discretionary {-}{}{}\_\discretionary {-}{}{}structures@{destroy\discretionary {-}{}{}\_\discretionary {-}{}{}structures}!structures.c@{structures.\discretionary {-}{}{}c}|hyperpage}{13}
+\indexentry{structures.\discretionary {-}{}{}c@{structures.\discretionary {-}{}{}c}!init\discretionary {-}{}{}\_\discretionary {-}{}{}structures@{init\discretionary {-}{}{}\_\discretionary {-}{}{}structures}|hyperpage}{13}
+\indexentry{init\discretionary {-}{}{}\_\discretionary {-}{}{}structures@{init\discretionary {-}{}{}\_\discretionary {-}{}{}structures}!structures.c@{structures.\discretionary {-}{}{}c}|hyperpage}{13}
