@@ -20,7 +20,8 @@ typedef enum Status{
     OK = 1, /**< enum value OK correspondant a une terminaison sans erreurs. */
     ERREUR_ALLOC = -1, /**< enum value ERREUR_ALLOC correspondant a une terminaison avec une erreur d'allocation */
     ERREUR_TYPE = -2, /**< enum value ERREUR_TYPE correspondant a une terminaison avec une erreur de type */
-    ERREUR_DEPASSEMENT_MEMOIRE = -3 /**< enum value ERREUR_DEPASSEMENT_MEMOIRE correspondant a une terminaison avec une erreur de depassement memoire */
+    ERREUR_DEPASSEMENT_MEMOIRE = -3, /**< enum value ERREUR_DEPASSEMENT_MEMOIRE correspondant a une terminaison avec une erreur de depassement memoire */
+    ERREUR_LISTE_VIDE = -4 /**< enum value ERREUR_DEPASSEMENT_MEMOIRE correspondant a une terminaison avec une erreur lie a une liste chainee vide */
 } Status;
 
  /**

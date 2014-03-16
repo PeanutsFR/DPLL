@@ -86,7 +86,7 @@ Status add_list_element_head(liste *linked_list,Type_elt element, int n, int val
     else{
         if(element != TYPE_ELEMENT_CL)
             return ERREUR_TYPE;
-        if(n > (linked_list->nClauses - 1))
+        if(n > (linked_list->nLitteraux - 1))
             return ERREUR_DEPASSEMENT_MEMOIRE;
     }
 
@@ -97,9 +97,15 @@ Status add_list_element_head(liste *linked_list,Type_elt element, int n, int val
         cell->val = value;
         cell->next = linked_list->l[n];
         cell->prev = NULL;
+        if(linked_list->l[n] == NULL)
+            linked_list->last[n] = cell;
         cell->element = element;
         linked_list->l[n] = cell;
         linked_list->nEltPerList[n]++;
+        if(linked_list->structure == TYPE_STRUCT_CL2LT)
+            linked_list->nLitteraux++;
+        else
+            linked_list->nClauses++;
 
     return OK;
 }
@@ -109,7 +115,8 @@ Status add_list_element_head(liste *linked_list,Type_elt element, int n, int val
 *   @param linked_list pointeur sur la strtucutrede donnees
 *   @param element type d'elements a ajouter : Clause = TYPE_ELEMENT_CL / Litteral = TYPE_ELEMENT_LT
 *   @param n Correspond a l'indice du tableau de liste chainee auquel ajouter l'element
-*   @return renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans const.h dans eval Status
+*   @param value Correspond a la valeur a ajouter dans la liste chainee
+*   @return renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans const.h dans enum Status
 */
 
 
@@ -127,7 +134,7 @@ Status add_list_element_tail(liste *linked_list,Type_elt element, int n, int val
     else{
         if(element != TYPE_ELEMENT_CL)
             return ERREUR_TYPE;
-        if(n > (linked_list->nClauses - 1))
+        if(n > (linked_list->nLitteraux - 1))
             return ERREUR_DEPASSEMENT_MEMOIRE;
     }
 
@@ -138,9 +145,90 @@ Status add_list_element_tail(liste *linked_list,Type_elt element, int n, int val
         cell->val = value;
         cell->next = NULL;
         cell->prev = linked_list->last[n];
-        linked_list->last[n]->next = cell;
+        if(linked_list->last[n] != NULL)
+            linked_list->last[n]->next = cell;
         linked_list->last[n] = cell;
         cell->element = element;
         linked_list->nEltPerList[n]++;
+        if(linked_list->structure == TYPE_STRUCT_CL2LT)
+            linked_list->nLitteraux++;
+        else
+            linked_list->nClauses++;
     return OK;
+}
+
+
+/**
+*   Fonction de suppression d'un element en tete de liste chainee
+*   @param linked_list pointeur sur la strtucutrede donnees
+*   @param n Correspond a l'indice du tableau de liste chainee auquel ajouter l'element
+*   @return renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans const.h dans enum Status
+*/
+Status del_list_element_head(liste *linked_list,int n){
+    cellule tampon;
+
+    /* Verifications preliminaires */
+    if(linked_list->structure == TYPE_STRUCT_CL2LT){
+        if(n > (linked_list->nClauses - 1))
+            return ERREUR_DEPASSEMENT_MEMOIRE;
+    }
+    else{
+        if(n > (linked_list->nLitteraux - 1))
+            return ERREUR_DEPASSEMENT_MEMOIRE;
+    }
+
+    if(linked_list->nEltPerList[n] == 0)
+        return ERREUR_LISTE_VIDE;
+
+    /* copie du premier element */
+    tampon.next= linked_list->l[n]->next;
+
+    if(linked_list->l[n] != NULL){
+        free(linked_list->l[n]);
+        linked_list->l[n] = tampon.next;
+    }
+
+    if(linked_list->nEltPerList[n] == 1)
+        linked_list->last[n] = NULL;
+
+    linked_list->nEltPerList[n]--;
+
+
+    if(linked_list->structure == TYPE_STRUCT_CL2LT)
+        linked_list->nLitteraux--;
+    else
+        linked_list->nClauses--;
+
+    return OK;
+}
+
+
+/**
+*   Fonction de desallocation de la memoire pour une structure de donnees
+*   @param linked_list pointeur sur la structure de donnees
+*   @return renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans const.h dans enum Status
+*/
+Status destroy_structures(liste* linked_list){
+    /*
+    int i,n;
+
+    if(linked_list->structure == TYPE_STRUCT_CL2LT)
+        n = linked_list->nClauses;
+    else
+        n = linked_list->nLitteraux;
+
+
+
+    for(i=0;i<n;i++){
+
+    }
+
+
+
+    free(linked_list->last);
+    free(linked_list->nEltPerList);
+    free(linked_list->l);
+    */
+    return OK;
+
 }

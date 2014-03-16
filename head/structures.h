@@ -42,5 +42,8 @@ liste lit2clause_neg;
 
 /* Prototypes des fonctions */
 Status init_structures(int n, liste *init_list, Type_struct structure);
-Status add_element(liste *linked_list, Type_elt element);
+Status destroy_structures(liste* linked_list);
+Status add_list_element_head(liste *linked_list,Type_elt element, int n, int value);
+Status del_list_element_head(liste *linked_list,int n);
+Status add_list_element_tail(liste *linked_list,Type_elt element, int n, int value);
 #endif /* STRUCTURES */
