@@ -13,6 +13,8 @@ Pour exécuter, tapez : ./bin/DPLL
 #ifndef CONSTANTES
 #define CONSTANTES
 
+typedef int position;
+
  /**
 * Une enumeration decrivant les differents status possibles a l'issue d'une fonction
 */

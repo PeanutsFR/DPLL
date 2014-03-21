@@ -47,4 +47,8 @@ Status add_list_element_head(liste *linked_list,Type_elt element, int n, int val
 Status del_list_element_head(liste *linked_list,int n);
 Status add_list_element_tail(liste *linked_list,Type_elt element, int n, int value);
 Status del_list_element_tail(liste *linked_list,int n);
+Status add_list_element_i (liste *linked_list,Type_elt element, int n, int value, position i);
+void display_list(liste linked_list, int n);
+void display_structure(liste linked_list);
+cellule* select_list_element(liste linked_list,int n, int i);
 #endif /* STRUCTURES */

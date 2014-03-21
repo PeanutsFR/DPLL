@@ -95,6 +95,7 @@ Status add_list_element_head(liste *linked_list,Type_elt element, int n, int val
         if(cell == NULL) /* Verification de l'allocation */
             return ERREUR_ALLOC;
         cell->val = value; /* On attribue la valeur passe en parametre au nouvel element */
+        cell->element = element; /* on fixe le tŷpe d'element se referer a const.h pour les types d'elements */
         cell->next = linked_list->l[n]; /* on dit que l'element suivant le nouvel element est celui actuellement en tete de liste */
         cell->prev = NULL; /* Le nouvel element n'a pas d'element precedent car on l'ajoute en tete de liste */
         if(linked_list->l[n] == NULL) /* S'il n'y a pas d'element dans la liste alors l'element qu'on ajoute est aussi le dernier */
@@ -102,7 +103,6 @@ Status add_list_element_head(liste *linked_list,Type_elt element, int n, int val
         else /* S'il y a deja des elements */
             linked_list->l[n]->prev = cell; /* Le predecesseur de l'element qui etait en tete de liste devient le nouvel element qu'on ajoute */
 
-        cell->element = element; /* on fixe le tŷpe d'element se referer a const.h pour les types d'elements */
         linked_list->l[n] = cell; /* on place le nouvel element en tete de liste */
         linked_list->nEltPerList[n]++; /* On incremente le nombre d'element dans cette liste */
         if(linked_list->structure == TYPE_STRUCT_CL2LT) /* Et suivant la structure de donnees le nombre de litteraux ou le nombre de Clauses */
@@ -167,6 +167,128 @@ Status add_list_element_tail(liste *linked_list,Type_elt element, int n, int val
     return OK; /* Si on arrive la c'est que tout s'est bien deroule */
 }
 
+/**
+*   Fonction qui retourne l'element i d'une liste chainee
+*   @param linked_list la strtucutrede donnees
+*   @param n Correspond a l'indice du tableau de liste chainee auquel ajouter l'element
+*   @param i Correspond a la position de l'element a selectioner
+*   @return renvoie un pointeur vers l'element qui se trouve a la position i
+*/
+cellule* select_list_element(liste linked_list,int n, int i){
+    int j;
+    cellule *it = linked_list.l[n];
+    for(j=0;j<i;j++)
+        it = it->next;
+    return it;
+
+}
+
+/**
+*   Fonction d'ajout d'un element a une liste chainee a la position i
+*   @param linked_list pointeur sur la strtucutrede donnees
+*   @param n Correspond a l'indice du tableau de liste chainee auquel ajouter l'element
+*   @param value Corrspond à la valeur de l'element a ajouter
+*   @param i Correspond a la position ou inserer l'element dans la liste chainee
+*   @return renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans const.h dans enum Status
+*/
+Status add_list_element_i (liste *linked_list,Type_elt element, int n, int value, position i){
+    int cases = 0;
+    cellule *tmp = NULL;
+    cellule *new_elt = NULL;
+    /* Verifications preliminaires (compatibilite et debordement de memoire )*/
+
+    if(linked_list->structure == TYPE_STRUCT_CL2LT){
+        if(element != TYPE_ELEMENT_LT)
+            return ERREUR_TYPE;
+        if(n > (linked_list->nClauses - 1))
+            return ERREUR_DEPASSEMENT_MEMOIRE;
+    }
+    else{
+        if(element != TYPE_ELEMENT_CL)
+            return ERREUR_TYPE;
+        if(n > (linked_list->nLitteraux - 1))
+            return ERREUR_DEPASSEMENT_MEMOIRE;
+    }
+
+      if(i > linked_list->nEltPerList[n] || i < 0)
+            return ERREUR_DEPASSEMENT_MEMOIRE;
+
+    /* Si on l'ajoute en tete de liste (i=0) on est dans le cas 0 */
+    if(i==0)
+        cases = 0;
+    else if(i == linked_list->nEltPerList[n]) /* Si on l'ajoute en fin de liste (i=nEltPerlist[n]) on est dans le cas 1 */
+        cases = 1;
+    else
+        cases = 2; /* Sinon si on l'ajoute en milieu de liste on est dans le cas 2 */
+
+    switch(cases){
+        case 0: /* Pour le cas 0 , on a deja defini cette fonction , on l'utilise */
+            add_list_element_head(linked_list,element,n,value);
+            break;
+        case 1:/* Pour le cas 1 , on a deja defini cette fonction , on l'utilise */
+            add_list_element_tail(linked_list,element,n,value);
+            break;
+        default: /* Pour le cas 2 */
+            tmp = select_list_element(*linked_list,n,i); /* on selectionne l'element en position i de la liste chainee */
+            new_elt = (cellule*)malloc(sizeof(cellule)); /* on alloue un nouvel element en memoire */
+            if(new_elt == NULL) /* Verification de l'allocation */
+                return ERREUR_ALLOC;
+            new_elt->element = element; /* initisalisation des valeurs */
+            new_elt->val = value; /* initisalisation des valeurs */
+            new_elt->next = tmp; /* le nouvel element a inserer a la position i , a pour successeur l'element selectione a la position i */
+            new_elt->prev = tmp->prev; /* le nouvel element a pour predecesseur le predecesseur de l'element a la position i */
+            tmp->prev->next = new_elt; /* le predecesseur de l'element qui etait a la position i a pour successeur le nouvel element alloue */
+            tmp->prev = new_elt; /* le predecesseur de le l'element qui etait a la postion i est le nouvel element */
+            linked_list->nEltPerList[n]++; /* On incremente le nombre d'elements dans cette liste chainee */
+
+            if(linked_list->structure == TYPE_STRUCT_CL2LT) /* Selon la structure de donnees on incremente les litteraux ou les clauses */
+                linked_list->nLitteraux++;
+            else
+                linked_list->nClauses++;
+            break;
+    }
+
+    return OK; /* Si on arrive la c'est que tout s'est bien deroule */
+}
+
+/**
+*   Fonction d'affichage graphique d'une liste chainee
+*   @param linked_list pointeur sur la strtucutrede donnees
+*   @param n Correspond a l'indice du tableau de liste chainee auquel ajouter l'element
+*/
+
+void display_list(liste linked_list, int n){
+    cellule* it = linked_list.l[n];
+    printf("Liste [%i] = ", n); /* On affiche l'en tete */
+    if(it == NULL) /* S'il n'y a aucun element dans la liste */
+        printf(" [] \n"); /* On affiche une liste vide */
+    while(it!=NULL){ /* On parcoure tous les elements de la liste */
+        if(it->next != NULL) /* si l'element actuel a un successeur */
+            printf(" %i ->",it->val); /* On affiche le motif avec succeseur */
+        else
+            printf("%i -> [] \n",it->val); /* Sinon on affiche le motif de terminaison */
+        it = it->next; /* l'element actuel devient l'element suivant */
+    }
+}
+
+/**
+*   Fonction d'affichage graphique de l'ensemble de la structure de donnees
+*   @param linked_list pointeur sur la strtucutrede donnees
+*/
+
+void display_structure(liste linked_list){
+    int i,n;
+    if(linked_list.structure == TYPE_STRUCT_CL2LT){
+        n = linked_list.nClauses;
+    }
+    else{
+        n = linked_list.nLitteraux;
+    }
+    for(i=0;i<n;i++){
+        display_list(linked_list,i);
+    }
+
+}
 
 /**
 *   Fonction de suppression d'un element en tete de liste chainee
