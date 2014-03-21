@@ -23,7 +23,9 @@ typedef enum Status{
     ERREUR_ALLOC = -1, /**< enum value ERREUR_ALLOC correspondant a une terminaison avec une erreur d'allocation */
     ERREUR_TYPE = -2, /**< enum value ERREUR_TYPE correspondant a une terminaison avec une erreur de type */
     ERREUR_DEPASSEMENT_MEMOIRE = -3, /**< enum value ERREUR_DEPASSEMENT_MEMOIRE correspondant a une terminaison avec une erreur de depassement memoire */
-    ERREUR_LISTE_VIDE = -4 /**< enum value ERREUR_DEPASSEMENT_MEMOIRE correspondant a une terminaison avec une erreur lie a une liste chainee vide */
+    ERREUR_LISTE_VIDE = -4 ,/**< enum value ERREUR_DEPASSEMENT_MEMOIRE correspondant a une terminaison avec une erreur lie a une liste chainee vide */
+    ERREUR_FICHIER_INTROUVABLE = - 5,/**< enum value ERREUR_FICHIER_INTROUVABLE correspondant a une terminaison avec une erreur lie a un fichier inexistant */
+    ERREUR_NO_ARGS = -6 /**< enum value ERREUR_NO_ARGS correspondant a un parametre manquant ou inexistant lors du lancement du programme */
 } Status;
 
  /**
@@ -42,4 +44,4 @@ typedef enum Type_elt{
     TYPE_ELEMENT_CL /**< enum value TYPE_ELEMENT_CL correspondant a une clause */
 } Type_elt;
 
-#endif // CONSTANTES
+#endif /* CONSTANTES */

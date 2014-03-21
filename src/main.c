@@ -16,12 +16,30 @@ Pour exécuter, tapez : ./bin/DPLL
 #include "../head/structures.h"
 
 void tests();
+Status args(int argc, char* argv[]);
 
 int main(int argc, char* argv[]){
-    printf("HELLO WORLD \n");
+    printf("HELLO WORLD \n %i",argc);
     tests();
+    switch(args(argc,argv)){
+        case ERREUR_FICHIER_INTROUVABLE:
+            printf("Le fichier specifie est introuvable.\n Veuillez entrer le nom du fichier source(qui doit se trouver dans"
+                        " le repertoire files) : \n");
+            break;
+
+        case ERREUR_NO_ARGS:
+            printf("Veuillez entrer le nom du fichier source(qui doit se trouver dans"
+                        " le repertoire files) : \n");
+            break;
+    }
+
     return EXIT_SUCCESS;
 }
+
+Status args(int argc, char* argv[]){
+    if(argc)
+}
+
 
 void tests(){
     liste clause2lit;
