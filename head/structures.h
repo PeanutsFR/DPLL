@@ -6,8 +6,8 @@ Version ..... : V0.1 du 15/03/2014
 Licence ..... : GPL
 
 Compilation :
-makefile, make clean
-Pour exécuter, tapez : ./bin/DPLL
+(Makefile) make remove , make clean , make
+Pour exécuter, tapez : ./bin/DPLL fichier_a_lire(optionel)
 ********************************************************/
 
 #ifndef STRUCTURES

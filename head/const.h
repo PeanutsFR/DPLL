@@ -25,7 +25,8 @@ typedef enum Status{
     ERREUR_DEPASSEMENT_MEMOIRE = -3, /**< enum value ERREUR_DEPASSEMENT_MEMOIRE correspondant a une terminaison avec une erreur de depassement memoire */
     ERREUR_LISTE_VIDE = -4 ,/**< enum value ERREUR_DEPASSEMENT_MEMOIRE correspondant a une terminaison avec une erreur lie a une liste chainee vide */
     ERREUR_FICHIER_INTROUVABLE = - 5,/**< enum value ERREUR_FICHIER_INTROUVABLE correspondant a une terminaison avec une erreur lie a un fichier inexistant */
-    ERREUR_NO_ARGS = -6 /**< enum value ERREUR_NO_ARGS correspondant a un parametre manquant ou inexistant lors du lancement du programme */
+    ERREUR_NO_ARGS = -6, /**< enum value ERREUR_NO_ARGS correspondant a un parametre manquant ou inexistant lors du lancement du programme */
+    ERREUR_TOO_MANY_ARGS = -7 /**< enum value ERREUR_TOO_MANY_ARGS correspondant a une execution du programme avec trop de parametres */
 } Status;
 
  /**
