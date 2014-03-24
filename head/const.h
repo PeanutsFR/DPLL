@@ -13,6 +13,9 @@ Pour exécuter, tapez : ./bin/DPLL
 #ifndef CONSTANTES
 #define CONSTANTES
 
+/* Defines */
+#define LOGS_ACTIVE 1 /* Mettre a 0 pour desactiver les logs */
+
 typedef int position;
 
  /**
@@ -36,6 +39,14 @@ typedef enum Type_struct{
     TYPE_STRUCT_LT2CL, /**< enum value TYPE_STRUCT_LT2CL correspondant a une structure Litteraux > Clauses. */
     TYPE_STRUCT_CL2LT /**< enum value TYPE_STRUCT_CL2LT correspondant a une structure Clauses > Litteraux. */
 } Type_struct;
+
+ /**
+* Une enumeration decrivant les differents type de chemins
+*/
+typedef enum Type_path{
+    PATH_ABSOLUTE, /**< enum value PATH_ABSOLUTE correspondant a un chemin absolu */
+    PATH_RELATIVE /**< enum value PATH_RELATIVE correspondant a un chemin relatif */
+} Type_path;
 
  /**
 * Une enumeration decrivant les differents type d'elements

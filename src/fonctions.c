@@ -3,6 +3,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <time.h>
 
 #include "../head/const.h"
 #include "../head/structures.h"
@@ -11,35 +12,120 @@
 const char* base = "files/";
 const char* logs = "logs/";
 
+FILE* fichier_log = NULL; /* Pointeur vers le fichier log */
+time_t temps; /* Date et heure courante */
+char nom_log[300]; /* Chemin + nom du fichier log */
+
+FILE *fichier_actuel = NULL; /* Fichier actuellement ouvert */
+char chemin_fichier[300]; /* chemin du fichier actuellement ouvert */
+
+char* recup_nom_log(void){
+    return nom_log;
+}
+
+FILE* recup_fichier_log(void){
+    return fichier_log;
+}
+
+char* recup_nom_fichierAct(void){
+    return chemin_fichier;
+}
+
+FILE* recup_fichierAct(void){
+    return fichier_actuel;
+}
+
+Status Create_log(void){
+    char buffer[100];
+    char *pch;
+    int i;
+    time(&temps);
+    sprintf(buffer,"%s",ctime(&temps));
+
+    GetModuleFileName(nom_log,300);
+    for(i=0;i<2;i++){
+        pch = strrchr(nom_log,'/');
+        if (i == 1)
+            nom_log[pch - nom_log + 1] = '\0';
+        else
+            nom_log[pch - nom_log ] = '\0';
+    }
+    printf("NOM_LOG = %s \n",nom_log);
+    strcat(nom_log,logs);
+    strcat(nom_log,buffer);
+    nom_log[strlen(nom_log) -1] = '\0'; /* Efface caractere special en fin de chaine qui causait un pb d'affichage */
+    fichier_log = fopen(nom_log,"ab+");
+    return OK;
+}
+
+Status existance_fichier(char* path,Type_path t_path){
+    FILE* fichier = NULL;
+
+    /* Verification type */
+    if(path[0] == '/' && t_path==PATH_RELATIVE){
+        if(LOGS_ACTIVE)
+            fprintf(fichier_log,"Erreur : \"%s\" passe en parametre commence par '/' et est donc de type Absolu"
+                                " or le type indique est Relatif.\n",path);
+        return ERREUR_TYPE;
+    }
+
+    if(t_path == PATH_ABSOLUTE){
+        fichier = fopen(path,"r");
+    }
+    else{
+
+    }
+
+    if(fichier == NULL)
+        return ERREUR_FICHIER_INTROUVABLE;
+    else
+        return OK;
+}
+
 int gestion_erreur(Status erreur){
     switch(erreur){
         case ERREUR_ALLOC:
             fprintf(stderr,"Erreur d'allocation memoire ! \n");
+            if(LOGS_ACTIVE)
+                fprintf(fichier_log,"Erreur d'allocation memoire ! \n");
             break;
 
         case ERREUR_DEPASSEMENT_MEMOIRE:
             fprintf(stderr,"Erreur, depassement de memoire ! \n");
+            if(LOGS_ACTIVE)
+                fprintf(fichier_log,"Erreur, depassement de memoire ! \n");
             break;
 
         case ERREUR_FICHIER_INTROUVABLE:
             fprintf(stderr,"Erreur, Fichier introuvable ! \n");
+            if(LOGS_ACTIVE)
+                fprintf(fichier_log,"Erreur, Fichier introuvable ! Demmande de saisie manuelle...\n");
+            saisie_fichier();
             break;
 
         case ERREUR_LISTE_VIDE:
             fprintf(stderr,"Erreur, impossible d'effectuer l'operation, la liste est vide ! \n");
+            if(LOGS_ACTIVE)
+                fprintf(fichier_log,"Erreur, impossible d'effectuer l'operation, la liste est vide ! \n");
             break;
 
         case ERREUR_NO_ARGS:
+            if(LOGS_ACTIVE)
+                fprintf(fichier_log,"Pas de fichier passe en parametre ! Demande de saisie manuelle...\n");
             saisie_fichier();
             break;
 
         case ERREUR_TOO_MANY_ARGS:
             fprintf(stderr,"Erreur trop de parametres ! \n");
+            if(LOGS_ACTIVE)
+                fprintf(fichier_log,"Erreur trop de parametres ! Demmande de saisie manuelle du nom de fichier ...\n");
             saisie_fichier();
             break;
 
         case ERREUR_TYPE:
             fprintf(stderr,"Erreur, les types sont incompatibles ! \n");
+            if(LOGS_ACTIVE)
+                fprintf(fichier_log,"Erreur, les types sont incompatibles ! \n");
             break;
 
         default :
@@ -70,6 +156,9 @@ Status args(int argc, char* argv[]){
     else if (argc > 2){
         return ERREUR_TOO_MANY_ARGS;
     }
+    else{
+        return OK;
+    }
     return OK;
 }
 
@@ -95,9 +184,7 @@ void clean (char *chaine)
 }
 
 FILE* saisie_fichier(){
-    FILE *fichier;
     char resultat[20];
-    char chemin_fichier[200];
     char *res = NULL;
     char *pch;
     int ok = 0;
@@ -110,7 +197,7 @@ FILE* saisie_fichier(){
         if (res == NULL)
             printf("Erreur de saisie \n");
         clean(resultat);
-        GetModuleFileName(chemin_fichier,200);
+        GetModuleFileName(chemin_fichier,300);
         for(i=0;i<2;i++){
             pch = strrchr(chemin_fichier,'/');
             if (i == 1)
@@ -120,13 +207,13 @@ FILE* saisie_fichier(){
         }
         strcat(chemin_fichier,base);
         strcat(chemin_fichier,resultat);
-        if( (fichier=fopen(chemin_fichier,"r")) != NULL)
+        if( (fichier_actuel=fopen(chemin_fichier,"r")) != NULL)
             ok = 1;
         else
             printf("Fichier : %s introuvable ! \n",chemin_fichier);
     }while(!ok);
 
-    return fichier;
+    return fichier_actuel;
 }
 
 void tests(){
