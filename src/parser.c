@@ -8,8 +8,7 @@
 
 
 
-Status parser_depuis_fichier(FILE *fichier, liste *liste_cl2lt, liste *liste_lt2cl) {
-
+Status parser_depuis_fichier(FILE *fichier, liste *liste_cl2lt, liste *liste_lt2cl_pos, liste *liste_lt2cl_neg) {
 
   char buffer[200];
   char* pch;
@@ -32,11 +31,13 @@ Status parser_depuis_fichier(FILE *fichier, liste *liste_cl2lt, liste *liste_lt2
 
         while (pch != NULL) {
 
-        // init Littéraux -> Clauses
-          if(num_mot == 2)
-            init_structures(strtol(pch,NULL,10), liste_lt2cl, TYPE_STRUCT_LT2CL);
+          // init Littéraux -> Clauses
+          if(num_mot == 2) {
+            init_structures(strtol(pch,NULL,10), liste_lt2cl_pos, TYPE_STRUCT_LT2CL);
+            init_structures(strtol(pch,NULL,10), liste_lt2cl_neg, TYPE_STRUCT_LT2CL);
+          }
 
-        // init Clauses -> Littéraux
+          // init Clauses -> Littéraux
           if(num_mot == 3)
             init_structures(strtol(pch,NULL,10), liste_cl2lt, TYPE_STRUCT_CL2LT);
 

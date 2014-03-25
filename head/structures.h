@@ -51,4 +51,5 @@ Status add_list_element_i (liste *linked_list,Type_elt element, int n, int value
 void display_list(liste linked_list, int n);
 void display_structure(liste linked_list);
 cellule* select_list_element(liste linked_list,int n, int i);
+Status graphe_symetrique(liste entree, liste *sortie_pos, liste *sortie_neg);
 #endif /* STRUCTURES */

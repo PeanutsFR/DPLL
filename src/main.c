@@ -59,17 +59,28 @@ int main(int argc, char* argv[]){
 
     // b)
     liste liste_cl2lt;
-    liste liste_lt2cl;
-    parser_depuis_fichier(fichier, &liste_cl2lt, &liste_lt2cl);
+    liste liste_lt2cl_pos;
+    liste liste_lt2cl_neg;
+
+    parser_depuis_fichier(fichier,
+                          &liste_cl2lt,
+                          &liste_lt2cl_pos,
+                          &liste_lt2cl_neg);
+
+    graphe_symetrique(liste_cl2lt, &liste_lt2cl_pos, &liste_lt2cl_neg);
 
     // c)
     printf("Clauses -> Litteraux \n");
     printf("Nombre de Litteraux : %i\nNombre de Clauses : %i\n",liste_cl2lt.nLitteraux,liste_cl2lt.nClauses);
     display_structure(liste_cl2lt);
 
-    printf("Litteraux -> Clauses \n");
-    printf("Nombre de Litteraux : %i\nNombre de Clauses : %i\n",liste_lt2cl.nLitteraux,liste_lt2cl.nClauses);
-    display_structure(liste_lt2cl);
+    printf("Litteraux -> Clauses - POS \n");
+    printf("Nombre de Litteraux : %i\nNombre de Clauses : %i\n",liste_lt2cl_pos.nLitteraux,liste_lt2cl_pos.nClauses);
+    display_structure(liste_lt2cl_pos);
+
+    printf("Litteraux -> Clauses - NEG \n");
+    printf("Nombre de Litteraux : %i\nNombre de Clauses : %i\n",liste_lt2cl_neg.nLitteraux,liste_lt2cl_neg.nClauses);
+    display_structure(liste_lt2cl_neg);
 
     printf("\n\n------------------FIN TESTS-----------------------\n\n");
 

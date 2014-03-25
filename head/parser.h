@@ -11,4 +11,4 @@ Pour exécuter, tapez : ./bin/DPLL fichier_a_lire(optionel)
 ********************************************************/
 
 
-Status parser_depuis_fichier(FILE *fichier, liste *liste_cl2lt, liste *liste_lt2cl);
+Status parser_depuis_fichier(FILE *fichier, liste *liste_cl2lt, liste *liste_lt2cl_pos, liste *liste_lt2cl_neg);

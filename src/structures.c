@@ -10,12 +10,12 @@ Compilation :
 makefile, make clean
 Pour exécuter, tapez : ./bin/DPLL
 ********************************************************/
+#include <stdlib.h>
+#include <stdio.h>
 
 #include "../head/structures.h"
 #include "../head/const.h"
-
-#include <stdlib.h>
-#include <stdio.h>
+#include "../head/fonctions.h"
 
 
 /**
@@ -28,38 +28,38 @@ Pour exécuter, tapez : ./bin/DPLL
 */
 
 Status init_structures(int n, liste *init_list, Type_struct structure){
-        int i;
+    int i;
         /* Initialisation des variables de la structure */
 
         /*Initialisation pour la structure Litteraux > Clauses */
 
-        if(structure == TYPE_STRUCT_LT2CL){
-            init_list->nLitteraux = n;
-            init_list->nClauses = 0;
-            init_list->structure = TYPE_STRUCT_LT2CL;
-        }
+    if(structure == TYPE_STRUCT_LT2CL){
+        init_list->nLitteraux = n;
+        init_list->nClauses = 0;
+        init_list->structure = TYPE_STRUCT_LT2CL;
+    }
         /* Initialisation pour la stucture Clauses > Litteraux */
-        else{
-            init_list->nClauses = n;
-            init_list->nLitteraux = 0;
-            init_list->structure = TYPE_STRUCT_CL2LT;
-        }
+    else{
+        init_list->nClauses = n;
+        init_list->nLitteraux = 0;
+        init_list->structure = TYPE_STRUCT_CL2LT;
+    }
 
         /* Allocations dynamiques */
 
-        init_list->l = (liste_chainee*)malloc(sizeof(liste_chainee)*n);
-        init_list->last = (cellule**)malloc(sizeof(cellule*)*n);
-        init_list->nEltPerList = (int*)malloc(sizeof(int)*n);
+    init_list->l = (liste_chainee*)malloc(sizeof(liste_chainee)*n);
+    init_list->last = (cellule**)malloc(sizeof(cellule*)*n);
+    init_list->nEltPerList = (int*)malloc(sizeof(int)*n);
         if(init_list->l == NULL || init_list->last == NULL || init_list->nEltPerList == NULL) /* Verification de l'allocation */
-            return ERREUR_ALLOC;
+    return ERREUR_ALLOC;
 
         /*initialisation de chaque premier element des liste chainees a NULL et des variables de la structures de donnees */
 
-        for(i=0;i<n;i++){
-            init_list->l[i] = NULL;
-            init_list->last[i] = NULL;
-            init_list->nEltPerList[i] = 0;
-        }
+    for(i=0;i<n;i++){
+        init_list->l[i] = NULL;
+        init_list->last[i] = NULL;
+        init_list->nEltPerList[i] = 0;
+    }
 
         return OK; /* Si on arrive la c'est que tout s'est bien deroule */
 }
@@ -91,24 +91,24 @@ Status add_list_element_head(liste *linked_list,Type_elt element, int n, int val
     }
 
     /*Creation d'un nouvel element */
-        cell = (cellule*)malloc(sizeof(cellule));
+    cell = (cellule*)malloc(sizeof(cellule));
         if(cell == NULL) /* Verification de l'allocation */
-            return ERREUR_ALLOC;
+    return ERREUR_ALLOC;
         cell->val = value; /* On attribue la valeur passe en parametre au nouvel element */
         cell->element = element; /* on fixe le tŷpe d'element se referer a const.h pour les types d'elements */
         cell->next = linked_list->l[n]; /* on dit que l'element suivant le nouvel element est celui actuellement en tete de liste */
         cell->prev = NULL; /* Le nouvel element n'a pas d'element precedent car on l'ajoute en tete de liste */
         if(linked_list->l[n] == NULL) /* S'il n'y a pas d'element dans la liste alors l'element qu'on ajoute est aussi le dernier */
-            linked_list->last[n] = cell;
+    linked_list->last[n] = cell;
         else /* S'il y a deja des elements */
             linked_list->l[n]->prev = cell; /* Le predecesseur de l'element qui etait en tete de liste devient le nouvel element qu'on ajoute */
 
         linked_list->l[n] = cell; /* on place le nouvel element en tete de liste */
         linked_list->nEltPerList[n]++; /* On incremente le nombre d'element dans cette liste */
         if(linked_list->structure == TYPE_STRUCT_CL2LT) /* Et suivant la structure de donnees le nombre de litteraux ou le nombre de Clauses */
-            linked_list->nLitteraux++;
-        else
-            linked_list->nClauses++;
+    linked_list->nLitteraux++;
+    else
+        linked_list->nClauses++;
 
     return OK; /* Si on arrive la c'est que tout s'est bien deroule */
 }
@@ -142,9 +142,9 @@ Status add_list_element_tail(liste *linked_list,Type_elt element, int n, int val
     }
 
     /*Creation d'un nouvel element */
-        cell = (cellule*)malloc(sizeof(cellule));
+    cell = (cellule*)malloc(sizeof(cellule));
         if(cell == NULL) /* Test de l'allocation */
-            return ERREUR_ALLOC;
+    return ERREUR_ALLOC;
 
         cell->element = element; /* On fixe le type , se referer a const.h pour les types d'elements */
         cell->val = value; /* attribution de la valeur passe en parametre au nouvel element a ajouter en fin de liste */
@@ -152,18 +152,18 @@ Status add_list_element_tail(liste *linked_list,Type_elt element, int n, int val
         if(linked_list->last[n] != NULL){ /* Si il y a un dernier element */
             cell->prev = linked_list->last[n]; /* l'element qui va le preceder est celui qui est en fin de liste */
             linked_list->last[n]->next = cell; /* l'element precedent doit avoir pour successeur le nouvel element qu'on ajoute en fin de liste */
-        }
-        else{
-            cell->prev = NULL;
-            linked_list->l[n] = cell;
-        }
+}
+else{
+    cell->prev = NULL;
+    linked_list->l[n] = cell;
+}
 
-        linked_list->last[n] = cell;
+linked_list->last[n] = cell;
         linked_list->nEltPerList[n]++; /* on incremente le nombre d'element de cette liste */
         if(linked_list->structure == TYPE_STRUCT_CL2LT) /* Selon la structure de donnees on incremente les litteraux ou les clauses */
-            linked_list->nLitteraux++;
-        else
-            linked_list->nClauses++;
+linked_list->nLitteraux++;
+else
+    linked_list->nClauses++;
     return OK; /* Si on arrive la c'est que tout s'est bien deroule */
 }
 
@@ -210,18 +210,18 @@ Status add_list_element_i (liste *linked_list,Type_elt element, int n, int value
             return ERREUR_DEPASSEMENT_MEMOIRE;
     }
 
-      if(i > linked_list->nEltPerList[n] || i < 0)
-            return ERREUR_DEPASSEMENT_MEMOIRE;
+    if(i > linked_list->nEltPerList[n] || i < 0)
+        return ERREUR_DEPASSEMENT_MEMOIRE;
 
     /* Si on l'ajoute en tete de liste (i=0) on est dans le cas 0 */
     if(i==0)
         cases = 0;
     else if(i == linked_list->nEltPerList[n]) /* Si on l'ajoute en fin de liste (i=nEltPerlist[n]) on est dans le cas 1 */
-        cases = 1;
+    cases = 1;
     else
         cases = 2; /* Sinon si on l'ajoute en milieu de liste on est dans le cas 2 */
 
-    switch(cases){
+        switch(cases){
         case 0: /* Pour le cas 0 , on a deja defini cette fonction , on l'utilise */
             add_list_element_head(linked_list,element,n,value);
             break;
@@ -232,7 +232,7 @@ Status add_list_element_i (liste *linked_list,Type_elt element, int n, int value
             tmp = select_list_element(*linked_list,n,i); /* on selectionne l'element en position i de la liste chainee */
             new_elt = (cellule*)malloc(sizeof(cellule)); /* on alloue un nouvel element en memoire */
             if(new_elt == NULL) /* Verification de l'allocation */
-                return ERREUR_ALLOC;
+            return ERREUR_ALLOC;
             new_elt->element = element; /* initisalisation des valeurs */
             new_elt->val = value; /* initisalisation des valeurs */
             new_elt->next = tmp; /* le nouvel element a inserer a la position i , a pour successeur l'element selectione a la position i */
@@ -242,14 +242,14 @@ Status add_list_element_i (liste *linked_list,Type_elt element, int n, int value
             linked_list->nEltPerList[n]++; /* On incremente le nombre d'elements dans cette liste chainee */
 
             if(linked_list->structure == TYPE_STRUCT_CL2LT) /* Selon la structure de donnees on incremente les litteraux ou les clauses */
-                linked_list->nLitteraux++;
+            linked_list->nLitteraux++;
             else
                 linked_list->nClauses++;
             break;
-    }
+        }
 
     return OK; /* Si on arrive la c'est que tout s'est bien deroule */
-}
+    }
 
 /**
 *   Fonction d'affichage graphique d'une liste chainee
@@ -259,16 +259,16 @@ Status add_list_element_i (liste *linked_list,Type_elt element, int n, int value
 
 void display_list(liste linked_list, int n){
     cellule* it = linked_list.l[n];
-    printf("Liste [%i] = ", n); /* On affiche l'en tete */
+    printf("Liste [%i] = ", n+1); /* On affiche l'en tete */
     if(it == NULL) /* S'il n'y a aucun element dans la liste */
         printf(" [] \n"); /* On affiche une liste vide */
     while(it!=NULL){ /* On parcoure tous les elements de la liste */
         if(it->next != NULL) /* si l'element actuel a un successeur */
-            printf(" %i ->",it->val); /* On affiche le motif avec succeseur */
-        else
+            printf(" %i -> ",it->val); /* On affiche le motif avec succeseur */
+    else
             printf("%i -> [] \n",it->val); /* Sinon on affiche le motif de terminaison */
         it = it->next; /* l'element actuel devient l'element suivant */
-    }
+}
 }
 
 /**
@@ -321,10 +321,10 @@ Status del_list_element_head(liste *linked_list,int n){
 
         free(linked_list->l[n]); /* On supprime le premier element */
         linked_list->l[n] = tampon; /* On affecte le nouveau premier element comme etant l'element suivant de celui qui a ete efface */
-        if(linked_list->l[n] != NULL)
+    if(linked_list->l[n] != NULL)
             linked_list->l[n]->prev = NULL; /* On fixe l'element precedent du nouveau premier element de la liste a NULL */
 
-    }
+}
 
     if(linked_list->nEltPerList[n] == 1) /* S'il n'y avait qu'un element */
         linked_list->last[n] = NULL; /* alors on dit que le dernier element de cette liste est NULL (car liste desormais vide) */
@@ -333,9 +333,9 @@ Status del_list_element_head(liste *linked_list,int n){
 
 
     if(linked_list->structure == TYPE_STRUCT_CL2LT) /* selon la structure de donnees on decremente le nombre de clauses ou de litteraux egalement */
-        linked_list->nLitteraux--;
-    else
-        linked_list->nClauses--;
+linked_list->nLitteraux--;
+else
+    linked_list->nClauses--;
 
     return OK; /* Tout s'est bien deroule */
 }
@@ -370,7 +370,7 @@ Status del_list_element_tail(liste *linked_list,int n){
         linked_list->last[n] = tampon; /* L'avant dernier element devient le dernier */
         if(linked_list->last[n] != NULL) /* S'il reste des elements apres suppression */
             linked_list->last[n]->next = NULL; /* On fixe le successeur de l'avant dernier element a NULL (vu qu'on a supprime le dernier) */
-    }
+}
 
     if(linked_list->nEltPerList[n] == 1) /* S'il n'y a qu'un element */
         linked_list->last[n] = NULL; /* Alors il n'y a plus rien dans la liste */
@@ -379,11 +379,46 @@ Status del_list_element_tail(liste *linked_list,int n){
 
 
     if(linked_list->structure == TYPE_STRUCT_CL2LT) /* On decremente le nombre de Litteraux ou de clauses selon la structure adoptee */
-        linked_list->nLitteraux--;
-    else
-        linked_list->nClauses--;
+linked_list->nLitteraux--;
+else
+    linked_list->nClauses--;
 
     return OK; /* Si on est la c'est que tout s'est bien deroule */
+}
+
+
+Status graphe_symetrique(liste entree, liste *sortie_pos, liste *sortie_neg) {
+
+    int i;
+    int j;
+    cellule *cell;
+
+    // parcourt les clauses
+    for (i=0; i<entree.nClauses; i++) {
+        // parcourt les littéraux de chaque clause
+        for (j=0; j<entree.nEltPerList[i]; j++) {
+
+            cell = select_list_element(entree, i, j);
+
+            if ( (cell->val) > 0) {
+                gestion_erreur(add_list_element_tail(
+                               sortie_pos,
+                               TYPE_ELEMENT_CL,
+                               (cell->val)-1,
+                               i+1
+                               ));
+            } else if ( (cell->val) < 0 ) {
+                gestion_erreur(add_list_element_tail(
+                 sortie_neg,
+                 TYPE_ELEMENT_CL,
+                 (- cell->val)-1,
+                 i+1
+                 ));
+            }
+    }
+}
+
+return OK;
 }
 
 
