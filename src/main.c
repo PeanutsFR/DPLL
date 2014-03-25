@@ -27,34 +27,6 @@ int main(int argc, char* argv[]){
 
     // tests();
 
-    printf("\n\n------------------DEBUT TESTS-----------------------\n\n");
-    /*
-    --- Test du Parser ---
-        a) Ouverture d'un fichier saisi en ligne de commande
-        b) Parser le fichier dans les structures de données
-        c) Afficher les structures
-    */
-
-    // a)  /!\ Lancer avec le fichier "test.data"
-    FILE *fichier = saisie_fichier();
-
-    // b)
-    liste liste_cl2lt;
-    liste liste_lt2cl;
-    parser_depuis_fichier(fichier, &liste_cl2lt, &liste_lt2cl);
-
-    // c)
-    printf("Clauses -> Litteraux \n");
-    printf("Nombre de Litteraux : %i\nNombre de Clauses : %i\n",liste_cl2lt.nLitteraux,liste_cl2lt.nClauses);
-    display_structure(liste_cl2lt);
-
-    printf("Litteraux -> Clauses \n");
-    printf("Nombre de Litteraux : %i\nNombre de Clauses : %i\n",liste_lt2cl.nLitteraux,liste_lt2cl.nClauses);
-    display_structure(liste_lt2cl);
-
-    printf("\n\n------------------FIN TESTS-----------------------\n\n");
-
-    /*
     gestion_erreur((st = args(argc,argv)));
     if(st == OK){
 
@@ -73,7 +45,34 @@ int main(int argc, char* argv[]){
                 gestion_erreur(existance_fichier(argv[1],PATH_RELATIVE));
         }
     }
+
+       printf("\n\n------------------DEBUT TESTS-----------------------\n\n");
+    /*
+    --- Test du Parser ---
+        a) Ouverture d'un fichier saisi en ligne de commande
+        b) Parser le fichier dans les structures de données
+        c) Afficher les structures
     */
+
+    // a)  /!\ Lancer avec le fichier "test.data"
+    FILE *fichier = recup_fichierAct();
+
+    // b)
+    liste liste_cl2lt;
+    liste liste_lt2cl;
+    parser_depuis_fichier(fichier, &liste_cl2lt, &liste_lt2cl);
+
+    // c)
+    printf("Clauses -> Litteraux \n");
+    printf("Nombre de Litteraux : %i\nNombre de Clauses : %i\n",liste_cl2lt.nLitteraux,liste_cl2lt.nClauses);
+    display_structure(liste_cl2lt);
+
+    printf("Litteraux -> Clauses \n");
+    printf("Nombre de Litteraux : %i\nNombre de Clauses : %i\n",liste_lt2cl.nLitteraux,liste_lt2cl.nClauses);
+    display_structure(liste_lt2cl);
+
+    printf("\n\n------------------FIN TESTS-----------------------\n\n");
+
     return EXIT_SUCCESS;
 }
 

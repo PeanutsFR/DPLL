@@ -1,8 +1,8 @@
-#include "../head/structures.h"
-#include "../head/const.h"
-
 #include <stdlib.h>
 #include <stdio.h>
+#include "../head/const.h"
+#include "../head/structures.h"
+#include "../head/fonctions.h"
 #include "../head/parser.h"
 
 
@@ -21,6 +21,8 @@ Status parser_depuis_fichier(FILE *fichier, liste *liste_cl2lt, liste *liste_lt2
   char cour = '0'; // nombre sur une ligne
   int num_clause = 0; // numéro de la clause
 
+  char* buffer[200];
+
   int i = 0;
 
   while ( (cour = fgetc(fichier)) != EOF ) {
@@ -36,7 +38,7 @@ Status parser_depuis_fichier(FILE *fichier, liste *liste_cl2lt, liste *liste_lt2
 
       default:
         // écriture dans la liste
-        add_list_element_tail(liste_cl2lt, TYPE_ELEMENT_CL, num_clause, 6);
+        gestion_erreur(add_list_element_tail(liste_cl2lt, TYPE_ELEMENT_LT, num_clause, strtol(&cour,NULL,10))); /* Conversion implicite de long int -> int */
         //add_list_element_i(liste_cl2lt, TYPE_ELEMENT_CL, num_clause, (int) cour, i);
         break;
     }
