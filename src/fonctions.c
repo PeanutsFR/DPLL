@@ -212,6 +212,9 @@ FILE* saisie_fichier(){
         else
             printf("Fichier : %s introuvable ! \n",chemin_fichier);
     }while(!ok);
+    printf("Fichier : %s ouvert \n",chemin_fichier);
+    if(LOGS_ACTIVE)
+        fprintf(fichier_log,"Fichier : %s ouvert avec succes !\n",chemin_fichier);
 
     return fichier_actuel;
 }
