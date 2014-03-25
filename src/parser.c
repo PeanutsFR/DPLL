@@ -45,6 +45,9 @@ Status parser_depuis_fichier(FILE *fichier, liste *liste_cl2lt, liste *liste_lt2
 
   }
 
+
+  // commentaire null
+
   fclose(fichier);
   return OK;
 
