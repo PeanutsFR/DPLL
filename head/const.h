@@ -41,6 +41,14 @@ typedef enum Type_struct{
 } Type_struct;
 
  /**
+* Une enumeration decrivant le type booleen
+*/
+typedef enum Boolean{
+    TRUE = 1, /**< enum value TRUE correspondant a une valeur de verite VRAI */
+    FALSE = 0 /**< enum value FALSE correspondant a une valeur de verite FAUSSE */
+} Boolean;
+
+ /**
 * Une enumeration decrivant les differents type de chemins
 */
 typedef enum Type_path{

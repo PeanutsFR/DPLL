@@ -428,6 +428,23 @@ Status graphe_symetrique(liste entree, liste *sortie_pos, liste *sortie_neg) {
 return OK;
 }
 
+/**
+*   Fonction de predicat pour savoir si un litteral est un monolitteral
+*   @param linked_list structure de donnees
+*   @return renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans const.h dans enum Status
+*/
+Boolean is_mono_litteral(liste linked_list,int n){
+
+    if(linked_list.structure == TYPE_STRUCT_LT2CL){
+        gestion_erreur(ERREUR_TYPE);
+        return FALSE;
+    }
+
+    if(linked_list.nEltPerList[n] == 1)
+        return TRUE;
+    else
+        return FALSE;
+}
 
 /**
 *   Fonction de desallocation de la memoire pour une structure de donnees
