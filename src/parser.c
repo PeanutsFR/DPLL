@@ -9,13 +9,39 @@
 
 Status parser_depuis_fichier(FILE *fichier, liste *liste_cl2lt, liste *liste_lt2cl) {
 
-  int nb_lignes = calculer_nb_lignes(fichier);
+  int nb_lignes = calculer_nb_lignes(fichier); // nombre de lignes du fichier
+  //int ligne[3] = {0}; // stocke les 3 valeurs d'une ligne
 
   // init Clauses -> Littéraux
   init_structures(nb_lignes, liste_cl2lt, TYPE_STRUCT_CL2LT);
 
  // init Littéraux -> Clauses
   init_structures(nb_lignes, liste_lt2cl, TYPE_STRUCT_LT2CL);
+
+  char cour = '0'; // nombre sur une ligne
+  int num_clause = 0; // numéro de la clause
+
+  int i = 0;
+
+  while ( (cour = fgetc(fichier)) != EOF ) {
+    printf("%c", cour);
+
+    switch(cour) {
+      case ' ':
+        break;
+
+      case '\n':
+        num_clause++;
+        break;
+
+      default:
+        // écriture dans la liste
+        add_list_element_tail(liste_cl2lt, TYPE_ELEMENT_CL, num_clause, 6);
+        //add_list_element_i(liste_cl2lt, TYPE_ELEMENT_CL, num_clause, (int) cour, i);
+        break;
+    }
+
+  }
 
   fclose(fichier);
   return OK;
@@ -25,17 +51,18 @@ Status parser_depuis_fichier(FILE *fichier, liste *liste_cl2lt, liste *liste_lt2
 /*
   Compte le nombre de lignes du fichier
 */
-int calculer_nb_lignes(FILE *fichier) {
+  int calculer_nb_lignes(FILE *fichier) {
 
-  int nb_lignes = 0;
-  char c = '0';
+    int nb_lignes = 0;
+    char c = '0';
 
-  while ( (c = fgetc(fichier)) != EOF) {
-    if ( c == '\n') {
-      nb_lignes++;
+    while ( (c = fgetc(fichier)) != EOF) {
+      if ( c == '\n') {
+        nb_lignes++;
+      }
     }
-  }
 
+  rewind(fichier); // renvoie le curseur au début du fichier
   return nb_lignes;
 }
 
