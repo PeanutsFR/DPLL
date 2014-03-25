@@ -259,7 +259,14 @@ Status add_list_element_i (liste *linked_list,Type_elt element, int n, int value
 
 void display_list(liste linked_list, int n){
     cellule* it = linked_list.l[n];
-    printf("Liste [%i] = ", n+1); /* On affiche l'en tete */
+
+    /* Affichage de l'en tete selon le type de strucutre */
+
+    if(linked_list.structure == TYPE_STRUCT_CL2LT)
+        printf("Clause [%i] = ", n+1); /* On affiche l'en tete */
+    else
+        printf("Litteral [%i] = ", n+1); /* On affiche l'en tete */
+
     if(it == NULL) /* S'il n'y a aucun element dans la liste */
         printf(" [] \n"); /* On affiche une liste vide */
     while(it!=NULL){ /* On parcoure tous les elements de la liste */

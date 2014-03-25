@@ -9,6 +9,9 @@
 #include "../head/structures.h"
 #include "../head/fonctions.h"
 
+/* Prototype de readlink */
+ssize_t readlink(const char *pathname, char *buf, size_t bufsiz);
+
 const char* base = "files/";
 const char* logs = "logs/";
 
@@ -50,7 +53,6 @@ Status Create_log(void){
         else
             nom_log[pch - nom_log ] = '\0';
     }
-    printf("NOM_LOG = %s \n",nom_log);
     strcat(nom_log,logs);
     strcat(nom_log,buffer);
     nom_log[strlen(nom_log) -1] = '\0'; /* Efface caractere special en fin de chaine qui causait un pb d'affichage */
@@ -59,7 +61,8 @@ Status Create_log(void){
 }
 
 Status existance_fichier(char* path,Type_path t_path){
-    FILE* fichier = NULL;
+    char* pch;
+    int i;
 
     /* Verification type */
     if(path[0] == '/' && t_path==PATH_RELATIVE){
@@ -69,14 +72,25 @@ Status existance_fichier(char* path,Type_path t_path){
         return ERREUR_TYPE;
     }
 
-    if(t_path == PATH_ABSOLUTE){
-        fichier = fopen(path,"r");
+    if(t_path == PATH_RELATIVE){
+        GetModuleFileName(chemin_fichier,300);
+        for(i=0;i<2;i++){
+            pch = strrchr(chemin_fichier,'/');
+            if (i == 1)
+                chemin_fichier[pch - chemin_fichier + 1] = '\0';
+            else
+                chemin_fichier[pch - chemin_fichier ] = '\0';
+        }
+        strcat(chemin_fichier,base);
+        strcat(chemin_fichier,path);
     }
     else{
-
+        strcpy(chemin_fichier,path);
     }
 
-    if(fichier == NULL)
+    fichier_actuel = fopen(chemin_fichier,"r");
+
+    if(fichier_actuel == NULL)
         return ERREUR_FICHIER_INTROUVABLE;
     else
         return OK;

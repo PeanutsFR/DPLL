@@ -49,14 +49,15 @@ Status parser_depuis_fichier(FILE *fichier, liste *liste_cl2lt, liste *liste_lt2
 
     if (pch != NULL) {
       if ( (pch[0] != 'c') && (pch[0] != 'p') ) {
-
-        gestion_erreur(add_list_element_tail(
-                       liste_cl2lt,
-                       TYPE_ELEMENT_LT,
-                       num_ligne,
-                        strtol(pch,NULL,10) /* Conversion implicite de long int -> int */
-                       ));
-    pch = strtok (NULL, " \n"); /* continue de scanner les littéraux suivants */
+        if( (strtol(pch,NULL,10)) !=0 ){
+            gestion_erreur(add_list_element_tail(
+                           liste_cl2lt,
+                           TYPE_ELEMENT_LT,
+                           num_ligne,
+                            strtol(pch,NULL,10) /* Conversion implicite de long int -> int */
+                           ));
+        }
+        pch = strtok (NULL, " \n"); /* continue de scanner les littéraux suivants */
       }
     }
 

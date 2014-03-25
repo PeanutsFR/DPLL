@@ -20,10 +20,13 @@ Pour exécuter, tapez : ./bin/DPLL
 
 int main(int argc, char* argv[]){
     Status st;
+    printf("\n ----- LOGS : ");
     if(LOGS_ACTIVE){
-        printf("Logs actif.\n");
+        printf("ACTIF -----\n");
         Create_log();
     }
+    else
+        printf("DESACTIVE -----\n");
 
     // tests();
 
@@ -37,12 +40,22 @@ int main(int argc, char* argv[]){
         if(argv[1][0] == '/'){
             if(LOGS_ACTIVE)
                 fprintf(recup_fichier_log(),"Chemin absolu detecte. Recherche du fichier %s...\n", argv[1]);
-                gestion_erreur(existance_fichier(argv[1],PATH_ABSOLUTE));
+                gestion_erreur( (st = existance_fichier(argv[1],PATH_ABSOLUTE)) );
+                if( st == OK ){
+                    printf("Fichier : %s ouvert \n",recup_nom_fichierAct());
+                    if(LOGS_ACTIVE)
+                        fprintf(recup_fichier_log(),"Fichier : %s ouvert avec succes !\n",recup_nom_fichierAct());
+                }
         }
         else{
             if(LOGS_ACTIVE)
                 fprintf(recup_fichier_log(),"Pas de chemin absolu, recherche du fichier %s dans le repertoire files...\n",argv[1]);
-                gestion_erreur(existance_fichier(argv[1],PATH_RELATIVE));
+                gestion_erreur( (st = existance_fichier(argv[1],PATH_RELATIVE)) );
+                if( st == OK ){
+                    printf("Fichier : %s ouvert \n",recup_nom_fichierAct());
+                    if(LOGS_ACTIVE)
+                        fprintf(recup_fichier_log(),"Fichier : %s ouvert avec succes !\n",recup_nom_fichierAct());
+                }
         }
     }
 
@@ -55,7 +68,7 @@ int main(int argc, char* argv[]){
     */
 
     // a)  /!\ Lancer avec le fichier "test.data"
-    FILE *fichier = recup_fichierAct();
+    FILE *fichier = fopen(recup_nom_fichierAct(),"r");
 
     // b)
     liste liste_cl2lt;
