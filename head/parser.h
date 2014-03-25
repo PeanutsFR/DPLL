@@ -12,4 +12,3 @@ Pour exécuter, tapez : ./bin/DPLL fichier_a_lire(optionel)
 
 
 Status parser_depuis_fichier(FILE *fichier, liste *liste_cl2lt, liste *liste_lt2cl);
-int calculer_nb_lignes(FILE *fichier);

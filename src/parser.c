@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "../head/const.h"
 #include "../head/structures.h"
 #include "../head/fonctions.h"
@@ -9,87 +10,63 @@
 
 Status parser_depuis_fichier(FILE *fichier, liste *liste_cl2lt, liste *liste_lt2cl) {
 
-  int nb_lignes = calculer_nb_lignes(fichier); // nombre de lignes du fichier
-  //int ligne[3] = {0}; // stocke les 3 valeurs d'une ligne
 
-  // init Clauses -> Littéraux
-  init_structures(nb_lignes, liste_cl2lt, TYPE_STRUCT_CL2LT);
+  char buffer[200];
+  char* pch;
 
- // init Littéraux -> Clauses
-  init_structures(nb_lignes, liste_lt2cl, TYPE_STRUCT_LT2CL);
+  int num_mot = 0;
+  int num_ligne = 0;
 
-  char cour = '0'; // nombre sur une ligne
-  int num_clause = 0; // numéro de la clause
+  while ( fgets(buffer, sizeof(buffer), fichier) != NULL ) {
 
-  char* buffer[200];
+   pch = strtok (buffer," \n"); /* renvoie le premier élément de la ligne*/
 
-  int i = 0;
+   while (pch != NULL) {
 
-  while ( (cour = fgetc(fichier)) != EOF ) {
-    printf("%c", cour);
+    if (pch[0] == 'c') {
+      pch = NULL;
+    }
 
-    switch(cour) {
-      case ' ':
-        break;
+    if (pch != NULL) {
+      if (pch[0] == 'p') {
 
-      case '\n':
-        num_clause++;
-        break;
+        while (pch != NULL) {
 
-      default:
-        // écriture dans la liste
-        gestion_erreur(add_list_element_tail(liste_cl2lt, TYPE_ELEMENT_LT, num_clause, strtol(&cour,NULL,10))); /* Conversion implicite de long int -> int */
-        //add_list_element_i(liste_cl2lt, TYPE_ELEMENT_CL, num_clause, (int) cour, i);
-        break;
+        // init Littéraux -> Clauses
+          if(num_mot == 2)
+            init_structures(strtol(pch,NULL,10), liste_lt2cl, TYPE_STRUCT_LT2CL);
+
+        // init Clauses -> Littéraux
+          if(num_mot == 3)
+            init_structures(strtol(pch,NULL,10), liste_cl2lt, TYPE_STRUCT_CL2LT);
+
+          pch = strtok (NULL, " \n");
+          num_mot++;
+        }
+      }
+    }
+
+    if (pch != NULL) {
+      if ( (pch[0] != 'c') && (pch[0] != 'p') ) {
+
+        gestion_erreur(add_list_element_tail(
+                       liste_cl2lt,
+                       TYPE_ELEMENT_LT,
+                       num_ligne,
+                        strtol(pch,NULL,10) /* Conversion implicite de long int -> int */
+                       ));
+    pch = strtok (NULL, " \n"); /* continue de scanner les littéraux suivants */
+      }
     }
 
   }
 
-
-  // commentaire null
-
-  fclose(fichier);
-  return OK;
+  if ( (buffer[0] != 'c') && (buffer[0] != 'p'))
+    num_ligne++;
 
 }
 
-/*
-  Compte le nombre de lignes du fichier
-*/
-  int calculer_nb_lignes(FILE *fichier) {
+fclose(fichier);
+return OK;
 
-    int nb_lignes = 0;
-    char c = '0';
-
-    while ( (c = fgetc(fichier)) != EOF) {
-      if ( c == '\n') {
-        nb_lignes++;
-      }
-    }
-
-  rewind(fichier); // renvoie le curseur au début du fichier
-  return nb_lignes;
 }
-
-
-/*
-
-int main(int argc, char *argv[])
-{
-    FILE* fichier = NULL;
-    int score[3] = {0}; // Tableau des 3 meilleurs scores
-
-    fichier = fopen("test.txt", "r");
-
-    if (fichier != NULL)
-    {
-        fscanf(fichier, "%d %d %d", &score[0], &score[1], &score[2]);
-        printf("Les meilleurs scores sont : %d, %d et %d", score[0], score[1], score[2]);
-
-        fclose(fichier);
-    }
-
-    return 0;
-}
-
-*/
