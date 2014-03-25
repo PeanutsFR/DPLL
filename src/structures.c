@@ -20,7 +20,7 @@ Pour exécuter, tapez : ./bin/DPLL
 
 /**
 *   Fonction d'initialisation d'une structure du type literaux > clauses
-*   @param nLit taille du tableau a allouer (allocation dynamique)
+*   @param n taille du tableau a allouer (allocation dynamique)
 *   @param init_list pointeur sur la structure à initialiser
 *   @param type Correspond au type de structure de donnees : structure = TYPE_STRUCT_LT2CL -> litteraux > Clauses
 *                                                            structure = TYPE_STRUCT_CL2LT -> Clauses > Litteraux
