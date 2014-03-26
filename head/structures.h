@@ -53,6 +53,10 @@ void display_structure(liste linked_list);
 cellule* select_list_element(liste linked_list,int n, int i);
 Status graphe_symetrique(liste entree, liste *sortie_pos, liste *sortie_neg);
 Boolean element_exists(liste linked_list, int value);
+cellule* find_element(liste linked_list, int value);
 Boolean is_pure_litteral(liste cl2lt,cellule *litteral);
+Boolean is_pure_litteral_int(liste cl2lt,int litteral);
 Boolean is_mono_litteral(liste cl2lt, liste lt2cl_pos, liste lt2cl_neg, cellule *litteral);
+cellule* find_mono_litteral(liste cl2lt);
+cellule* find_pure_litteral(liste cl2lt,liste lt2cl_pos,liste lt2cl_neg);
 #endif /* STRUCTURES */

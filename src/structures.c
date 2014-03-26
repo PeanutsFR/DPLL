@@ -477,23 +477,38 @@ Boolean is_mono_litteral(liste cl2lt, liste lt2cl_pos, liste lt2cl_neg, cellule 
     /* On recupere la liste des clauses dans lequel apparait ce litteral */
     for(i=0;i<l.nEltPerList[valeur_abs -1];i++){
         clause = select_list_element(l,valeur_abs -1,i);
-        if(cl2lt.nEltPerList[(clause->val) - 1] != 1)
-            return FALSE;
-        else{
-            if( (cl2lt.l[(clause->val) - 1] != NULL) && (cl2lt.l[(clause->val) - 1]->val != litteral->val) )
-                return FALSE;
-        }
+        if(cl2lt.nEltPerList[(clause->val) - 1] == 1 && (cl2lt.l[(clause->val) - 1]->val == litteral->val))
+            return TRUE;
     }
 
-    return TRUE;
+    return FALSE;
 }
 
+/**
+*   Fonction qui cherche et retourne un mono litteral s'il y en a
+*   @param cl2lt structure de donnees clauses -> litteraux
+*   @return renvoie un pointeur vers le mono litteral s'il existe , NULL sinon
+*/
+cellule* find_mono_litteral(liste cl2lt){
+    int i;
+    /* Verifications de types */
+    if(cl2lt.structure == TYPE_STRUCT_LT2CL){
+        gestion_erreur(ERREUR_TYPE);
+        return FALSE;
+    }
+
+    for(i=0;i<cl2lt.nClauses;i++){
+        if(cl2lt.nEltPerList[i] == 1)
+            return cl2lt.l[i];
+    }
+
+    return NULL;
+}
 
 /**
 *   Fonction de predicat pour savoir si un litteral est un litteral pur
 *   @param cl2lt structure de donnees clauses -> litteraux
-*   @param lt2cl_pos structure de donnees litteraux positifs -> clauses
-*   @param lt2cl_neg structure de donnees litteraux negatifs -> clauses
+*   @param litteral pointeur vers l'element litteral
 *   @return renvoie TRUE si la valeur est un litteral pur , FALSE sinon. (voir enum Boolean const.h)
 */
 Boolean is_pure_litteral(liste cl2lt,cellule *litteral){
@@ -507,6 +522,47 @@ Boolean is_pure_litteral(liste cl2lt,cellule *litteral){
         return FALSE; /* ce n'est pas un litteral pur */
 
     return TRUE;
+}
+
+/**
+*   Fonction de predicat pour savoir si un litteral est un litteral pur
+*   @param cl2lt structure de donnees clauses -> litteraux
+*   @param litteral valeur du litteral
+*   @return renvoie TRUE si la valeur est un litteral pur , FALSE sinon. (voir enum Boolean const.h)
+*/
+Boolean is_pure_litteral_int(liste cl2lt,int litteral){
+
+    if(element_exists(cl2lt,(-litteral)) ) /* Si l'oppose existe dans une des clauses */
+        return FALSE; /* ce n'est pas un litteral pur */
+
+    return TRUE;
+}
+
+/**
+*   Fonction qui cherche et retourne un litteral pur s'il y en a
+*   @param cl2lt structure de donnees clauses -> litteraux
+*   @return renvoie un pointeur vers le litteral pur s'il existe , NULL sinon
+*/
+cellule* find_pure_litteral(liste cl2lt,liste lt2cl_pos,liste lt2cl_neg){
+    int i;
+    /* Verifs de type */
+
+    if(lt2cl_pos.structure == TYPE_STRUCT_CL2LT){
+        gestion_erreur(ERREUR_TYPE);
+        return FALSE;
+    }
+
+    if(lt2cl_neg.structure == TYPE_STRUCT_CL2LT){
+        gestion_erreur(ERREUR_TYPE);
+        return FALSE;
+    }
+
+    for(i=0;i<lt2cl_pos.nLitteraux;i++){
+        if(is_pure_litteral_int(cl2lt,(i+1)))
+           return find_element(cl2lt,(i+1));
+    }
+
+    return NULL;
 }
 
 /**
@@ -533,6 +589,32 @@ Boolean element_exists(liste linked_list, int value){
     }
 
     return FALSE;
+}
+
+/**
+*   Fonction qui renvoie le premier element trouve correspondant a la valeur recherchee
+*   @param linked_list structure de donnees
+*   @param value valeur a verifier l'existance
+*   @return renvoie un pointeur vers l'element trouve , NULL sinon.
+*/
+cellule* find_element(liste linked_list, int value){
+    int i,j,n;
+    cellule *cell = NULL;
+
+    if(linked_list.structure == TYPE_STRUCT_CL2LT)
+        n = linked_list.nClauses;
+    else
+        n = linked_list.nLitteraux;
+
+    for(i=0;i<n;i++){
+        for(j=0;j<linked_list.nEltPerList[n];j++){
+            cell = select_list_element(linked_list,i,j);
+            if(cell->val == value)
+                return cell;
+        }
+    }
+
+    return NULL;
 }
 
 /**

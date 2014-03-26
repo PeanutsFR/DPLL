@@ -14,7 +14,7 @@ Pour exécuter, tapez : ./bin/DPLL
 #define CONSTANTES
 
 /* Defines */
-#define LOGS_ACTIVE 0 /* Mettre a 0 pour desactiver les logs */
+#define LOGS_ACTIVE 1 /* Mettre a 0 pour desactiver les logs */
 
 typedef int position;
 
