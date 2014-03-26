@@ -429,21 +429,110 @@ return OK;
 }
 
 /**
-*   Fonction de predicat pour savoir si un litteral est un monolitteral
-*   @param linked_list structure de donnees
-*   @return renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans const.h dans enum Status
+*   Fonction de predicat pour savoir si un litteral est un mono litteral
+*   @param cl2lt structure de donnees clause -> litteral
+*   @return renvoie TRUE si la valeur est un mono litteral, FALSE sinon. (voir enum Boolean const.h)
 */
-Boolean is_mono_litteral(liste linked_list,int n){
+Boolean is_mono_litteral(liste cl2lt, liste lt2cl_pos, liste lt2cl_neg, cellule *litteral){
 
-    if(linked_list.structure == TYPE_STRUCT_LT2CL){
+    int i,valeur_abs;
+    liste l;
+    cellule *clause = NULL;
+
+    /* Verifications de types */
+
+    if(cl2lt.structure == TYPE_STRUCT_LT2CL){
         gestion_erreur(ERREUR_TYPE);
         return FALSE;
     }
 
-    if(linked_list.nEltPerList[n] == 1)
-        return TRUE;
-    else
+    if(lt2cl_pos.structure == TYPE_STRUCT_CL2LT){
+        gestion_erreur(ERREUR_TYPE);
         return FALSE;
+    }
+
+    if(lt2cl_neg.structure == TYPE_STRUCT_CL2LT){
+        gestion_erreur(ERREUR_TYPE);
+        return FALSE;
+    }
+
+    if(litteral->element == TYPE_ELEMENT_CL){
+        gestion_erreur(ERREUR_TYPE);
+        return FALSE;
+    }
+
+    /* Fin des verifications */
+
+    /* On regarde si le litteral est positif ou negatif */
+
+    if(litteral->val > 0){
+        l = lt2cl_pos;
+        valeur_abs = litteral->val;
+    }
+    else{
+        l = lt2cl_neg;
+        valeur_abs = -litteral->val;
+    }
+
+    /* On recupere la liste des clauses dans lequel apparait ce litteral */
+    for(i=0;i<l.nEltPerList[valeur_abs -1];i++){
+        clause = select_list_element(l,valeur_abs -1,i);
+        if(cl2lt.nEltPerList[(clause->val) - 1] != 1)
+            return FALSE;
+        else{
+            if( (cl2lt.l[(clause->val) - 1] != NULL) && (cl2lt.l[(clause->val) - 1]->val != litteral->val) )
+                return FALSE;
+        }
+    }
+
+    return TRUE;
+}
+
+
+/**
+*   Fonction de predicat pour savoir si un litteral est un litteral pur
+*   @param cl2lt structure de donnees clauses -> litteraux
+*   @param lt2cl_pos structure de donnees litteraux positifs -> clauses
+*   @param lt2cl_neg structure de donnees litteraux negatifs -> clauses
+*   @return renvoie TRUE si la valeur est un litteral pur , FALSE sinon. (voir enum Boolean const.h)
+*/
+Boolean is_pure_litteral(liste cl2lt,cellule *litteral){
+    /* Verifs de type */
+    if(litteral->element == TYPE_ELEMENT_CL){
+        gestion_erreur(ERREUR_TYPE);
+        return FALSE;
+    }
+
+    if(element_exists(cl2lt,(-litteral->val)) ) /* Si l'oppose existe dans une des clauses */
+        return FALSE; /* ce n'est pas un litteral pur */
+
+    return TRUE;
+}
+
+/**
+*   Fonction de predicat pour savoir si une valeur existe dans une structure
+*   @param linked_list structure de donnees
+*   @param value valeur a verifier l'existance
+*   @return renvoie TRUE si la valeur figure dans la structure , FALSE sinon. (voir enum Boolean const.h)
+*/
+Boolean element_exists(liste linked_list, int value){
+    int i,j,n;
+    cellule *cell = NULL;
+
+    if(linked_list.structure == TYPE_STRUCT_CL2LT)
+        n = linked_list.nClauses;
+    else
+        n = linked_list.nLitteraux;
+
+    for(i=0;i<n;i++){
+        for(j=0;j<linked_list.nEltPerList[n];j++){
+            cell = select_list_element(linked_list,i,j);
+            if(cell->val == value)
+                return TRUE;
+        }
+    }
+
+    return FALSE;
 }
 
 /**
