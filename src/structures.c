@@ -559,7 +559,9 @@ cellule* find_pure_litteral(liste cl2lt,liste lt2cl_pos,liste lt2cl_neg){
 
     for(i=0;i<lt2cl_pos.nLitteraux;i++){
         if(is_pure_litteral_int(cl2lt,(i+1)))
-           return find_element(cl2lt,(i+1));
+            return find_element(cl2lt,(i+1));
+        if(is_pure_litteral_int(cl2lt,-(i+1)))
+            return find_element(cl2lt,-(i+1));
     }
 
     return NULL;
