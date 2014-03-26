@@ -16,6 +16,7 @@ Pour exécuter, tapez : ./bin/DPLL
 #include "../head/structures.h"
 #include "../head/fonctions.h"
 #include "../head/parser.h"
+#include "../head/dpll.h"
 
 
 int main(int argc, char* argv[]){
@@ -96,6 +97,8 @@ int main(int argc, char* argv[]){
     display_structure(liste_lt2cl_neg);
 
     printf("\n\n------------------FIN TESTS-----------------------\n\n");
+
+    dpll(liste_cl2lt,liste_lt2cl_pos,liste_lt2cl_neg);
 
     return EXIT_SUCCESS;
 }
