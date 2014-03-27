@@ -1,5 +1,5 @@
 /*******************************************************
-Nom ......... : parser.h
+Nom ......... : dpll.h
 Role ........ : Exécuter l'algorithme DPLL
 Auteur(s) ...... : HRUSTIC Emir, BOUAZIZ Mehdi
 Version ..... : V0.1 du 15/03/2014

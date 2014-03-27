@@ -4,7 +4,7 @@
 #include "../head/structures.h"
 #include "../head/fonctions.h"
 #include "../head/parser.h"
-#include "../head/../head/dpll.h"
+#include "../head/dpll.h"
 
 Status dpll(liste cl2lt, liste lt2cl_pos , liste lt2cl_neg){
   int i,j,temp;
@@ -229,28 +229,32 @@ int first_satisfy(liste lt2cl_pos, liste lt2cl_neg) {
 }
 
 
-/* FIRST FAIL BIS */
+/* FIRST FAIL BIS => à débugger encore un peu */
 int first_fail_bis(liste cl2lt, liste lt2cl_pos, liste lt2cl_neg) {
 
   int i, taille_max_clause;
+  taille_max_clause = 0;
 
  /* on calcule la taille de la plus grande clause */
   for (i=0; i<cl2lt.nClauses; i++) {
+    //printf("i : %i \n", i);
+    //printf("taille_max_clause : %i \n", taille_max_clause);
     if (taille_max_clause < cl2lt.nEltPerList[i])
       taille_max_clause = cl2lt.nEltPerList[i];
   }
 
-  printf("taille_max_clause : %i !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n", taille_max_clause);
+  //printf("taille_max_clause finale : %i \n", taille_max_clause);
 
    /* on parcourt tous les littéraux positifs */
   for(i=0; i<lt2cl_pos.nLitteraux; i++){
       /* on ne traite que les "petites" clauses */
-      if ( lt2cl_neg.nEltPerList[i] <= (taille_max_clause /2) ) {
+    if ( lt2cl_neg.nEltPerList[i] <= (taille_max_clause /2) ) { // DEBUG ICI
+      //printf("%i <= %i : %i \n", lt2cl_neg.nEltPerList[i], (taille_max_clause/2));
         /* on regarde si le littéral positif possède un opposé */
-        if (lt2cl_neg.nEltPerList[i] != 0)
+      if (lt2cl_neg.nEltPerList[i] != 0)
           return i+1; /* on retourne le numéro du littéral trouvé*/
-      }
-  }
+    }
+}
 
 return 0;
 
