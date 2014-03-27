@@ -4,6 +4,6 @@
 
 make clean
 make
-./bin/dpll
+./bin/dpll test.data
 
 exit 0

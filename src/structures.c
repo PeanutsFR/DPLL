@@ -394,6 +394,7 @@ else
 }
 
 
+
 Status graphe_symetrique(liste entree, liste *sortie_pos, liste *sortie_neg) {
 
     int i;
@@ -618,6 +619,9 @@ cellule* find_element(liste linked_list, int value){
 
     return NULL;
 }
+
+
+
 
 /**
 *   Fonction de desallocation de la memoire pour une structure de donnees

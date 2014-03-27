@@ -16,7 +16,7 @@ Pour exécuter, tapez : ./bin/DPLL
 #include "../head/structures.h"
 #include "../head/fonctions.h"
 #include "../head/parser.h"
-
+#include "../head/dpll.h"
 
 int main(int argc, char* argv[]){
     Status st;
@@ -83,17 +83,29 @@ int main(int argc, char* argv[]){
     graphe_symetrique(liste_cl2lt, &liste_lt2cl_pos, &liste_lt2cl_neg);
 
     // c)
-    printf("Clauses -> Litteraux \n");
+    printf("\n\nClauses -> Litteraux \n");
     printf("Nombre de Litteraux : %i\nNombre de Clauses : %i\n",liste_cl2lt.nLitteraux,liste_cl2lt.nClauses);
     display_structure(liste_cl2lt);
 
-    printf("Litteraux -> Clauses - POS \n");
+    printf("\n\nLitteraux -> Clauses - POS \n");
     printf("Nombre de Litteraux : %i\nNombre de Clauses : %i\n",liste_lt2cl_pos.nLitteraux,liste_lt2cl_pos.nClauses);
     display_structure(liste_lt2cl_pos);
 
-    printf("Litteraux -> Clauses - NEG \n");
+    printf("\n\nLitteraux -> Clauses - NEG \n");
     printf("Nombre de Litteraux : %i\nNombre de Clauses : %i\n",liste_lt2cl_neg.nLitteraux,liste_lt2cl_neg.nClauses);
     display_structure(liste_lt2cl_neg);
+
+    int max_lit = 0;
+    max_lit = first_satisfy(liste_lt2cl_pos, liste_lt2cl_neg);
+
+    printf("\n\nFirst Satisfy \n");
+    printf("Littéral qui apparait le plus : %d \n", max_lit);
+
+    int first_fail = 0;
+    first_fail = first_fail(liste_lt2cl_pos, liste_lt2cl_neg);
+
+    printf("\n\nFirst Fail \n");
+    printf("Littéral qui possède un opposé : %d \n", first_fail);
 
     printf("\n\n------------------FIN TESTS-----------------------\n\n");
 
