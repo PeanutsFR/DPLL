@@ -216,23 +216,42 @@ int first_satisfy(liste lt2cl_pos, liste lt2cl_neg) {
 /* FIRST FAIL */
   int first_fail(liste lt2cl_pos, liste lt2cl_neg) {
 
-    int i,j,n;
-
-    n = lt2cl_pos.nLitteraux;
+    int i;
 
    /* on parcourt tous les littéraux positifs */
-    for(i=0; i<n; i++){
-      /* on parcourt le nombre de clauses de chaque littéral (taille de sa liste de clauses associée)*/
-      for(j=0; j<lt2cl_pos.nEltPerList[i]; j++){
-        /* on regarde si le littéral positif possède un opposé (littéral négatif correspondant)*/
-        if (lt2cl_neg.nEltPerList[i] != 0)
+    for(i=0; i<lt2cl_pos.nLitteraux; i++){
+      /* on regarde si le littéral positif possède un opposé (littéral négatif correspondant)*/
+      if (lt2cl_neg.nEltPerList[i] != 0)
           return i+1; /* on retourne le numéro du littéral trouvé*/
-      }
-  }
+    }
 
   return 0;
 }
 
 
 /* FIRST FAIL BIS */
-// int first_fail_bis(void) {}
+int first_fail_bis(liste cl2lt, liste lt2cl_pos, liste lt2cl_neg) {
+
+  int i, taille_max_clause;
+
+ /* on calcule la taille de la plus grande clause */
+  for (i=0; i<cl2lt.nClauses; i++) {
+    if (taille_max_clause < cl2lt.nEltPerList[i])
+      taille_max_clause = cl2lt.nEltPerList[i];
+  }
+
+  printf("taille_max_clause : %i !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n", taille_max_clause);
+
+   /* on parcourt tous les littéraux positifs */
+  for(i=0; i<lt2cl_pos.nLitteraux; i++){
+      /* on ne traite que les "petites" clauses */
+      if ( lt2cl_neg.nEltPerList[i] <= (taille_max_clause /2) ) {
+        /* on regarde si le littéral positif possède un opposé */
+        if (lt2cl_neg.nEltPerList[i] != 0)
+          return i+1; /* on retourne le numéro du littéral trouvé*/
+      }
+  }
+
+return 0;
+
+}
