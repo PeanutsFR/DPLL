@@ -17,10 +17,15 @@ Pour exécuter, tapez : ./bin/DPLL
 #include "../head/fonctions.h"
 #include "../head/parser.h"
 #include "../head/dpll.h"
+#include "../head/generateur_cnf.h"
 
 
 int main(int argc, char* argv[]){
-    Status st;
+
+    generer_pigeons(3, 2); /* generer_pigeons(nb_pigeons, nb_fichiers) */
+
+
+ /*   Status st;
     printf("\n ----- LOGS : ");
     if(LOGS_ACTIVE){
         printf("ACTIF -----\n");
@@ -61,12 +66,12 @@ int main(int argc, char* argv[]){
     }
 
     printf("\n\n------------------DEBUT TESTS-----------------------\n\n");
-    /*
+
     --- Test du Parser ---
         a) Ouverture d'un fichier saisi en ligne de commande
         b) Parser le fichier dans les structures de données
         c) Afficher les structures
-    */
+
 
     // a)  /!\ Lancer avec le fichier "test.data"
 FILE *fichier = fopen(recup_nom_fichierAct(),"r");
@@ -116,7 +121,10 @@ printf("Littéral qui possède un opposé dans une petite clause : %d \n", fail_
 
 printf("\n\n------------------FIN TESTS-----------------------\n\n");
 
+*/
+
     //dpll(liste_cl2lt,liste_lt2cl_pos,liste_lt2cl_neg);
+
 
 return EXIT_SUCCESS;
 }

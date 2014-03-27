@@ -15,6 +15,7 @@ Pour exécuter, tapez : ./bin/DPLL fichier_a_lire(optionel)
 
 
 /* Prototypes des fonctions */
-Status generer_pigeons(void);
-Status generer_3sat(void);
+Status generer_pigeons(int n_pigeons, int n_fichiers);
+Status remplir_pigeons(FILE *fichier, int n_pigeons);
+Status generer_3sat(int n_fichiers);
 #endif
