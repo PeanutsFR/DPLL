@@ -102,15 +102,15 @@ int main(int argc, char* argv[]){
     printf("\n\nFirst Satisfy \n");
     printf("Littéral qui apparait le plus : %d \n", max_lit);
 
-    int first_fail = 0;
-    first_fail = first_fail(liste_lt2cl_pos, liste_lt2cl_neg);
+    int fail_lit = 0;
+    fail_lit = first_fail(liste_lt2cl_pos, liste_lt2cl_neg);
 
     printf("\n\nFirst Fail \n");
-    printf("Littéral qui possède un opposé : %d \n", first_fail);
+    printf("Littéral qui possède un opposé : %d \n", fail_lit);
 
     printf("\n\n------------------FIN TESTS-----------------------\n\n");
 
-    dpll(liste_cl2lt,liste_lt2cl_pos,liste_lt2cl_neg);
+    //dpll(liste_cl2lt,liste_lt2cl_pos,liste_lt2cl_neg);
 
     return EXIT_SUCCESS;
 }
