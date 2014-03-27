@@ -18,6 +18,7 @@ Pour exécuter, tapez : ./bin/DPLL
 #include "../head/parser.h"
 #include "../head/dpll.h"
 
+
 int main(int argc, char* argv[]){
     Status st;
     printf("\n ----- LOGS : ");
@@ -108,6 +109,8 @@ int main(int argc, char* argv[]){
     printf("Littéral qui possède un opposé : %d \n", first_fail);
 
     printf("\n\n------------------FIN TESTS-----------------------\n\n");
+
+    dpll(liste_cl2lt,liste_lt2cl_pos,liste_lt2cl_neg);
 
     return EXIT_SUCCESS;
 }

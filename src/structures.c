@@ -251,6 +251,79 @@ Status add_list_element_i (liste *linked_list,Type_elt element, int n, int value
     return OK; /* Si on arrive la c'est que tout s'est bien deroule */
     }
 
+
+    /**
+*   Fonction de suppression d'un element d' une liste chainee a la position i
+*   @param linked_list pointeur sur la strtucutrede donnees
+*   @param n Correspond a l'indice du tableau de liste chainee auquel ajouter l'element
+*   @param i Correspond a la position ou inserer l'element dans la liste chainee
+*   @return renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans const.h dans enum Status
+*/
+Status del_list_element_i (liste *linked_list, int n, position i){
+    int cases = 0;
+    cellule *tmp = NULL;
+
+    /* Verifications preliminaires (compatibilite et debordement de memoire )*/
+
+    if(i > linked_list->nEltPerList[n] || i < 0)
+        return ERREUR_DEPASSEMENT_MEMOIRE;
+
+    /* Si on l'ajoute en tete de liste (i=0) on est dans le cas 0 */
+    if(i==0)
+        cases = 0;
+    else if(i == linked_list->nEltPerList[n]) /* Si on l'ajoute en fin de liste (i=nEltPerlist[n]) on est dans le cas 1 */
+    cases = 1;
+    else
+        cases = 2; /* Sinon si on l'ajoute en milieu de liste on est dans le cas 2 */
+
+        switch(cases){
+        case 0: /* Pour le cas 0 , on a deja defini cette fonction , on l'utilise */
+            del_list_element_head(linked_list,n);
+            break;
+        case 1:/* Pour le cas 1 , on a deja defini cette fonction , on l'utilise */
+            del_list_element_tail(linked_list,n);
+            break;
+        default: /* Pour le cas 2 */
+            tmp = select_list_element(*linked_list,n,i); /* on selectionne l'element en position i de la liste chainee */
+            tmp->prev->next = tmp->next; /* le predecesseur de l'element qui etait a la position i a pour successeur le nouvel element alloue */
+            if(tmp->next != NULL)
+                tmp->next->prev = tmp->prev; /* le predecesseur de le l'element qui etait a la postion i est le nouvel element */
+            free(tmp);
+            linked_list->nEltPerList[n]--; /* On incremente le nombre d'elements dans cette liste chainee */
+            if(linked_list->structure == TYPE_STRUCT_CL2LT) /* Selon la structure de donnees on incremente les litteraux ou les clauses */
+            linked_list->nLitteraux--;
+            else
+                linked_list->nClauses--;
+            break;
+        }
+
+    return OK; /* Si on arrive la c'est que tout s'est bien deroule */
+    }
+
+/**
+*   Fonction de suppression d'un element d' une liste chainee a la position i
+*   @param linked_list pointeur sur la strtucutrede donnees
+*   @param n Correspond a l'indice du tableau de liste chainee auquel ajouter l'element
+*   @param i Correspond a la position ou inserer l'element dans la liste chainee
+*   @return renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans const.h dans enum Status
+*/
+Status del_list_element_by_value(liste *linked_list, int n, int value){
+    cellule *it = linked_list->l[n];
+    int compteur = 0;
+
+    while( (it != NULL) && (it->val!=value)){
+        it = it->next;
+        compteur++;
+    }
+
+    if(it!=NULL)
+        del_list_element_i(linked_list,n,compteur);
+    else
+        return ERREUR_LISTE_VIDE;
+
+    return OK; /* Si on arrive la c'est que tout s'est bien deroule */
+    }
+
 /**
 *   Fonction d'affichage graphique d'une liste chainee
 *   @param linked_list pointeur sur la strtucutrede donnees
@@ -270,12 +343,21 @@ void display_list(liste linked_list, int n){
     if(it == NULL) /* S'il n'y a aucun element dans la liste */
         printf(" [] \n"); /* On affiche une liste vide */
     while(it!=NULL){ /* On parcoure tous les elements de la liste */
-        if(it->next != NULL) /* si l'element actuel a un successeur */
-            printf(" %i -> ",it->val); /* On affiche le motif avec succeseur */
-    else
-            printf("%i -> [] \n",it->val); /* Sinon on affiche le motif de terminaison */
+        if(it->next != NULL){ /* si l'element actuel a un successeur */
+            if(linked_list.structure == TYPE_STRUCT_CL2LT)
+                printf(" %i -> ",it->val); /* On affiche le motif avec succeseur */
+            else
+                printf(" %i -> ",it->val+1);
+        }
+        else{
+            if(linked_list.structure == TYPE_STRUCT_CL2LT)
+                printf("%i -> [] \n",it->val); /* Sinon on affiche le motif de terminaison */
+            else
+                printf("%i -> [] \n",it->val+1); /* Sinon on affiche le motif de terminaison */
+
+        }
         it = it->next; /* l'element actuel devient l'element suivant */
-}
+    }
 }
 
 /**
@@ -413,14 +495,14 @@ Status graphe_symetrique(liste entree, liste *sortie_pos, liste *sortie_neg) {
                                sortie_pos,
                                TYPE_ELEMENT_CL,
                                (cell->val)-1,
-                               i+1
+                               i
                                ));
             } else if ( (cell->val) < 0 ) {
                 gestion_erreur(add_list_element_tail(
                  sortie_neg,
                  TYPE_ELEMENT_CL,
                  (- cell->val)-1,
-                 i+1
+                 i
                  ));
             }
     }
@@ -519,6 +601,12 @@ Boolean is_pure_litteral(liste cl2lt,cellule *litteral){
         return FALSE;
     }
 
+    if(litteral == NULL){
+        gestion_erreur(ERREUR_DEPASSEMENT_MEMOIRE);
+        return FALSE;
+    }
+
+
     if(element_exists(cl2lt,(-litteral->val)) ) /* Si l'oppose existe dans une des clauses */
         return FALSE; /* ce n'est pas un litteral pur */
 
@@ -532,6 +620,9 @@ Boolean is_pure_litteral(liste cl2lt,cellule *litteral){
 *   @return renvoie TRUE si la valeur est un litteral pur , FALSE sinon. (voir enum Boolean const.h)
 */
 Boolean is_pure_litteral_int(liste cl2lt,int litteral){
+
+    if(element_exists(cl2lt,litteral) == FALSE)
+        return FALSE;
 
     if(element_exists(cl2lt,(-litteral)) ) /* Si l'oppose existe dans une des clauses */
         return FALSE; /* ce n'est pas un litteral pur */
@@ -561,6 +652,7 @@ cellule* find_pure_litteral(liste cl2lt,liste lt2cl_pos,liste lt2cl_neg){
     for(i=0;i<lt2cl_pos.nLitteraux;i++){
         if(is_pure_litteral_int(cl2lt,(i+1)))
             return find_element(cl2lt,(i+1));
+
         if(is_pure_litteral_int(cl2lt,-(i+1)))
             return find_element(cl2lt,-(i+1));
     }
@@ -584,7 +676,7 @@ Boolean element_exists(liste linked_list, int value){
         n = linked_list.nLitteraux;
 
     for(i=0;i<n;i++){
-        for(j=0;j<linked_list.nEltPerList[n];j++){
+        for(j=0;j<linked_list.nEltPerList[i];j++){
             cell = select_list_element(linked_list,i,j);
             if(cell->val == value)
                 return TRUE;
@@ -610,7 +702,7 @@ cellule* find_element(liste linked_list, int value){
         n = linked_list.nLitteraux;
 
     for(i=0;i<n;i++){
-        for(j=0;j<linked_list.nEltPerList[n];j++){
+        for(j=0;j<linked_list.nEltPerList[i];j++){
             cell = select_list_element(linked_list,i,j);
             if(cell->val == value)
                 return cell;
@@ -629,8 +721,7 @@ cellule* find_element(liste linked_list, int value){
 *   @return renvoie un status , OK si tout s'est bien deroule sinon une ERREUR definie dans const.h dans enum Status
 */
 Status destroy_structures(liste* linked_list){
-    /*
-    int i,n;
+    int i,j,n;
 
     if(linked_list->structure == TYPE_STRUCT_CL2LT)
         n = linked_list->nClauses;
@@ -640,15 +731,45 @@ Status destroy_structures(liste* linked_list){
 
 
     for(i=0;i<n;i++){
-
+        for(j=0;j<linked_list->nEltPerList[i];j++)
+            del_list_element_head(linked_list,i);
     }
-
-
 
     free(linked_list->last);
     free(linked_list->nEltPerList);
     free(linked_list->l);
-    */
     return OK;
 
+}
+
+Boolean element_exists_n(liste linked_list, int n, int value){
+    int i;
+    cellule *cell = NULL;
+    for(i=0;i<linked_list.nEltPerList[n];i++){
+            cell = select_list_element(linked_list,n,i);
+            if(cell->val == value)
+                return TRUE;
+            }
+    return FALSE;
+}
+
+Boolean is_liste_vide(liste linked_list){
+    int i,n;
+    if(linked_list.structure == TYPE_STRUCT_CL2LT)
+        n = linked_list.nClauses;
+    else
+        n = linked_list.nLitteraux;
+
+    for(i=0;i<n;i++){
+        if(linked_list.nEltPerList[i] != 0)
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+Status del_list_i(liste *linked_list,int n){
+    while(linked_list->nEltPerList[n] != 0)
+        del_list_element_head(linked_list,n);
+    return OK;
 }

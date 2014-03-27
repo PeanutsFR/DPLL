@@ -33,11 +33,18 @@ typedef struct liste {
     Type_struct structure;
 } liste;
 
-/*
-liste clause2lit;
-liste lit2clause_pos;
-liste lit2clause_neg;
-*/
+typedef cellule *litteral;
+typedef int *tab_clauses;
+typedef struct File {
+    litteral *lt;
+    tab_clauses cl;
+    struct File *next;
+} File;
+typedef struct Pile {
+    litteral *lt;
+    tab_clauses cl;
+    struct Pile *next;
+} Pile;
 
 
 /* Prototypes des fonctions */
@@ -48,15 +55,22 @@ Status del_list_element_head(liste *linked_list,int n);
 Status add_list_element_tail(liste *linked_list,Type_elt element, int n, int value);
 Status del_list_element_tail(liste *linked_list,int n);
 Status add_list_element_i (liste *linked_list,Type_elt element, int n, int value, position i);
+Status del_list_element_i (liste *linked_list, int n, position i);
+Status del_list_element_by_value(liste *linked_list, int n, int value);
+Status del_list_i(liste *linked_list,int n);
+Boolean is_liste_vide(liste linked_list);
 void display_list(liste linked_list, int n);
 void display_structure(liste linked_list);
 cellule* select_list_element(liste linked_list,int n, int i);
 Status graphe_symetrique(liste entree, liste *sortie_pos, liste *sortie_neg);
 Boolean element_exists(liste linked_list, int value);
+Boolean element_exists_n(liste linked_list, int n, int value);
 cellule* find_element(liste linked_list, int value);
 Boolean is_pure_litteral(liste cl2lt,cellule *litteral);
 Boolean is_pure_litteral_int(liste cl2lt,int litteral);
 Boolean is_mono_litteral(liste cl2lt, liste lt2cl_pos, liste lt2cl_neg, cellule *litteral);
 cellule* find_mono_litteral(liste cl2lt);
 cellule* find_pure_litteral(liste cl2lt,liste lt2cl_pos,liste lt2cl_neg);
-#endif /* STRUCTURES */
+
+
+#endif
