@@ -14,5 +14,6 @@ Pour exécuter, tapez : ./bin/DPLL fichier_a_lire(optionel)
 #define DPLL
 
 Status dpll(liste cl2lt, liste lt2cl_pos , liste lt2cl_neg);
-
+int max_tab(int *tab,int taille);
+int estVide(int *tab, int taille);
 #endif

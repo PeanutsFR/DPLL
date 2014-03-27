@@ -769,3 +769,40 @@ Status del_list_i(liste *linked_list,int n){
         del_list_element_head(linked_list,n);
     return OK;
 }
+
+Status add_list_i(liste linked_list_src,liste *linked_list_dest,int n){
+    int i = 0;
+    cellule *cell = NULL;
+    while(linked_list_src.nEltPerList[n] != linked_list_dest->nEltPerList[n]){
+            cell = select_list_element(linked_list_src,n,i);
+            add_list_element_head(linked_list_dest,TYPE_ELEMENT_LT,n,cell->val);
+            i++;
+    }
+    return OK;
+}
+
+liste pile_pop(Pile **p_pile)
+{
+    liste ret;
+    if (p_pile != NULL)
+    {
+        Pile *temporaire = (*p_pile)->next;
+        ret = (*p_pile)->l;
+        free(*p_pile), *p_pile = NULL;
+        *p_pile = temporaire;
+    }
+    return ret;
+}
+
+void pile_push(Pile **p_pile, liste l)
+{
+        Pile *p_nouveau = malloc(sizeof *p_nouveau);
+        if (p_nouveau != NULL)
+        {
+                p_nouveau->l = l;
+                p_nouveau->next = *p_pile;
+                *p_pile = p_nouveau;
+        }
+}
+
+

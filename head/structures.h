@@ -35,15 +35,11 @@ typedef struct liste {
 
 typedef cellule *litteral;
 typedef int *tab_clauses;
-typedef struct File {
-    litteral *lt;
-    tab_clauses cl;
-    struct File *next;
-} File;
-typedef struct Pile {
-    litteral *lt;
-    tab_clauses cl;
-    struct Pile *next;
+
+typedef struct pile
+{
+    liste l; /* La donnée que notre pile stockera. */
+    struct pile *next; /* Pointeur vers l'élément précédent de la pile. */
 } Pile;
 
 
@@ -58,6 +54,7 @@ Status add_list_element_i (liste *linked_list,Type_elt element, int n, int value
 Status del_list_element_i (liste *linked_list, int n, position i);
 Status del_list_element_by_value(liste *linked_list, int n, int value);
 Status del_list_i(liste *linked_list,int n);
+Status add_list_i(liste linked_list_src,liste *linked_list_dest,int n);
 Boolean is_liste_vide(liste linked_list);
 void display_list(liste linked_list, int n);
 void display_structure(liste linked_list);
@@ -72,5 +69,7 @@ Boolean is_mono_litteral(liste cl2lt, liste lt2cl_pos, liste lt2cl_neg, cellule 
 cellule* find_mono_litteral(liste cl2lt);
 cellule* find_pure_litteral(liste cl2lt,liste lt2cl_pos,liste lt2cl_neg);
 
+void pile_push(Pile **p_pile, liste l);
+liste pile_pop(Pile **p_pile);
 
 #endif
